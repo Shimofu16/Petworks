@@ -1,0 +1,436 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,500;1,400&display=swap");
+:root {
+    --primary-color: #566e96;
+    --seconday-color: #6e85ac;
+    --white-bg: #f0f2f5;
+}
+body {
+    font-family: "Open Sans", sans-serif;
+    background-color: #f0f2f5;
+}
+/* all */
+@media screen and (min-width: 768px) {
+    .border-primary-md-right-1 {
+        border-right: var(--primary-color) 1px solid;
+    }
+}
+.list {
+    background-color: var(--primary-color);
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+}
+.dropdown.no-border > .dropdown-toggle {
+    border: 0 !important;
+    background-color: transparent;
+    color: var(--primary-color);
+}
+.dropdown.no-arrow .dropdown-toggle::after {
+    display: none;
+}
+
+.dropdown-menu-right {
+    right: 0;
+    left: auto;
+}
+@-webkit-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+.animated--fade-in {
+    -webkit-animation-name: fadeIn;
+    animation-name: fadeIn;
+    -webkit-animation-duration: 0.2s;
+    animation-duration: 0.2s;
+    -webkit-animation-timing-function: opacity cubic-bezier(0, 1, 0.4, 1);
+    animation-timing-function: opacity cubic-bezier(0, 1, 0.4, 1);
+}
+.overflow-y-scroll {
+    overflow-y: scroll;
+}
+.min-h-70 {
+    height: 80%;
+}
+.min-vw-70 {
+    width: 70%;
+}
+.max-vw-100 {
+    width: 100%;
+}
+.vh-90 {
+    height: 90vh !important;
+}
+.br-1 {
+    border-radius: 10px !important;
+}
+.w-fit{
+    width: fit-content;
+}
+.text-primary {
+    color: var(--primary-color) !important;
+}
+.text-secondary {
+    color: var(--secondary-color) !important;
+}
+.fac-btn-primary {
+    background-color: var(--primary-color) !important;
+    color: #fff !important;
+    -webkit-transition-duration: 0.3s;
+    -webkit-transition-property: all;
+    transition-property: all !important;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s !important;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out !important;
+}
+.fac-btn-primary:hover {
+    background-color: var(--seconday-color) !important;
+}
+
+.fac-btn-primary-outline {
+    display: inline-block;
+    vertical-align: middle;
+    border: 1px var(--primary-color) solid !important;
+    color: var(--primary-color);
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    position: relative;
+    -webkit-transition-duration: 0.3s;
+    -webkit-transition-property: all;
+    transition-property: all;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+}
+.fac-btn-primary-outline::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--primary-color);
+    -webkit-transform: scaleY(0);
+    transform: scaleY(0);
+    -webkit-transform-origin: 50% 0;
+    transform-origin: 50% 0;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+}
+.fac-btn-primary-outline:hover {
+    color: #fff !important;
+}
+.fac-btn-primary-outline:hover::before {
+    transform: scaleY(1);
+}
+.fac-btn-primary-outline-2 {
+    display: inline-block;
+    vertical-align: middle;
+    border: 2px var(--primary-color) solid !important;
+    color: var(--primary-color);
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    position: relative;
+    -webkit-transition-duration: 0.3s;
+    -webkit-transition-property: all;
+    transition-property: all;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+}
+.fac-seconday-btn {
+    background-color: var(--seconday-color) !important;
+}
+.fac-shadow-1 {
+    box-shadow: 2px 6px 12px #00000014;
+}
+.fac-shadow {
+    box-shadow: 3px 1px 4px var(--primary-color);
+}
+.fac-primary-bg {
+    background-color: var(--primary-color) !important;
+}
+.fac-white-bg {
+    background-color: var(--white-bg) !important;
+}
+@media screen and (max-width: 425px) {
+    .max-sm-d-none {
+        display: none;
+    }
+    .d-max-sm-flex {
+        display: flex !important;
+    }
+}
+.list-group-item.answer {
+    transition: all 0.45s ease-out;
+}
+.list-group-item.answer:hover {
+    box-shadow: 2px 6px 12px #00000014;
+}
+/* navigation bar */
+.navbar-brand .logo-home {
+    height: 60px;
+    width: 60px;
+}
+
+.nav-item #login {
+    padding: 10px;
+    background-color: var(--primary-color);
+    border-radius: 5px;
+    color: #fff;
+    transition: all 0.3s ease-in-out !important;
+}
+.nav-item #login:hover {
+    background-color: var(--seconday-color);
+}
+.nav-item #signup {
+    display: inline-block;
+    vertical-align: middle;
+    padding: 8px;
+    border: 2px var(--primary-color) solid !important;
+    border-radius: 5px;
+    color: #fff;
+    color: var(--primary-color);
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    position: relative;
+    -webkit-transition-duration: 0.3s;
+    -webkit-transition-property: all;
+    transition-property: all;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+}
+.navbar-light.bg-light .navbar-nav .nav-item #signup {
+    color: var(--primary-color);
+}
+
+.nav-item #signup::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--primary-color);
+    -webkit-transform: scaleY(0);
+    transform: scaleY(0);
+    -webkit-transform-origin: 50% 0;
+    transform-origin: 50% 0;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+}
+.fac-btn-primary-outline:hover,
+.nav-item #signup:hover {
+    color: #fff !important;
+}
+.fac-btn-primary-outline:hover::before,
+.nav-item #signup:hover::before {
+    transform: scaleY(1);
+}
+.navbar-nav .nav-item{
+    display: flex;
+align-items: center;
+}
+.navbar-nav .nav-item .nav-link:not(#login) {
+    -webkit-transition-property: all;
+    transition-property: all;
+    -webkit-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+    color: #fff;
+    border-bottom: 0.25rem solid transparent;
+}
+.navbar-nav .nav-item:focus:not(.dropdown) .nav-link:not(#login),
+.navbar-nav .nav-item:hover:not(.dropdown) .nav-link:not(#login) {
+    color: #fff;
+    border-bottom-color: var(--primary-color);
+}
+.navbar-nav .nav-item .nav-link.active:not(#login) {
+    font-weight: bold;
+    color: #fff;
+    border-bottom-color: var(--primary-color);
+}
+.nav-item .nav-link .img-profile{
+  height: 2rem;
+  width: 2rem;
+}
+/* main */
+#main {
+    background-image: url("/assets/images/home\ page/pexels-yan-krukov-8613089.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    background-color: #919191;
+    background-blend-mode: multiply;
+}
+.home-title {
+    color: var(--primary-color);
+    font-weight: bold;
+    font-size: 45px;
+}
+.home-text {
+    color: #fff;
+    text-justify: auto;
+}
+@media screen and (max-width: 425px) {
+    .home-title {
+        font-size: 35px;
+    }
+    .home-text {
+        font-size: 16px;
+    }
+}
+.fac-btn-primary-outline-2.hvr-sweep-to-bottom::before {
+    border-radius: 0;
+    background-color: var(--primary-color) !important;
+}
+.fac-btn-primary-outline-1.hvr-sweep-to-bottom::before {
+    border-radius: 0;
+    background-color: var(--primary-color) !important;
+}
+/*========================================================================== Contact us ======================================== */
+.contacts,
+.icons-container {
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+.icons-container li {
+    list-style: none;
+    height: 40px;
+    width: 40px;
+    border-radius: 5px;
+    border: 2px var(--primary-color) solid;
+    margin: 0 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    -webkit-transition-property: all;
+    transition-property: all;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+}
+.icons-container li:hover.hvr-sweep-to-bottom::before {
+    border-radius: 0;
+    background-color: var(--primary-color) !important;
+}
+.icons-container li:hover a {
+    color: #fff;
+}
+.icons-container li a {
+    font-size: 20px;
+    color: var(--primary-color);
+}
+.contacts {
+    margin: 20px 0;
+    flex-direction: column;
+}
+.contacts li {
+    list-style: none;
+    margin-top: 5px;
+}
+.contacts li i {
+    color: var(--primary-color);
+}
+#contact {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.logo-contact {
+    height: 250px;
+    width: 250px;
+}
+.fac-container {
+    min-height: 90vh;
+    max-height: 100vh;
+}
+/* ================================================ Questions ======================================================================= */
+.q-card-time{
+    border: 2px var(--primary-color) solid;
+    padding: 5px;
+    border-radius: 5px;
+}
+/* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
+.flip-card {
+    background-color: transparent;
+    width: 300px;
+    height: 200px;
+    perspective: 1000px; /* Remove this if you don't want the 3D effect */
+  }
+
+  /* This container is needed to position the front and back side */
+  .flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+  }
+
+  /* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-card-inner.flip {
+    transform: rotateY(180deg);
+  }
+
+  /* Position the front and back side */
+  .flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    color: white;
+    -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden;
+  }
+
+  /* Style the front side (fallback if image is missing) */
+  .flip-card-front {
+    background-color: #8c9ebd;
+
+  }
+
+  /* Style the back side */
+  .flip-card-back {
+    background-color: #8c9ebd;
+    color: white;
+    transform: rotateY(180deg);
+  }
+.lb-icon img
+{
+    height: 50px;
+}

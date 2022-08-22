@@ -1,0 +1,142 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,500;1,400&display=swap");
+:root {
+    --primary-color: #566e96;
+    --seconday-color: #819ac4;
+    --white-bg: #f0f2f5;
+}
+body {
+    font-family: "Open Sans", sans-serif;
+    background-color: #f0f2f5;
+}
+/* all */
+.fac-text {
+    color: var(--primary-color) !important;
+}
+.fac-bg {
+    background-color: var(--primary-color) !important;
+}
+.fac-white-bg {
+    background-color: var(--white-bg) !important;
+}
+.fac-shadow {
+    box-shadow: 3px 1px 4px var(--primary-color);
+}
+.fac-shadow {
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+.fac-shadow-lg {
+    box-shadow: 2px 6px 12px #00000014;
+}
+.btn-fac-primary {
+    background-color: var(--primary-color) !important;
+    color: #fff;
+}
+.btn-fac-seconday {
+    background-color: var(--seconday-color) !important;
+    color: #fff;
+}
+.vh-90 {
+    height: 90vh;
+}
+/* navbar */
+.logo-home {
+    height: 50px;
+    width: 50px;
+}
+.navbar-nav .nav-item {
+    color: #000;
+}
+.nav-link {
+    transition: all  0.3s ease-in-out !important;
+}
+.navbar-nav .nav-item a.active {
+    color: var(--primary-color) !important;
+    font-weight: 600;
+}
+.navbar-nav .nav-item#login a,
+.navbar-nav .nav-item:hover a.nav-link {
+    border-radius: 5px;
+    color: #fff !important;
+    background-color: var(--primary-color) !important;
+}
+.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0;
+}
+.dropdown-menu li:hover .dropdown-item {
+    background-color: #fff;
+    color: var(--primary-color) !important;
+}
+@media screen and (max-width: 768px) {
+    .navbar-collapse-sm {
+        position: absolute !important;
+        right: 30px !important;
+        top: 80px !important;
+        flex-basis: 70% !important;
+        flex-grow: 1 !important;
+        align-items: center !important;
+        background-color: #f0f2f5 !important;
+        box-shadow: 2px 1px 4px var(--primary-color);
+    }
+    .navbar-collapse-sm ul {
+        width: 200px !important;
+    }
+    .nav-link {
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+        text-align: start !important;
+    }
+}
+/* home page */
+.home-vh {
+    height: 91.8vh;
+}
+#btn-back-to-top {
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    display: none;
+    text-align: center;
+}
+.kids {
+    height: 300px;
+}
+@media screen and (max-width: 425px) {
+    .max-sm-d-none {
+        display: none;
+    }
+    .d-max-sm-flex {
+        display: flex !important;
+    }
+}
+.card-header-circle {
+    border-radius: 50%;
+    height: 200px;
+    width: 200px;
+}
+#home-bg {
+    background-image: url(/public/assets/images/home\ page/pexels-yan-krukov-8613089.jpg);
+    background-position: center;
+    background-size: cover;
+}
+/* footer */
+.ftr-icon {
+    font-size: 30px;
+    border-radius: 10px;
+    border: 1px #fff solid;
+}
+.ftr-icon a .fa-brands,
+.ftr-icon a .fas.fa-envelope {
+    width: 60px;
+    padding: 10px 0;
+    text-align: center;
+    color: #fff;
+}
+.ftr-icon.hvr-sweep-to-bottom:hover a .fa-brands,
+.ftr-icon.hvr-sweep-to-bottom:hover a .fas.fa-envelope {
+    color: var(--primary-color);
+}
+.ftr-logo {
+    height: 250px;
+    width: 250px;
+}
