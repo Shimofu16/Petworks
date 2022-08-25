@@ -11,7 +11,7 @@
             <nav class="nav">
                 <a href="#home">Home</a>
                 <a href="#about">About</a>
-                <a href="{{ route('appointment.index') }} ">Appointment</a>
+                <a href="{{ route('guidlines.index') }} ">Appointment</a>
                 <a href="#menu">Service</a>
                 <a href="#gallery">Gallery</a>
                 <a href="#contact">Contact</a>

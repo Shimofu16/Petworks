@@ -41,7 +41,7 @@
                         data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="manage">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="fa-solid fa-pen-ruler"></i>
+                            <i class="fa-solid fa-pen-ruler text-sm opacity-10 text-primary"></i>
                         </div>
                         <span class="nav-link-text">Manage</span>
                     </a>
@@ -75,7 +75,7 @@
 
                 {{-- Single --}}
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::routeIs('admin.player.index') ? 'active' : '' }}" href="{{ route('admin.appointment.index') }}">
+                    <a class="nav-link {{ Request::routeIs('admin.appointment.index') ? 'active' : '' }}" href="{{ route('admin.appointment.index') }}">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
 
@@ -86,7 +86,7 @@
                 </li>
 
                 {{-- Records dropdown --}}
-                <li class="nav-item">
+              {{--   <li class="nav-item">
                     <a class="nav-link collapsed {{ Request::routeIs('admin.admission.*') ? 'active' : '' }}"
                         href="#admission" data-bs-toggle="collapse" role="button" aria-expanded="false"
                         aria-controls="admission">
@@ -99,14 +99,7 @@
 
                     <div class="collapse" id="admission">
                         <ul class="nav nav-sm flex-column">
-                            {{-- @foreach ($gradeLevels as $grade)
-                                @if ($grade->questionnaires->count() != 0)
-                                    <li class="nav-item mb-2 ">
-                                        <ahref= href="{{ route('admin.question.index', $grade->id) }}"
-                                            class="nav-link">{{ $grade->grade_level }}</a>
-                                    </li>
-                                @endif
-                            @endforeach --}}
+
                             <li class="nav-item mb-2">
                                 <a href="" class="nav-link">Client & Pet</a>
                             </li>
@@ -116,11 +109,23 @@
 
                         </ul>
                     </div>
+                </li> --}}
+
+                {{-- Single --}}
+                <li class="nav-item">
+                    <a class="nav-link {{ Request::routeIs('admin.owner.index') ? 'active' : '' }}" href="{{ route('admin.owner.index') }}">
+                        <div
+                            class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+
+                            <i class="fa-solid fa-file-invoice text-sm opacity-10 text-primary"></i>
+                        </div>
+                        <span class="nav-link-text ms-1">Client Records</span>
+                    </a>
                 </li>
 
 
                {{-- Human Recources --}}
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a class="nav-link collapsed {{ Request::routeIs('admin.human.*') ? 'active' : '' }}"
                         href="#human" data-bs-toggle="collapse" role="button" aria-expanded="false"
                         aria-controls="human">
@@ -133,14 +138,7 @@
 
                     <div class="collapse" id="human">
                         <ul class="nav nav-sm flex-column">
-                            {{-- @foreach ($gradeLevels as $grade)
-                                @if ($grade->questionnaires->count() != 0)
-                                    <li class="nav-item mb-2 ">
-                                        <a href="{{ route('admin.question.index', $grade->id) }}"
-                                            class="nav-link">{{ $grade->grade_level }}</a>
-                                    </li>
-                                @endif
-                            @endforeach --}}
+
                             <li class="nav-item mb-2">
                                 <a href="" class="nav-link">POS Summary</a>
                             </li>
@@ -155,11 +153,11 @@
                             </li>
                         </ul>
                     </div>
-                </li>
+                </li> --}}
 
 
                  {{-- System --}}
-                 <li class="nav-item">
+              {{--    <li class="nav-item">
                     <a class="nav-link collapsed {{ Request::routeIs('admin.system.*') ? 'active' : '' }}"
                         href="#system" data-bs-toggle="collapse" role="button" aria-expanded="false"
                         aria-controls="system">
@@ -173,14 +171,7 @@
 
                     <div class="collapse" id="system">
                         <ul class="nav nav-sm flex-column">
-                            {{-- @foreach ($gradeLevels as $grade)
-                                @if ($grade->questionnaires->count() != 0)
-                                    <li class="nav-item mb-2 ">
-                                        <a href="{{ route('admin.question.index', $grade->id) }}"
-                                            class="nav-link">{{ $grade->grade_level }}</a>
-                                    </li>
-                                @endif
-                            @endforeach --}}
+
                             <li class="nav-item mb-2">
                                 <a href="" class="nav-link">History</a>
                             </li>
@@ -188,7 +179,7 @@
                         </ul>
                     </div>
                 </li>
-
+ --}}
             </ul>
         </div>
 

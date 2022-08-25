@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Appointment;
+use App\Models\Owner;
+use App\Models\Pet;
 use Illuminate\Http\Request;
 
 class AppointmentController extends Controller
@@ -36,9 +38,38 @@ class AppointmentController extends Controller
      */
     public function store(Request $request)
     {
+       $owner_id=Owner::create(
+            [
+                'name' => $request->input('name'),
+                'address' => $request->input('address'),
+                'email' => $request->input('email'),
+                'number' => $request->input('number'),
+            ]
+        )->id;
+
+
+        $pet_id=Pet::create(
+            [
+                'pet_name' => $request->input('pet_name'),
+                'age' => $request->input('age'),
+                'breed' => $request->input('breed'),
+                'pet_type' => $request->input('pet_type'),
+            ]
+        )->id;
+
+
         Appointment::create(
-            $request->all()
+            [
+                'owner_id' => $owner_id,
+                'pet_id' => $pet_id,
+                'reason' => $request->input('reason'),
+                'date' => $request->input('date'),
+                'time' => $request->input('time'),
+            ]
         );
+
+
+
         return redirect()->back();
     }
 

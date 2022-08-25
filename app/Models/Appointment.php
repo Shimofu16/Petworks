@@ -10,4 +10,12 @@ class Appointment extends Model
     protected $table = 'appointments';
     public $timestamps = false;
     public $guarded = [];
+
+    public function owner(){
+        return $this-> belongsTo(Owner::class,'owner_id');
+    }
+
+    public function pet(){
+        return $this-> belongsTo(Pet::class,'pet_id');
+    }
 }

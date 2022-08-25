@@ -24,29 +24,29 @@
 
                         <tr>
                             <td class="text-left">Name:</td>
-                            <td class="text-left">{{ $appointment->name }}</td>
+                            <td class="text-left">{{ $appointment->owner->name}}</td>
                         </tr>
 
                         <tr>
                             <td class="text-left">Pet name:</td>
-                            <td class="text-left">{{ $appointment->pet_name }}</td>
+                            <td class="text-left">{{ $appointment->pet->pet_name }}</td>
                         </tr>
 
                         <tr>
                             <td class="text-left">Type of Pet:</td>
-                            <td class="text-left">{{ $appointment->pet_type }}</td>
+                            <td class="text-left">{{ $appointment->pet->pet_type }}</td>
                         </tr>
 
                         <tr>
                             <td class="text-left">Age:</td>
-                            <td class="text-left">{{ $appointment->age }}</td>
+                            <td class="text-left">{{ $appointment->pet->age }}</td>
                         </tr>
 
                         <tr>
                             <td class="text-left">Breed:</td>
-                            <td class="text-left">{{ $appointment->breed }}</td>
+                            <td class="text-left">{{ $appointment->pet->breed }}</td>
                         </tr>
-                        
+
                         <tr>
                             <td class="text-left">Reason of Appointment:</td>
                             <td class="text-left">{{ $appointment->reason }}</td>
@@ -64,23 +64,20 @@
 
                         <tr>
                             <td class="text-left">Address:</td>
-                            <td class="text-left">{{ $appointment->address }}</td>
+                            <td class="text-left">{{ $appointment->owner->address }}</td>
                         </tr>
 
                         <tr>
                             <td class="text-left">Email:</td>
-                            <td class="text-left">{{ $appointment->email }}</td>
+                            <td class="text-left">{{ $appointment->owner->email }}</td>
                         </tr>
 
                         <tr>
                             <td class="text-left">Contact number:</td>
-                            <td class="text-left">{{ $appointment->number }}</td>
+                            <td class="text-left">{{ $appointment->owner->number }}</td>
                         </tr>
 
-                        <tr>
-                            <td class="text-left">Message:</td>
-                            <td class="text-left">{{ $appointment->message }}</td>
-                        </tr>
+
                     </tbody>
 
                 </table>
