@@ -14,7 +14,7 @@ class MailController extends Controller
             'title' => 'Message from Municipal Jail of Los Banos',
             'body' => $request->input('reply')
         ];
-        Mail::to($request->input('email'))->send(new reply($details));
+     /*    Mail::to($request->input('email'))->send(new reply($details)); */
         return back();
     }
 }
