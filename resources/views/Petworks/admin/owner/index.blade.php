@@ -15,6 +15,9 @@
                             <thead {{-- class="table-warning text-black" --}}>
                                 <tr>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Name</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Address</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Email</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Number</th>
 
                                      <th class="text-uppercase text-center text-secondary text-xxs font-weight-bolder opacity-7"> Action</th>
                                 </tr>
@@ -25,6 +28,21 @@
                                         <td>
                                             <div class="d-flex flex-column justify-content-center px-2 py-1">
                                                 <h6 class="mb-0 text-sm">{{ $owner->name }}</h6>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="d-flex flex-column justify-content-center px-2 py-1">
+                                                <h6 class="mb-0 text-sm">{{ $owner->address }}</h6>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="d-flex flex-column justify-content-center px-2 py-1">
+                                                <h6 class="mb-0 text-sm">{{ $owner->email }}</h6>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="d-flex flex-column justify-content-center px-2 py-1">
+                                                <h6 class="mb-0 text-sm">{{ $owner->number }}</h6>
                                             </div>
                                         </td>
 

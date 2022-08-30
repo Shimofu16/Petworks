@@ -1,5 +1,6 @@
 @extends('Petworks.admin.index')
 @section('contents')
+    {{-- SIDE BAR OF THE CLIENT AND PET --}}
     <div class="row">
         <div class="col-md-4 p-0 shadow me-3">
             <div class="card border-0">
@@ -11,7 +12,7 @@
                     <select class="form-select mt-1" aria-label="Default select example">
                         <option selected>Pet name</option>
                         @foreach ($owner->pets as $pet)
-                        <option value="{{ $pet->id }}">{{ $pet->pet_name }}</option>
+                            <option value="{{ $pet->id }}">{{ $pet->pet_name }}</option>
                         @endforeach
                     </select>
 
@@ -36,41 +37,75 @@
             </div>
         </div>
 
+        <!-- Nav tabs -->
+        {{-- TABLEEEEEEE --}}
         <div class="col-md-7 shadow">
-            <!-- Nav tabs -->
             <div class="row bg-white">
-                <table class="table ">
-                    <thead class="table-info">
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">First</th>
-                            <th scope="col">Last</th>
-                            <th scope="col">Handle</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td colspan="2">Larry the Bird</td>
-                            <td>@twitter</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card mb-4">
+                            <div class="card-header d-flex justify-content-between align-items-center mb-3 pb-0">
+
+                                <div class="col">
+                                    <h6>{{-- @yield('page-title') --}} Consultation</h6>
+                                </div>
+                            </div>
+
+                            <div class="card-body px-0 pt-0 pb-2">
+                                <div class="table-responsive p-0">
+                                    <table class="table align-items-center mb-0">
+                                        <thead {{-- class="table-warning text-black" --}}>
+                                            <tr>
+                                                <th
+                                                    class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                    Date
+                                                </th>
+                                                <th
+                                                    class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                    Time
+                                                </th>
+                                                <th
+                                                    class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                    Comment
+                                                </th>
+
+
+                                                <th
+                                                    class="text-uppercase text-center text-secondary text-xxs font-weight-bolder opacity-7">
+                                                    Action
+                                                </th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+                                            <tr>
+
+                                                <td>August 23, 2022</td>
+                                                <td>2:30 pm</td>
+                                                <td>need a follow up check up</td>
+                                            </tr>
+                                            <tr>
+
+                                                <td>July 03, 2022</td>
+                                                <td>3:00pm</td>
+                                                <td>need to deworm</td>
+                                            </tr>
+                                            <tr>
+
+                                                <td>June 24, 2022</td>
+                                                <td>3:30pm</td>
+                                                <td>no more consultation</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
             </div>
-
-        </div>
-
-    </div>
-@endsection
+        @endsection

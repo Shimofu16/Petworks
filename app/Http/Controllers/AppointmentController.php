@@ -16,7 +16,7 @@ class AppointmentController extends Controller
      */
     public function index()
     {
-        $appointments = Appointment::all();
+        $appointments = Appointment::where('status','=',0)->get();
         return view('Petworks.admin.appointment.index', compact('appointments'));
     }
 
@@ -50,6 +50,7 @@ class AppointmentController extends Controller
 
         $pet_id=Pet::create(
             [
+                'owner_id' => $owner_id,
                 'pet_name' => $request->input('pet_name'),
                 'age' => $request->input('age'),
                 'breed' => $request->input('breed'),

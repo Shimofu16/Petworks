@@ -16,10 +16,9 @@
     <link href="{{ asset('assets/argon-dashboard/assets/css/nucleo-svg.css') }}" rel="stylesheet" />
     <script src="{{ asset('assets/argon-dashboard/assets/js/fontawesome.js') }}"></script>
     <!-- CSS Files -->
-    <link id="pagestyle" href="{{ asset('assets/argon-dashboard/assets/css/argon-dashboard.css') }}"
-    rel="stylesheet" />
+    <link id="pagestyle" href="{{ asset('assets/argon-dashboard/assets/css/argon-dashboard.css') }}" rel="stylesheet" />
     <link href="{{ asset('assets/datatables.min.css') }}" rel="stylesheet" />
-  {{--  @livewireStyles  --}}
+    {{-- @livewireStyles --}}
 </head>
 
 <body class="g-sidenav-show   bg-gray-100">
@@ -250,7 +249,7 @@
     <script src="{{ asset('assets/argon-dashboard/assets/js/argon-dashboard.min.js') }}"></script>
     <script src="{{ asset('assets/DataTables-1.12.1/js/dataTables.bootstrap.js') }}"></script>
     @yield('js')
- {{--    @include('sweetalert::alert') --}}
+    @include('sweetalert::alert')
 
 </body>
 

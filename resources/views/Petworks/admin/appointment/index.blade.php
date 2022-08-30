@@ -16,11 +16,11 @@
                             <select class="form-select mt-1" aria-label="Default select example">
                                 <option selected>Records</option>
                                 @foreach ($appointments as $appointment)
-                                <option value="{{ $appointment->id }}">{{ $appointment->reason }}</option>
+                                    <option value="{{ $appointment->id }}">{{ $appointment->reason }}</option>
                                 @endforeach
                             </select>
                             <button class="ms-2 bg-info text-white btn">
-                            Reset
+                                Reset
                             </button>
                         </div>
                     </div>
@@ -35,17 +35,26 @@
                                     </th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Pet
                                     </th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Reason of
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Reason
+                                        of
                                         Appointment
+                                    </th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status
                                     </th>
 
 
+                                    <th
+                                        class="text-uppercase text-center text-secondary text-xxs font-weight-bolder opacity-7">
+                                        More info
+                                    </th>
                                     <th
                                         class="text-uppercase text-center text-secondary text-xxs font-weight-bolder opacity-7">
                                         Action
                                     </th>
                                 </tr>
                             </thead>
+
+
                             <tbody>
                                 @foreach ($appointments as $appointment)
                                     <tr>
@@ -65,6 +74,26 @@
                                             </div>
                                         </td>
 
+                                        {{-- STATUS --}}
+                                        @if ($appointment->pending == 1)
+                                            <td>
+                                                <div class="d-flex flex-column justify-content-center px-2 py-1">
+                                                    <button class="btn btn-sm btn-danger">
+                                                        PENDING
+                                                    </button>
+                                                </div>
+                                            </td>
+                                        @else
+                                            <td>
+                                                <div class="d-flex flex-column justify-content-center px-2 py-1">
+                                                    <button class="btn btn-sm btn-secondary">
+                                                        NEW
+                                                    </button>
+                                                </div>
+                                            </td>
+                                        @endif
+
+
                                         {{-- BUTTONS --}}
                                         <td>
                                             <div class="d-flex justify-content-center px-2 py-1">
@@ -72,13 +101,30 @@
                                                     type="button" data-bs-toggle="modal"
                                                     data-bs-target="#view{{ $appointment->id }}">
                                                     <i class="fa-solid fa-eye text-dark me-2" aria-hidden="true"></i>
-                                                    Show</button>
-                                                {{-- <a class="btn btn-link text-info px-3 mb-0" href=" ">
-                                                <i class="fa-solid fa-q me-2 text-info" aria-hidden="true"></i>
-                                                view
-                                            </a> --}}
+                                                    Show
+                                                </button>
                                             </div>
                                             @include('Petworks.admin.appointment.modal._show')
+                                        </td>
+                                        <td>
+                                            <div class="d-flex justify-content-center px-2 py-1">
+                                                <button class="btn btn-link text-dark px-3 mb-0" href="#"
+                                                    type="button" data-bs-toggle="modal"
+                                                    data-bs-target="#confirm{{ $appointment->id }}">
+                                                    <i class="fa-solid fa-circle-check text-dark me-2"
+                                                        aria-hidden="true"></i>
+                                                    Confirm
+                                                </button>
+                                                <button class="btn btn-link text-dark px-3 mb-0" href="#"
+                                                    type="button" data-bs-toggle="modal"
+                                                    data-bs-target="#cancel{{ $appointment->id }}">
+                                                    <i class="fa-solid fa-circle-xmark text-dark me-2"
+                                                        aria-hidden="true"></i>
+                                                    Pending
+                                                </button>
+                                            </div>
+                                            @include('Petworks.admin.appointment.modal._cancel')
+                                            @include('Petworks.admin.appointment.modal._confirm')
                                         </td>
                                     </tr>
                                 @endforeach
