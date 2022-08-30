@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Appointment;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -13,6 +14,8 @@ class AdminController extends Controller
      */
     public function index()
     {
+        $pendingCount=Appointment::where('status','=',0)->count();
+        $confirmCount=Appointment::where('status','=',1)->count();
         return view('Petworks.admin.dashboard.index');
     }
 

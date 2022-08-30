@@ -15,16 +15,16 @@ class serviceSeeder extends Seeder
     public function run()
     {
         $data = [
-            ['service' => 'Diagnostic test'],
-            ['service' => 'dental prophylaxis'],
-            ['service' => 'surgery'],
-            ['service' => 'grooming'],
-            ['service' => 'ultrasound'],
-            ['service' => 'deworming'],
-            ['service' => 'progesterone test'],
-            ['service' => 'confinement'],
-            ['service' => 'vaccination'],
-            ['service' => 'consultation'],
+            ['service' => 'Diagnostic Test'],
+            ['service' => 'Dental Prophylaxis'],
+            ['service' => 'Surgery'],
+            ['service' => 'Grooming'],
+            ['service' => 'Ultrasound'],
+            ['service' => 'Deworming'],
+            ['service' => 'Progesterone Test'],
+            ['service' => 'Confinement'],
+            ['service' => 'Vaccination'],
+            ['service' => 'Consultation'],
         ];
         foreach ($data as $item) {
             service::create($item);

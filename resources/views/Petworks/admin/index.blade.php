@@ -20,7 +20,7 @@
         <div class="navbar-collapse  w-auto " id="sidenav-collapse-main">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::routeIs('admin.dashboard.index') ? 'active' : '' }}" href="">
+                    <a class="nav-link {{ Request::routeIs('admin.index') ? 'active' : '' }}" href="{{ route('admin.index') }}">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="fa-solid fa-tv text-sm opacity-10"></i>
@@ -32,33 +32,24 @@
                 {{-- Homepage --}}
                 <hr class="horizontal dark mt-0">
                 <li class="nav-item mt-3">
-                    <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Home Page</h6>
+                    <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Manage Homepage</h6>
                 </li>
 
                 {{-- Homepage dropdown --}}
                 <li class="nav-item">
-                    <a class="nav-link collapsed {{ Request::routeIs('admin.manage.*') ? 'active' : '' }}" href="#manage"
-                        data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="manage">
+                    <a class="nav-link {{ Request::routeIs('admin.contact.index') ? 'active' : '' }}" href="{{ route('admin.contact.index') }}">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="fa-solid fa-pen-ruler text-sm opacity-10 text-primary"></i>
+
+                            <i class="fa-solid fa-message text-sm opacity-10 text-primary"></i>
                         </div>
-                        <span class="nav-link-text">Manage</span>
+                        <span class="nav-link-text ms-1">Contact us</span>
                     </a>
-                    <div class="collapse" id="manage">
-                        <ul class="nav nav-sm flex-column">
-
-                            <li class="nav-item mb-2">
-                                <a href="{{ route('admin.contact.index') }}" class="nav-link">Contact us</a>
-                            </li>
-                            <li class="nav-item mb-2">
-                                <a href="" class="nav-link">Gallery</a>
-                            </li>
-
-
-                        </ul>
-                    </div>
                 </li>
+
+
+
+
 
 
                 <hr class="horizontal dark mt-0">

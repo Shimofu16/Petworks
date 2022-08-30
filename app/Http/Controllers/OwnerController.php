@@ -82,10 +82,10 @@ class OwnerController extends Controller
             $appointment = Appointment::findOrFail($id);
             $appointment->comment = $request->input('comment');
             $appointment->save();
-            /* sweet alert dito */
+            toast()->success('Success', 'You saved changes')->autoClose(3000)->animation('animate__fadeInRight', 'animate__fadeOutRight')->width('400px');
             return back();
         } catch (\Throwable $th) {
-            /* sweet alert dito */
+            toast()->success('Info', 'You did not any save changes')->autoClose(3000)->animation('animate__fadeInRight', 'animate__fadeOutRight')->width('400px'); /* sweet alert dito */
         }
     }
 

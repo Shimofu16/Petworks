@@ -11,7 +11,7 @@
                 @csrf
                 @method('PUT')
                 <div class="modal-body">
-                    <label for="comment" class="form-label">Email address</label>
+                    <label for="comment" class="form-label">Comment</label>
                     <div class="mb-3">
                         <textarea name="comment" id="comment" cols="45" rows="5" >{{ $consultation->comment }}</textarea>
                     </div>

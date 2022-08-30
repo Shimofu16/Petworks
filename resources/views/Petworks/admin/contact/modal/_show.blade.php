@@ -6,15 +6,16 @@
 <div class="modal fade" id="view{{ $contact->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role document="document">
         <div class="modal-content">
-            <div class="modal-header align-items-center bg-primary  text-light">
+            <div class="modal-header align-items-center bg-info  text-light">
                 <div class="row flex-nowrap">
 
                     <div class="d-flex flex-column">
                         <h5 class="text-white">{{ $contact->name }}</h5>
-                        <span>{{ $contact->email }}</span>
+                        <span class="text-dark">{{ $contact->email }}</span>
                     </div>
                 </div>
 
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body width:100%">
                 <div class="row" style="height: 100px;">
@@ -33,10 +34,7 @@
                         <div class="col-4">
                             <button type="submit" class="btn btn-success aria-hidden="true"> Send</button>
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                          {{--   <button type="submit" class="btn btn-success aria-hidden="true">
-                                <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
-                                <span> Send</span>
-                            </button> --}}
+                        
                         </div>
                     </div>
                 </form>

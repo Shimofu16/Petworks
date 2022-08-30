@@ -9,7 +9,7 @@
                             <div class="numbers">
                                 <p class="text-sm mb-0 text-uppercase font-weight-bold">Clients</p>
                                 <h5 class="font-weight-bolder">
-                                {{--     {{ $totalPlayerCount }} --}}
+                            {{--   {{ $pendingCount }} --}}
                                 </h5>
                                 <a class="mb-0 text-decoration-underline" href="#">
                                     {{-- view --}}
@@ -36,7 +36,7 @@
                             <div class="numbers">
                                 <p class="text-sm mb-0 text-uppercase font-weight-bold">Billing Invoice</p>
                                 <h5 class="font-weight-bolder">
-                                   {{--  {{ $totalSoloPlayerCount }} --}}
+                                 {{--   {{ $confirmCount }} --}}
                                 </h5>
                                 <a class="mb-0" href="#">
                                     <span class="text-white">a</span>

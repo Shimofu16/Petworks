@@ -33,33 +33,9 @@
                             </div>
 
 
-                            <div class="row">
-                                <div class="col-md-12 col-lg-12 mb-3 ">
-                                    <label for="pet_type" class="text-dark h6 fw-normal form-title">Type of Pet <span
-                                            class="text-danger">*</span></label>
-                                    <div class="">
-                                        <label for="poll 1"
-                                            class="radio-inline py-2 me-1 gender @error('pet_type') is-invalid @enderror">
-                                            <input type="radio" class="" name="pet_type" id="dog"
-                                                value="Dog" wire:model="pet_type">
-                                            Dog</label>
-                                        <label for="poll 2"
-                                            class="radio-inline py-2 me-1 gender @error('pet_type') is-invalid @enderror"><input
-                                                type="radio" class="" name="pet_type" id="puppy"
-                                                value="Puppy" wire:model="pet_type">
-                                            Puppy</label>
-                                        <label for="poll 3"
-                                            class="radio-inline py-2 me-1 gender @error('pet_type') is-invalid @enderror"><input
-                                                type="radio" class="" name="pet_type" id="cat"
-                                                value="Cat" wire:model="pet_type">
-                                            Cat</label>
-                                        <label for="poll 4"
-                                            class="radio-inline py-2 me-1 gender @error('pet_type') is-invalid @enderror"><input
-                                                type="radio" class="" name="pet_type" id="kitten"
-                                                value="Kitten" wire:model="pet_type">
-                                            Kitten</label>
-                                    </div>
-                                </div>
+                            <div class="col-md-6 ">
+                                <label>Type of pet<span class="text-danger ">*</span></label>
+                                <input type="text " name="pet_type" class="form-control " placeholder="Enter type of pet ">
                             </div>
 
                             <div class="col-md-6 ">
@@ -68,16 +44,9 @@
                             </div>
 
 
-                            <div class="col-md-6 ">
+                            <div class="mb-1 mt-1 col-md-12 ">
                                 <label>Breed<span class="text-danger ">*</span></label>
-                                <select class="form-select" name="breed" aria-label="Default select example ">
-                                    <option selected>Open this select menu</option>
-                                    <option value="Bulldog">Bulldog</option>
-                                    <option value="German Shepherd">German Shepherd</option>
-                                    <option value="Golden Retriever">Golden Retriever</option>
-                                    <option value="Poddle">Poddle</option>
-                                    <option value="Husky">Husky</option>
-                                </select>
+                                <input type="text " name="breed" class="form-control " placeholder="Enter breed ">
                             </div>
 
                             <div class="mb-3 mt-3 col-md-12 ">

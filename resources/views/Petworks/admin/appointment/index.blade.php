@@ -108,17 +108,17 @@
                                         </td>
                                         <td>
                                             <div class="d-flex justify-content-center px-2 py-1">
-                                                <button class="btn btn-link text-dark px-3 mb-0" href="#"
+                                                <button class="btn btn-link text-success px-3 mb-0" href="#"
                                                     type="button" data-bs-toggle="modal"
                                                     data-bs-target="#confirm{{ $appointment->id }}">
-                                                    <i class="fa-solid fa-circle-check text-dark me-2"
+                                                    <i class="fa-solid fa-circle-check text-success me-2"
                                                         aria-hidden="true"></i>
                                                     Confirm
                                                 </button>
-                                                <button class="btn btn-link text-dark px-3 mb-0" href="#"
+                                                <button class="btn btn-link text-danger px-3 mb-0" href="#"
                                                     type="button" data-bs-toggle="modal"
                                                     data-bs-target="#cancel{{ $appointment->id }}">
-                                                    <i class="fa-solid fa-circle-xmark text-dark me-2"
+                                                    <i class="fa-solid fa-circle-xmark text-danger me-2"
                                                         aria-hidden="true"></i>
                                                     Pending
                                                 </button>

@@ -2,9 +2,10 @@
     aria-labelledby="examplModallongTitle" aria-hidden="true">
     <div class="modal-dialog modal-lg" role document="document">
         <div class="modal-content">
-            <div class="modal-header bg-primary text-center">
+            <div class="modal-header bg-info text-center">
                 <h5 class="modal-title text-light font-weight-bold " id="exampleModalLongtitle">
                     INFORMATION</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
 
 
@@ -75,7 +76,7 @@
                         <tr>
                             <td class="text-left">Contact number:</td>
                             <td class="text-left">{{ $appointment->owner->number }}</td>
-                        </tr> 
+                        </tr>
 
 
                     </tbody>

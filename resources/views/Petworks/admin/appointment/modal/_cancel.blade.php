@@ -4,11 +4,12 @@
             <div class="modal-header bg-danger">
 
                 <h5 class="modal-title text-light font-weight-bold">WARNING!</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 
             </div>
 
             <div class="modal-body">
-                <p> This request will be deleted.</p>
+                <p> This request will be pending.</p>
 
 
             </div>

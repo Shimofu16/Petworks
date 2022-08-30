@@ -113,7 +113,7 @@ class ConfirmController extends Controller
             $appointment->pending = 1;
             $appointment->update();
             Mail::to($appointment->email)->send(new PendingController());
-            toast()->warning('Warning', 'palitan mo!')->autoClose(3000)->animation('animate__fadeInRight', 'animate__fadeOutRight')->width('400px');
+            toast()->warning('Warning', 'The request is pending')->autoClose(3000)->animation('animate__fadeInRight', 'animate__fadeOutRight')->width('400px');
             return back();
         } catch (\Throwable $th) {
             toast()->warning('Warning', $th->getMessage())->autoClose(3000)->animation('animate__fadeInRight', 'animate__fadeOutRight')->width('400px');

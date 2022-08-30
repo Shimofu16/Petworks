@@ -57,10 +57,10 @@
                                         {{-- BUTTONS --}}
                                         <td>
                                             <div class="d-flex justify-content-center px-2 py-1">
-                                                <button class="btn btn-link text-dark px-3 mb-0" href="#"
+                                                <button class="btn btn-link text-infro px-3 mb-0" href="#"
                                                     type="button" data-bs-toggle="modal"
                                                     data-bs-target="#show{{ $appointment->id }}">
-                                                    <i class="fa-solid fa-eye text-dark me-2" aria-hidden="true"></i>
+                                                    <i class="fa-solid fa-eye text-info me-2" aria-hidden="true"></i>
                                                     Show
                                                 </button>
                                             </div>
