@@ -10,7 +10,7 @@ use Illuminate\Queue\SerializesModels;
 class ConfirmController extends Mailable
 {
     use Queueable, SerializesModels;
-
+    public $data;
     /**
      * Create a new message instance.
      *
@@ -18,7 +18,7 @@ class ConfirmController extends Mailable
      */
     public function __construct($data)
     {
-        $this->data=$data;
+        $this->data = $data;
     }
 
     /**
@@ -28,6 +28,6 @@ class ConfirmController extends Mailable
      */
     public function build()
     {
-        return $this->from(env('MAIL_FROM_ADDRESS'))->subject('CONFIRMATION')->markdown('emails.mail',['data'=>$this->data]);
+        return $this->from(env('MAIL_FROM_ADDRESS'))->subject('CONFIRMATION')->markdown('mail.confiem-controller', ['data' => $this->data]);
     }
 }

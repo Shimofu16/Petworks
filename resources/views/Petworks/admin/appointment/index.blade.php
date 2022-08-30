@@ -70,7 +70,7 @@
                                         </td>
                                         <td>
                                             <div class="d-flex flex-column justify-content-center px-2 py-1">
-                                                <h6 class="mb-0 text-sm">{{ $appointment->reason }}</h6>
+                                                <h6 class="mb-0 text-sm">{{ $appointment->service->service }}</h6>
                                             </div>
                                         </td>
 
@@ -97,10 +97,10 @@
                                         {{-- BUTTONS --}}
                                         <td>
                                             <div class="d-flex justify-content-center px-2 py-1">
-                                                <button class="btn btn-link text-dark px-3 mb-0" href="#"
+                                                <button class="btn btn-link text-info px-3 mb-0" href="#"
                                                     type="button" data-bs-toggle="modal"
                                                     data-bs-target="#view{{ $appointment->id }}">
-                                                    <i class="fa-solid fa-eye text-dark me-2" aria-hidden="true"></i>
+                                                    <i class="fa-solid fa-eye text-info me-2" aria-hidden="true"></i>
                                                     Show
                                                 </button>
                                             </div>

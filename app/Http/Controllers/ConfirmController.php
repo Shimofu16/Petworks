@@ -80,7 +80,9 @@ class ConfirmController extends Controller
     public function update(Request $request, $id)
     {
         try {
-            $appointment = Appointment::where('id', '=', $id)->firstOrFail()->update(['status' => 1]);
+            $appointment = Appointment::where('id', '=', $id)->firstOrFail();
+            $appointment->status = 1;
+            $appointment->update();
             $details = [
                 'name' => $appointment->owner->name,
                 'date' => $appointment->owner->date,
@@ -93,8 +95,8 @@ class ConfirmController extends Controller
             toast()->success('Success', 'You confirmed the request')->autoClose(3000)->animation('animate__fadeInRight', 'animate__fadeOutRight')->width('400px');
             return redirect()->route('admin.confirm.index');
         } catch (\Throwable $th) {
-           toast()->warning('Warning', $th->getMessage())->autoClose(3000)->animation('animate__fadeInRight', 'animate__fadeOutRight')->width('400px');
-             return redirect()->back();
+            toast()->warning('Warning', $th->getMessage())->autoClose(3000)->animation('animate__fadeInRight', 'animate__fadeOutRight')->width('400px');
+            return redirect()->back();
         }
     }
 
@@ -107,21 +109,15 @@ class ConfirmController extends Controller
     public function destroy($id)
     {
         try {
-            $appointment = Appointment::where('id', '=', $id)->firstOrFail()->update(['pending' => 1]);
-            $details = [
-                'name' => $appointment->owner->name,
-                'date' => $appointment->owner->date,
-                'time' => $appointment->owner->time,
-                'email' =>  $appointment->owner->email,
-                'number' => $appointment->owner->number,
-                'address' => $appointment->owner->address,
-            ];
-            Mail::to($appointment->email)->send(new PendingController($details));
-            toast()->warning('Warning', 'You deleted the request')->autoClose(3000)->animation('animate__fadeInRight', 'animate__fadeOutRight')->width('400px');
+            $appointment = Appointment::where('id', '=', $id)->firstOrFail();
+            $appointment->pending = 1;
+            $appointment->update();
+            Mail::to($appointment->email)->send(new PendingController());
+            toast()->warning('Warning', 'palitan mo!')->autoClose(3000)->animation('animate__fadeInRight', 'animate__fadeOutRight')->width('400px');
             return back();
         } catch (\Throwable $th) {
             toast()->warning('Warning', $th->getMessage())->autoClose(3000)->animation('animate__fadeInRight', 'animate__fadeOutRight')->width('400px');
-/*             return redirect()->route('admin.confirm.index'); */
+            return back();
         }
     }
 }

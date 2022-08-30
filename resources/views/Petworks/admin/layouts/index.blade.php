@@ -18,7 +18,7 @@
     <!-- CSS Files -->
     <link id="pagestyle" href="{{ asset('assets/argon-dashboard/assets/css/argon-dashboard.css') }}" rel="stylesheet" />
     <link href="{{ asset('assets/datatables.min.css') }}" rel="stylesheet" />
-    {{-- @livewireStyles --}}
+    @livewireStyles
 </head>
 
 <body class="g-sidenav-show   bg-gray-100">
@@ -247,8 +247,11 @@
     {{-- <script async defer src="https://buttons.github.io/buttons.js"></script> --}}
     <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="{{ asset('assets/argon-dashboard/assets/js/argon-dashboard.min.js') }}"></script>
+
     <script src="{{ asset('assets/DataTables-1.12.1/js/dataTables.bootstrap.js') }}"></script>
     @yield('js')
+    @stack('scripts')
+    @livewireScripts
     @include('sweetalert::alert')
 
 </body>

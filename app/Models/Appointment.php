@@ -18,4 +18,7 @@ class Appointment extends Model
     public function pet(){
         return $this-> belongsTo(Pet::class,'pet_id');
     }
+    public function service(){
+        return $this-> belongsTo(service::class,'reason_id');
+    }
 }

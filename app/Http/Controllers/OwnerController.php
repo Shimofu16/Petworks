@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Appointment;
 use App\Models\Owner;
+use App\Models\service;
 use Illuminate\Http\Request;
 
 class OwnerController extends Controller
@@ -49,7 +51,8 @@ class OwnerController extends Controller
     {
         try {
             $owner = Owner::findOrFail($id);
-            return view('Petworks.admin.owner.show',compact('owner'));
+            $services = Appointment::all();
+            return view('Petworks.admin.owner.show', compact('owner', 'services'));
         } catch (\Throwable $th) {
             //throw $th;
         }
@@ -73,9 +76,17 @@ class OwnerController extends Controller
      * @param  \App\Models\Owner  $owner
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Owner $owner)
+    public function update(Request $request, $id)
     {
-        //
+        try {
+            $appointment = Appointment::findOrFail($id);
+            $appointment->comment = $request->input('comment');
+            $appointment->save();
+            /* sweet alert dito */
+            return back();
+        } catch (\Throwable $th) {
+            /* sweet alert dito */
+        }
     }
 
     /**

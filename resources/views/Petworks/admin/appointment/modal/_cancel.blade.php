@@ -11,15 +11,15 @@
                 <p> This request will be deleted.</p>
 
 
-             <form action=" {{ route('admin.confirm.destroy',$appointment->id ) }}" method="POST">
-                 @csrf
-                    @method('delete')
-                    <div class="modal-footer">
-                        <button type="submit" class="btn btn-success" >YES</button>
-                    </div>
-                </form>
-
             </div>
+            <form action=" {{ route('admin.confirm.destroy', $appointment->id) }}" method="POST">
+                @csrf
+                @method('delete')
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-success">YES</button>
+                </div>
+            </form>
+
 
         </div>
     </div>

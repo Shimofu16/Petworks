@@ -16,9 +16,8 @@ class PendingController extends Mailable
      *
      * @return void
      */
-    public function __construct($data)
+    public function __construct()
     {
-        $this->data=$data;
     }
 
     /**
@@ -28,6 +27,6 @@ class PendingController extends Mailable
      */
     public function build()
     {
-        return $this->from(env('MAIL_FROM_ADDRESS'))->subject('CONFIRMATION')->markdown('emails.cancel',['data'=>$this->data]);
+        return $this->from(env('MAIL_FROM_ADDRESS'))->subject('CONFIRMATION')->markdown('mail.pending-controller');
     }
 }

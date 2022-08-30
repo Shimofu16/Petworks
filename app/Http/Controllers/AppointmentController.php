@@ -16,7 +16,7 @@ class AppointmentController extends Controller
      */
     public function index()
     {
-        $appointments = Appointment::where('status','=',0)->get();
+        $appointments = Appointment::where('status', '=', 0)->get();
         return view('Petworks.admin.appointment.index', compact('appointments'));
     }
 
@@ -38,7 +38,7 @@ class AppointmentController extends Controller
      */
     public function store(Request $request)
     {
-       $owner_id=Owner::create(
+        $owner_id = Owner::create(
             [
                 'name' => $request->input('name'),
                 'address' => $request->input('address'),
@@ -48,11 +48,13 @@ class AppointmentController extends Controller
         )->id;
 
 
-        $pet_id=Pet::create(
+        $pet_id = Pet::create(
             [
                 'owner_id' => $owner_id,
                 'pet_name' => $request->input('pet_name'),
                 'age' => $request->input('age'),
+                'gender' => $request->input('gender'),
+                'birthdate' => $request->input('birthdate'),
                 'breed' => $request->input('breed'),
                 'pet_type' => $request->input('pet_type'),
             ]
@@ -63,7 +65,7 @@ class AppointmentController extends Controller
             [
                 'owner_id' => $owner_id,
                 'pet_id' => $pet_id,
-                'reason' => $request->input('reason'),
+                'reason_id' => $request->input('reason_id'),
                 'date' => $request->input('date'),
                 'time' => $request->input('time'),
             ]

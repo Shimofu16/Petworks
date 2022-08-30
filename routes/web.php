@@ -44,6 +44,7 @@ Route::post('admin/confirm/update/{id}', [ConfirmController::class,'update']) ->
 /* OWNER */
 Route::get('admin/owner', [OwnerController::class,'index']) -> name('admin.owner.index');
 Route::get('admin/owner/{id}', [OwnerController::class,'show']) -> name('admin.owner.show');
+Route::put('admin/owner/comment/{id}', [OwnerController::class,'update']) -> name('admin.owner.update');
 
 /* CONTACTS */
 Route::get('admin/contact', [ContactController::class,'index']) -> name('admin.contact.index');

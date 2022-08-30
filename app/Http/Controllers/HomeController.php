@@ -2,24 +2,26 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\service;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function index(){
-       return view('Petworks.homecontents.home.index');
-
+    public function index()
+    {
+        return view('Petworks.homecontents.home.index');
     }
-    public function guidlines(){
+    public function guidlines()
+    {
         return view('Petworks.homecontents.home.guidlines');
-
     }
-    public function appointment(){
-        return view('Petworks.homecontents.home.appointment');
-
+    public function appointment()
+    {
+        $services = service::all();
+        return view('Petworks.homecontents.home.appointment', compact('services'));
     }
-    public function existing(){
+    public function existing()
+    {
         return view('Petworks.homecontents.home.existing');
-
     }
 }
