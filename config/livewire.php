@@ -54,7 +54,7 @@ return [
     |
     */
 
-    'asset_url' => public_path('vendor/livewwire/livewire.js'),
+    'asset_url' => null,
 
     /*
     |--------------------------------------------------------------------------

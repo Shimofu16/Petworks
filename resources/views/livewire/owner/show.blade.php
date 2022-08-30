@@ -8,7 +8,7 @@
 
                 <div class="card-body pt-0">
                     <select class="form-select mt-1" aria-label="Default select example" name="pet_id" wire:model='pet_id'>
-                        <option selected>Pet name</option>
+                        <option selected>Pet Name</option>
                         @foreach ($owner->pets as $pet)
                             <option value="{{ $pet->id }}">{{ $pet->pet_name }}</option>
                         @endforeach
@@ -51,7 +51,7 @@
                                 <div class="col">
                                     @isset($title)
                                     <h6>{{ $title->service }}</h6>
-                                        
+
                                     @endisset
                                 </div>
                             </div>

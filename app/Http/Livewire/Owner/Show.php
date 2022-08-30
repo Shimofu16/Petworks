@@ -23,10 +23,10 @@ class Show extends Component
     public $pet_breed;
     public $reason_id;
     public $title;
-
+/* hi */
     /* add comment  */
     public $comment;
-  
+
     public function render()
     {
         if (!empty($this->pet_id)) {
