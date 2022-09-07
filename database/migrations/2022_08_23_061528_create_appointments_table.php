@@ -33,6 +33,8 @@ class CreateAppointmentsTable extends Migration
             $table->date('date');
             $table->time('time');
             $table->string('comment')->nullable();
+            $table->string('image_name')->nullable();
+            $table->string('path')->nullable();
             $table->boolean('status')->default(0);
             $table->boolean('pending')->default(0);
             $table->timestamps();

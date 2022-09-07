@@ -1,5 +1,6 @@
 @extends('Petworks.homecontents.mainContents')
 
+
 @section('contents')
     <section class="home" id="home">
 
@@ -30,13 +31,16 @@
                     <img src="images/animals-group-home.png" class="w-100" alt="">
                 </div>
                 <div class="col-md-6">
-                  {{--   <span>Why choose us?</span> --}}
+                    {{-- <span>Why choose us?</span> --}}
                     <h3 class="title">Mission</h3>
                     <p class="text-justify"> </p>
-                    <p class="text-justify"> To provide excellent veterinary service by utilizing the highest standards of care.</p>
-                    <p class="text-justify"> To provide the highest quality medical and surgical care to our patients while providing our
+                    <p class="text-justify"> To provide excellent veterinary service by utilizing the highest standards of
+                        care.</p>
+                    <p class="text-justify"> To provide the highest quality medical and surgical care to our patients while
+                        providing our
                         clients with education and assistance in all aspects of animal care and ownership.</p>
-                    <p class="text-justify"> To provide exceptional care to our clients and patients during every visit in a caring and
+                    <p class="text-justify"> To provide exceptional care to our clients and patients during every visit in a
+                        caring and
                         compassionate manner.</p>
                     <p class="text-justify">
                         To provide the highest standards of health care to the pets we serve.</p>
@@ -45,8 +49,11 @@
 
 
                     <h3 class="title">Vision</h3>
-                    <p class="text-justify">Petworks Veterinary Clinic works to be the most trusted and respected pet care provider in our community by administering the best possible medical and emotional care and giving outstanding customer service to every patient and every client every visit.</p>
-                    {{-- <a href="#" class="link-btn">read more</a> --}}
+                    <p class="text-justify">Petworks Veterinary Clinic works to be the most trusted and respected pet care
+                        provider in our community by administering the best possible medical and emotional care and giving
+                        outstanding customer service to every patient and every client every visit.</p>
+               {{--      <a href="{{ route('about') }}" class="link-btn">read more</a> --}}
+
                     {{-- <div class="icons-container">
                         <div class="icons">
                             <i class="fa-solid fa-x-ray"></i>
@@ -69,6 +76,8 @@
     </section>
 
     <!-- about section ends -->
+
+    {
 
     <!-- menu section starts  -->
 
@@ -125,6 +134,82 @@
 
     </section>
 
+
+    {{-- <div class="container-fluid my-5">
+                <h1 class="text-center fw-bold display-1 mb-5">Owl <span class="text-danger">Carousel</span></h1>
+                <div class="row">
+                    <div class="col-12 m-auto">
+                        <div class="owl-carousel owl-theme">
+                            <div class="item mb-4">
+                                <div class="card border-0 shadow">
+                                    <img src="1.jpg" alt="" class="card-img-top">
+                                    <div class="card-body">
+                                        <div class="card-title text-center">
+                                            <h4>Owl Carousel</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="item">
+                                <div class="card border-0 shadow">
+                                    <img src="3.jpg" alt="" class="card-img-top">
+                                    <div class="card-body">
+                                        <div class="card-title text-center">
+                                            <h4>Owl Carousel</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="card border-0 shadow">
+                                    <img src="4.jpg" alt="" class="card-img-top">
+                                    <div class="card-body">
+                                        <div class="card-title text-center">
+                                            <h4>Owl Carousel</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="card border-0 shadow">
+                                    <img src="5.jpg" alt="" class="card-img-top">
+                                    <div class="card-body">
+                                        <div class="card-title text-center">
+                                            <h4>Owl Carousel</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="card border-0 shadow">
+                                    <img src="6.jpg" alt="" class="card-img-top">
+                                    <div class="card-body">
+                                        <div class="card-title text-center">
+                                            <h4>Owl Carousel</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="card border-0 shadow">
+                                    <img src="7.jpg" alt="" class="card-img-top">
+                                    <div class="card-body">
+                                        <div class="card-title text-center">
+                                            <h4>Owl Carousel</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div> --}}
+
+    </div>
+    </section>
+
     <!-- menu section ends -->
 
     <!-- gallery section starts  -->
@@ -139,7 +224,7 @@
                 <img src="images/pet_5.jpg" alt="">
                 <div class="content">
                     <h3>Dogs</h3>
-                   {{--  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus, dolore?</p> --}}
+                    {{-- <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus, dolore?</p> --}}
                     {{-- <a href="#" class="link-btn">read more</a> --}}
                 </div>
             </div>
@@ -148,7 +233,7 @@
                 <img src="images/pet_6.jpg" alt="">
                 <div class="content">
                     <h3>Breast feeding</h3>
-                   {{--  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus, dolore?</p> --}}
+                    {{-- <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus, dolore?</p> --}}
                     {{-- <a href="#" class="link-btn">read more</a> --}}
                 </div>
             </div>
@@ -157,7 +242,7 @@
                 <img src="images/pet_2.jpg" alt="">
                 <div class="content">
                     <h3>Incubator</h3>
-                   {{--  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus, dolore?</p> --}}
+                    {{-- <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus, dolore?</p> --}}
                     {{-- <a href="#" class="link-btn">read more</a> --}}
                 </div>
             </div>
@@ -166,7 +251,7 @@
                 <img src="images/pet_3.jpg" alt="">
                 <div class="content">
                     <h3>Puppies</h3>
-                   {{--  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus, dolore?</p> --}}
+                    {{-- <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus, dolore?</p> --}}
                     {{-- <a href="#" class="link-btn">read more</a> --}}
                 </div>
             </div>
@@ -175,7 +260,7 @@
                 <img src="images/pet_4.jpg" alt="">
                 <div class="content">
                     <h3>Product</h3>
-                   {{--  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus, dolore?</p> --}}
+                    {{-- <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus, dolore?</p> --}}
                     {{-- <a href="#" class="link-btn">read more</a> --}}
                 </div>
             </div>
@@ -184,7 +269,7 @@
                 <img src="images/pet_1.jpg" alt="">
                 <div class="content">
                     <h3>Clinic</h3>
-                   {{--  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus, dolore?</p> --}}
+                    {{-- <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus, dolore?</p> --}}
                     {{-- <a href="#" class="link-btn">read more</a> --}}
                 </div>
             </div>
@@ -197,24 +282,18 @@
 
     <!-- reviews section starts  -->
 
-    {{-- <section class="reviews" id="reviews">
+   <section class="reviews" id="reviews">
 
-        <h1 class="heading">customers reviews</h1>
+        <h1 class="heading">Clinic Doctors</h1>
 
         <div class="box-container container">
 
             <div class="box">
                 <img src="images/pic-1.png" alt="">
-                <h3>john deo</h3>
+                <h3>Cecille Sy</h3>
                 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit, ipsum eos? Perspiciatis expedita
                     laudantium blanditiis cupiditate at natus, quam alias?</p>
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                </div>
+
             </div>
 
             <div class="box">
@@ -222,13 +301,7 @@
                 <h3>john deo</h3>
                 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit, ipsum eos? Perspiciatis expedita
                     laudantium blanditiis cupiditate at natus, quam alias?</p>
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                </div>
+
             </div>
 
             <div class="box">
@@ -236,18 +309,12 @@
                 <h3>john deo</h3>
                 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit, ipsum eos? Perspiciatis expedita
                     laudantium blanditiis cupiditate at natus, quam alias?</p>
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                </div>
+
             </div>
 
         </div>
 
-    </section> --}}
+    </section>
 
     <!-- reviews section ends -->
 
@@ -291,13 +358,14 @@
                         width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                 </div>
 
-                <form action="{{ route('admin.contact.store')}}" class="col-md-6" method="POST">
+                <form action="{{ route('admin.contact.store') }}" class="col-md-6" method="POST">
                     @csrf
                     <h3>get in touch</h3>
                     <input type="text" placeholder="your name" name="name" class="box">
                     <input type="text" placeholder="email" name="email" class="box">
                     {{-- <input type="number" placeholder="phone" class="box"> --}}
-                    <textarea type="message" name="message" placeholder="message" class="box" id="" cols="30" rows="10"></textarea>
+                    <textarea type="message" name="message" placeholder="message" class="box" id="" cols="30"
+                        rows="10"></textarea>
                     <input type="submit" value="send message" class="link-btn">
                 </form>
 
@@ -387,7 +455,8 @@
 
     <section class="footer container">
 
-        <a href="#" class="logo"> <i class="fa-solid fa-paw"></i> Petworks </a>
+        <a href="#" class="logo"> <img id="logo" src="{{ asset('images/petworks.png') }}"
+                alt="">Petworks </a>
 
 
         <div class="share">

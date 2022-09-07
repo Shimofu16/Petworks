@@ -1,8 +1,4 @@
 <!-- Modal -->
-
-
-
-<!-- Modal -->
 <div class="modal fade" id="view{{ $contact->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role document="document">
         <div class="modal-content">
@@ -17,24 +13,26 @@
 
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
+
             <div class="modal-body width:100%">
                 <div class="row" style="height: 100px;">
                     <h6 class="text-left">{{ $contact->message }}</h6>
                 </div>
             </div>
             <div class="modal-footer justify-content-center">
-                <form action="{{ route('contact.reply') }}" method="post">
+                <form action="{{ route('admin.contact.reply') }}" method="post">
                     @csrf
                     <div class="row flex-nowrap align-items-center">
                         <div class="col">
                             <input type="hidden" name="email" value="{{ $contact->email }}">
-                            <textarea name="reply" id="reply" cols="50" rows="10" style="height: 50px; width: 100%;"
-                                placeholder="Reply"></textarea>
+                            <textarea name="message" id="message" cols="50" rows="10" style="height: 50px; width: 100%;"
+                                placeholder="message"></textarea>
                         </div>
+
+
                         <div class="col-4">
-                            <button type="submit" class="btn btn-success aria-hidden="true"> Send</button>
+                            <button type="submit" class="btn btn-success"> Send</button>
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        
                         </div>
                     </div>
                 </form>

@@ -10,7 +10,9 @@
             <form action=" {{ route('admin.confirm.update', $appointment->id) }}" method="POST">
                 @csrf
                 <div class="modal-body">
-                    <h5 class="text-left">Name: {{ $appointment->owner->name }} </h5>
+                    {{ ($appointment->pending == 1) ? 'Appointment is pending. Did you want to confirm the request?' : '' ; }}
+                    <p>You want to confirm the appointment request?</p>
+                  {{--   <p class="text-left pt">Name: {{ $appointment->owner->name }} </p> --}}
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-success">YES</button>

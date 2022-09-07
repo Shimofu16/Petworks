@@ -29,41 +29,6 @@
                         </tr>
 
                         <tr>
-                            <td class="text-left">Pet name:</td>
-                            <td class="text-left">{{ $appointment->pet->pet_name }}</td>
-                        </tr>
-
-                        <tr>
-                            <td class="text-left">Type of Pet:</td>
-                            <td class="text-left">{{ $appointment->pet->pet_type }}</td>
-                        </tr>
-
-                        <tr>
-                            <td class="text-left">Age:</td>
-                            <td class="text-left">{{ $appointment->pet->age }}</td>
-                        </tr>
-
-                        <tr>
-                            <td class="text-left">Breed:</td>
-                            <td class="text-left">{{ $appointment->pet->breed }}</td>
-                        </tr>
-
-                        <tr>
-                            <td class="text-left">Reason of Appointment:</td>
-                            <td class="text-left">{{ $appointment->reason }}</td>
-                        </tr>
-
-                        <tr>
-                            <td class="text-left">Date:</td>
-                            <td class="text-left">{{ $appointment->date }}</td>
-                        </tr>
-
-                        <tr>
-                            <td class="text-left">Time:</td>
-                            <td class="text-left">{{ $appointment->time }}</td>
-                        </tr>
-
-                        <tr>
                             <td class="text-left">Address:</td>
                             <td class="text-left">{{ $appointment->owner->address }}</td>
                         </tr>
@@ -77,6 +42,52 @@
                             <td class="text-left">Contact number:</td>
                             <td class="text-left">{{ $appointment->owner->number }}</td>
                         </tr>
+
+                        <tr>
+                            <td class="text-left">Pet name:</td>
+                            <td class="text-left">{{ $appointment->pet->pet_name }}</td>
+                        </tr>
+
+                        <tr>
+                            <td class="text-left">Type of Pet:</td>
+                            <td class="text-left">{{ $appointment->pet->pet_type }}</td>
+                        </tr>
+
+                        <tr>
+                            <td class="text-left">Age:</td>
+                            <td class="text-left">{{ $appointment->pet->age }}</td>
+                        </tr>
+                        <tr>
+                            <td class="text-left">Birthdate:</td>
+                            <td class="text-left">{{ $appointment->pet->birthdate }}</td>
+                        </tr>
+
+                        <tr>
+                            <td class="text-left">Gender:</td>
+                            <td class="text-left">{{ $appointment->pet->gender }}</td>
+                        </tr>
+
+                        <tr>
+                            <td class="text-left">Breed:</td>
+                            <td class="text-left">{{ $appointment->pet->breed }}</td>
+                        </tr>
+
+                        <tr>
+                            <td class="text-left">Reason of Appointment:</td>
+                            <td class="text-left">{{ $appointment->service->service }}</td>
+                        </tr>
+
+                        <tr>
+                            <td class="text-left">Date:</td>
+                            <td class="text-left">{{ $appointment->date }}</td>
+                        </tr>
+
+                        <tr>
+                            <td class="text-left">Time:</td>
+                            <td class="text-left">{{ $appointment->time }}</td>
+                        </tr>
+
+
 
 
                     </tbody>

@@ -44,7 +44,7 @@
                 <label class="form-check-label" for="check">Remember me</label>
             </div> -->
 
-            <a class="btn btn-info text-white w-100 mb-2" href="{{ route('appointment.index') }}" type="submit" value="">New Client</a>
+            <a class="btn btn-info text-white w-100 mb-2" href="{{ route('appointment.index') }}" type="submit" value="">Book Appointment</a>
           {{--   <a class="btn btn-info text-white w-100" href="{{  route('existing.index')  }}" type="submit" value="">Existing Client</a> --}}
             <hr>
         </form>

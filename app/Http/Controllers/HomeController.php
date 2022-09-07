@@ -15,6 +15,10 @@ class HomeController extends Controller
     {
         return view('Petworks.homecontents.home.guidlines');
     }
+    public function calendar()
+    {
+        return view('Petworks.homecontents.home.calendar');
+    }
     public function appointment()
     {
         $services = service::all();
@@ -23,5 +27,8 @@ class HomeController extends Controller
     public function existing()
     {
         return view('Petworks.homecontents.home.existing');
+    }
+    public function form(){
+        return view('Petworks.homecontents.home.login');
     }
 }

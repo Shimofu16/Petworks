@@ -12,6 +12,7 @@
                 <a href="#home">Home</a>
                 <a href="#about">About</a>
                 <a href="{{ route('guidlines.index') }} ">Appointment</a>
+                <a href="{{ route('calendar.index') }} ">Calendar</a>
                 <a href="#menu">Service</a>
                 <a href="#gallery">Gallery</a>
                 <a href="#contact">Contact</a>

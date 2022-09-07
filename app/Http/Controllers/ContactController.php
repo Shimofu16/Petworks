@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\Contact as MailContact;
 use App\Models\Contact;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class ContactController extends Controller
 {
@@ -75,15 +77,38 @@ class ContactController extends Controller
     {
         //
     }
-
+    public function reply(Request $request)
+    {
+        try {
+            $details = [
+                'message' => $request->input('message'),
+            ];
+            Mail::to($request->input('email'))->send(new MailContact($details));
+            toast()->success('Success', 'Your message has been sent')->autoClose(3000)->animation('animate__fadeInRight', 'animate__fadeOutRight')->width('400px');
+            return redirect()->route('admin.contact.index');
+            return back();
+        } catch (\Throwable $th) {
+            toast()->warning('Warning', $th->getMessage())->autoClose(3000)->animation('animate__fadeInRight', 'animate__fadeOutRight')->width('400px');
+            return back();
+        }
+    }
     /**
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\Contact  $contact
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Contact $contact)
+    public function destroy($id)
     {
-        //
+        try {
+            $contact = Contact::findOrFail($id);
+            $contact->delete();
+            toast()->warning('Warning!', 'The message has been deleted')->autoClose(3000)->animation('animate__fadeInRight', 'animate__fadeOutRight')->width('400px');
+            return redirect()->route('admin.contact.index');
+        } catch (\Throwable $th) {
+            toast()->warning('Warning', $th->getMessage())->autoClose(3000)->animation('animate__fadeInRight', 'animate__fadeOutRight')->width('400px');
+            return redirect()->back();
+        }
+        return back();
     }
 }

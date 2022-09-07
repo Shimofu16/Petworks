@@ -28,6 +28,6 @@ class ConfirmController extends Mailable
      */
     public function build()
     {
-        return $this->from(env('MAIL_FROM_ADDRESS'))->subject('CONFIRMATION')->markdown('mail.confiem-controller', ['data' => $this->data]);
+        return $this->from(env('MAIL_FROM_ADDRESS'))->subject('CONFIRMATION')->markdown('mail.confirm-controller', ['data' => $this->data]);
     }
 }

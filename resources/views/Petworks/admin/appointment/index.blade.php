@@ -12,7 +12,7 @@
                         <h6>@yield('page-title')</h6>
                     </div>
                     <div class="col">
-                        <div class="d-flex justify-content-end align-items-center ">
+                     {{--    <div class="d-flex justify-content-end align-items-center ">
                             <select class="form-select mt-1" aria-label="Default select example">
                                 <option selected>Records</option>
                                 @foreach ($appointments as $appointment)
@@ -22,7 +22,7 @@
                             <button class="ms-2 bg-info text-white btn">
                                 Reset
                             </button>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
 
@@ -115,6 +115,15 @@
                                                         aria-hidden="true"></i>
                                                     Confirm
                                                 </button>
+                                                {{-- @if ($appointment->pending == 1)
+                                                    <button class="btn btn-link text-success px-3 mb-0" href="#"
+                                                        type="button" data-bs-toggle="modal"
+                                                        data-bs-target="#confirm{{ $appointment->id }}">
+                                                        <i class="fa-solid fa-circle-check text-success me-2"
+                                                            aria-hidden="true"></i>
+                                                        Confirm
+                                                    </button>
+                                                @endif --}}
                                                 <button class="btn btn-link text-danger px-3 mb-0" href="#"
                                                     type="button" data-bs-toggle="modal"
                                                     data-bs-target="#cancel{{ $appointment->id }}">

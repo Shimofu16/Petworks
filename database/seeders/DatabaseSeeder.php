@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             serviceSeeder::class,
             AppointmentSeeder::class,
             ContactSeeder::class,
+            UserSeeder::class,
         ]);
     }
 }

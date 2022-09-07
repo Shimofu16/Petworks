@@ -21,6 +21,10 @@
 
                                     <th
                                         class="text-uppercase text-center text-secondary text-xxs font-weight-bolder opacity-7">
+                                       More Info
+                                    </th>
+                                    <th
+                                        class="text-uppercase text-center text-secondary text-xxs font-weight-bolder opacity-7">
                                         Action
                                     </th>
                                 </tr>
@@ -49,12 +53,17 @@
                                                     <i
                                                     class="fa-solid fa-eye text-info me-2"
                                                         aria-hidden="true"></i> Show</button>
-                                                {{-- <a class="btn btn-link text-info px-3 mb-0" href=" ">
-                                                    <i class="fa-solid fa-q me-2 text-info" aria-hidden="true"></i>
-                                                    view
-                                                </a> --}}
-                                            </div>
                                             @include('Petworks.admin.contact.modal._show')
+                                        </td>
+                                        <td>
+                                            <div class="d-flex justify-content-center px-2 py-1">
+                                                <button class="btn btn-link text-danger px-3 mb-0" href="#"
+                                                    type="button" data-bs-toggle="modal"
+                                                    data-bs-target="#delete{{ $contact->id }}">
+                                                    <i
+                                                    class="fa-regular fa-trash-can text-danger me-2"
+                                                        aria-hidden="true"></i> Delete</button>
+                                            @include('Petworks.admin.contact.modal._delete')
                                         </td>
                                     </tr>
                                 @endforeach

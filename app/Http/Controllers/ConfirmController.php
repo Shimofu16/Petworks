@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mail\ConfirmController as MailConfirmController;
+use App\Mail\Pending as MailPending;
 use App\Mail\PendingController;
 use App\Models\Appointment;
 use Illuminate\Http\Request;
@@ -85,13 +86,13 @@ class ConfirmController extends Controller
             $appointment->update();
             $details = [
                 'name' => $appointment->owner->name,
-                'date' => $appointment->owner->date,
-                'time' => $appointment->owner->time,
+                'date' => $appointment->date,
+                'time' => $appointment->time,
                 'email' =>  $appointment->owner->email,
-                'number' => $appointment->owner->phone_number,
+                'number' => $appointment->owner->number,
                 'address' => $appointment->owner->address,
             ];
-            Mail::to($appointment->email)->send(new MailConfirmController($details));   /* email */
+            Mail::to($appointment->owner->email)->send(new MailConfirmController($details));   /* email */
             toast()->success('Success', 'You confirmed the request')->autoClose(3000)->animation('animate__fadeInRight', 'animate__fadeOutRight')->width('400px');
             return redirect()->route('admin.confirm.index');
         } catch (\Throwable $th) {
@@ -112,8 +113,24 @@ class ConfirmController extends Controller
             $appointment = Appointment::where('id', '=', $id)->firstOrFail();
             $appointment->pending = 1;
             $appointment->update();
-            Mail::to($appointment->email)->send(new PendingController());
+             Mail::to($appointment->owner->email)->send(new PendingController()); 
             toast()->warning('Warning', 'The request is pending')->autoClose(3000)->animation('animate__fadeInRight', 'animate__fadeOutRight')->width('400px');
+            return back();
+        } catch (\Throwable $th) {
+            toast()->warning('Warning', $th->getMessage())->autoClose(3000)->animation('animate__fadeInRight', 'animate__fadeOutRight')->width('400px');
+            return back();
+        }
+    }
+
+    public function reply(Request $request)
+    {
+        try {
+            $details = [
+                'message' => $request->input('message'),
+            ];
+            Mail::to($request->input('email'))->send(new MailPending($details));
+            toast()->success('Success', 'Your message has been sent')->autoClose(3000)->animation('animate__fadeInRight', 'animate__fadeOutRight')->width('400px');
+            return redirect()->route('admin.appointment.index');
             return back();
         } catch (\Throwable $th) {
             toast()->warning('Warning', $th->getMessage())->autoClose(3000)->animation('animate__fadeInRight', 'animate__fadeOutRight')->width('400px');

@@ -131,7 +131,7 @@
                     <h5 class="modal-title text-white" id="logoutLabel">Ready to Leave?</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form action="{{-- {{ route('logout.user') }} --}}" method="post">
+                <form action="{{ route('admin.user.logout') }}" method="post">
                     @csrf
                     <div class="modal-body">Select "Logout" below if you are ready to end your current session.
                     </div>

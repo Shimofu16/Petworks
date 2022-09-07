@@ -6,6 +6,7 @@ use App\Models\Appointment;
 use App\Models\Owner;
 use App\Models\Pet;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class AppointmentController extends Controller
 {
@@ -120,4 +121,6 @@ class AppointmentController extends Controller
     {
         //
     }
+
+   
 }
