@@ -1,9 +1,8 @@
 @component('mail::message')
-    <h2 class="text-success">MESSAGE</h2>
-    <p> Petworks Veterinary Clinic</p>
+<h2 class="text-success">MESSAGE</h2>
 
-    {{ $data['message'] }}
+{{ $data['message'] }}
 
-    Thanks you and stay safe!<br>
-    {{ config('app.name') }}
+Thank you and stay safe!
+
 @endcomponent

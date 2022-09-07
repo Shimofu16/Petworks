@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Appointment;
+use App\Models\Doctor;
 use App\Models\Owner;
 use App\Models\Pet;
 use Illuminate\Http\Request;
@@ -18,7 +19,8 @@ class AppointmentController extends Controller
     public function index()
     {
         $appointments = Appointment::where('status', '=', 0)->get();
-        return view('Petworks.admin.appointment.index', compact('appointments'));
+        $doctors = Doctor::all();
+        return view('Petworks.admin.appointment.index', compact('appointments', 'doctors'));
     }
 
     /**
@@ -121,6 +123,4 @@ class AppointmentController extends Controller
     {
         //
     }
-
-   
 }

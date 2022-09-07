@@ -52,7 +52,7 @@
                     <p class="text-justify">Petworks Veterinary Clinic works to be the most trusted and respected pet care
                         provider in our community by administering the best possible medical and emotional care and giving
                         outstanding customer service to every patient and every client every visit.</p>
-               {{--      <a href="{{ route('about') }}" class="link-btn">read more</a> --}}
+                    {{-- <a href="{{ route('about') }}" class="link-btn">read more</a> --}}
 
                     {{-- <div class="icons-container">
                         <div class="icons">
@@ -83,50 +83,13 @@
 
     <section class="menu" id="menu">
 
-        <h1 class="heading"> our services </h1>
+      
 
-        <div class="container box-container">
-
-            <div class="box">
-                <img src="images/pet1.png" alt="">
-                <h3>Dental prophylaxis</h3>
-                {{-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus, eos.</p> --}}
-                {{-- <a href="#" class="link-btn">read more</a> --}}
-            </div>
-
-            <div class="box">
-                <img src="images/pet2.png" alt="">
-                <h3>Confinement</h3>
-                {{-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus, eos.</p> --}}
-                {{-- <a href="#" class="link-btn">read more</a> --}}
-            </div>
-
-            <div class="box">
-                <img src="images/pet3.png" alt="">
-                <h3>Grooming</h3>
-                {{-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus, eos.</p> --}}
-                {{-- <a href="#" class="link-btn">read more</a> --}}
-            </div>
-
-            <div class="box">
-                <img src="images/pet4.png" alt="">
-                <h3>Ultrasound</h3>
-                {{-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus, eos.</p> --}}
-                {{-- <a href="#" class="link-btn">read more</a> --}}
-            </div>
-
-            <div class="box">
-                <img src="images/pet5.png" alt="">
-                <h3>Deworming</h3>
-                {{-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus, eos.</p> --}}
-                {{-- <a href="#" class="link-btn">read more</a> --}}
-            </div>
-
-            <div class="box">
-                <img src="images/pet6.png" alt="">
-                <h3>Vaccination</h3>
-                {{-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus, eos.</p> --}}
-                {{-- <a href="#" class="link-btn">read more</a> --}}
+        <div class="container">
+            <div class="card">
+                <div class="card-body">
+                    <img src="{{ asset('images/Services.png') }}" alt="Services" class="img-fluid">
+                </div>
             </div>
 
 
@@ -282,7 +245,7 @@
 
     <!-- reviews section starts  -->
 
-   <section class="reviews" id="reviews">
+    <section class="reviews" id="reviews">
 
         <h1 class="heading">Clinic Doctors</h1>
 

@@ -20,13 +20,14 @@
         <div class="navbar-collapse  w-auto " id="sidenav-collapse-main">
             <ul class="navbar-nav">
 
-                 <li class="nav-item mt-2">
-                     <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Manage System</h6>
-                 </li>
+                <li class="nav-item mt-2">
+                    <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Manage System</h6>
+                </li>
 
 
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::routeIs('admin.index') ? 'active' : '' }}" href="{{ route('admin.index') }}">
+                    <a class="nav-link {{ Request::routeIs('admin.index') ? 'active' : '' }}"
+                        href="{{ route('admin.index') }}">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="fa-solid fa-tv text-sm opacity-10"></i>
@@ -39,7 +40,8 @@
 
                 {{-- Homepage Syste, --}}
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::routeIs('admin.contact.index') ? 'active' : '' }}" href="{{ route('admin.contact.index') }}">
+                    <a class="nav-link {{ Request::routeIs('admin.contact.index') ? 'active' : '' }}"
+                        href="{{ route('admin.contact.index') }}">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
 
@@ -51,8 +53,9 @@
 
 
                 <li class="nav-item">
-                    <a class="nav-link collapsed {{ Request::routeIs('admin.appointment.*') ? 'active' : '' }}" href="#appointment"
-                        data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="appointment">
+                    <a class="nav-link collapsed {{ Request::routeIs('admin.appointment.*') ? 'active' : '' }}"
+                        href="#appointment" data-bs-toggle="collapse" role="button" aria-expanded="false"
+                        aria-controls="appointment">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="fa-solid fa-calendar-days text-sm opacity-10 text-primary"></i>
@@ -73,18 +76,14 @@
                         </ul>
                     </div>
                 </li>
-
-
-                <hr class="horizontal dark mt-0">
-
-                <div class="sidenav-header">
+                {{-- <div class="sidenav-header">
                     <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
                         aria-hidden="true" id="iconSidenav"></i>
                     <a class="navbar-brand m-0" href="" target="_blank">
                         <img src="{{ asset('images/doc.png') }}" class="navbar-brand-img h-100" alt="main_logo">
                         <span class="ms-1 font-weight-bold text-warning">Doctor's  Dashboard</span>
                     </a>
-                </div>
+                </div> --}}
 
 
                 <hr class="horizontal dark mt-1">
@@ -95,7 +94,8 @@
 
                 {{-- Single --}}
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::routeIs('admin.owner.index') ? 'active' : '' }}" href="{{ route('admin.owner.index') }}">
+                    <a class="nav-link {{ Request::routeIs('admin.owner.index') ? 'active' : '' }}"
+                        href="{{ route('admin.owner.index') }}">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
 
@@ -106,12 +106,12 @@
                 </li>
 
 
- {{-- Homepage dropdown --}}
+                {{-- Homepage dropdown --}}
 
 
 
                 {{-- Single --}}
-             {{--    <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a class="nav-link {{ Request::routeIs('admin.appointment.index') ? 'active' : '' }}" href="{{ route('admin.appointment.index') }}">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
@@ -134,7 +134,7 @@
                 </li> --}}
 
                 {{-- Records dropdown --}}
-              {{--   <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a class="nav-link collapsed {{ Request::routeIs('admin.admission.*') ? 'active' : '' }}"
                         href="#admission" data-bs-toggle="collapse" role="button" aria-expanded="false"
                         aria-controls="admission">
@@ -161,7 +161,7 @@
 
 
 
-               {{-- Human Recources --}}
+                {{-- Human Recources --}}
                 {{-- <li class="nav-item">
                     <a class="nav-link collapsed {{ Request::routeIs('admin.human.*') ? 'active' : '' }}"
                         href="#human" data-bs-toggle="collapse" role="button" aria-expanded="false"
@@ -193,8 +193,8 @@
                 </li> --}}
 
 
-                 {{-- System --}}
-              {{--    <li class="nav-item">
+                {{-- System --}}
+                {{-- <li class="nav-item">
                     <a class="nav-link collapsed {{ Request::routeIs('admin.system.*') ? 'active' : '' }}"
                         href="#system" data-bs-toggle="collapse" role="button" aria-expanded="false"
                         aria-controls="system">
@@ -215,8 +215,7 @@
 
                         </ul>
                     </div>
-                </li>
- --}}
+                </li> --}}
             </ul>
         </div>
 

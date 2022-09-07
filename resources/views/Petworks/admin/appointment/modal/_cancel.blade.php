@@ -44,7 +44,7 @@
 </div> --}}
 
 
-<div class="modal" id="cancel{{ $appointment->id }}" tabindex="-1" role="dialog">
+<div class="modal fade" id="cancel{{ $appointment->id }}" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header bg-danger">
@@ -54,25 +54,25 @@
 
             </div>
 
-            <div class="modal-body">
-                <p> This request will be pending.</p>
-
-
-                <div class="col">
-                    <input type="hidden" name="email" value="{{ route('admin.confirm.reply') }}">
-                    <textarea name="message" id="message" cols="50" rows="10" style="height: 50px; width: 100%;"
-                        placeholder="message"></textarea>
-                </div>
-            </div>
-
-
-
-
-            <form action=" {{ route('admin.confirm.destroy', $appointment->id) }}" method="POST">
+            <form action=" {{ route('admin.confirm.reply', $appointment->id) }}" method="POST">
                 @csrf
-                @method('delete')
+                <div class="modal-body">
+                    <div class="card shadow-none">
+                        <div class="card-header ">
+                            <span class="text-wrap"> Are you sure you want to mark this request as pending?
+                                If so, please leave a message or explanation.</span>
+                        </div>
+                        <div class="card-body pt-0">
+                            <div class="row">
+                                <textarea name="message" id="message" cols="50" rows="10" style="height: 50px; width: 100%;"
+                                    placeholder="message"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-success">YES</button>
+                    <button type="submit" class="btn btn-success">Yes</button>
                 </div>
             </form>
 

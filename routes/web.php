@@ -2,17 +2,12 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AppointmentController;
-use App\Http\Controllers\CalendarController;
-use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ConfirmController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
-use App\Http\Controllers\MailController;
 use App\Http\Controllers\OwnerController;
 use App\Http\Controllers\RecordController;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -50,7 +45,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
             Route::get('/', 'index')->name('index');
             Route::post('/update/{id}', 'update')->name('update');
             Route::delete('/delete/{id}', 'destroy')->name('destroy');
-            Route::post('/pending',  'reply')->name('reply');
+            Route::post('/pending/{id}',  'reply')->name('reply');
         });
         /* OWNER */
         Route::prefix('owner')->name('owner.')->controller(OwnerController::class)->group(function () {
@@ -74,7 +69,3 @@ Route::prefix('admin')->name('admin.')->group(function () {
         });
     });
 });
-
-Auth::routes();
-
-

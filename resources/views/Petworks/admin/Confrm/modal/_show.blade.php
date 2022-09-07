@@ -17,7 +17,6 @@
 
                             <h3 class="modal-title text-dark font-weight-bold text-center">INFORMATION</h3>
 
-
                         </tr>
                     </thead> --}}
 
@@ -25,7 +24,7 @@
 
                         <tr>
                             <td class="text-left">Name:</td>
-                            <td class="text-left">{{ $appointment->owner->name}}</td>
+                            <td class="text-left">{{ $appointment->owner->name }}</td>
                         </tr>
 
                         <tr>
@@ -85,6 +84,10 @@
                         <tr>
                             <td class="text-left">Time:</td>
                             <td class="text-left">{{ $appointment->time }}</td>
+                        </tr>
+                        <tr>
+                            <td class="text-left">Doctor:</td>
+                            <td class="text-left">{{ $appointment->doctor->name }}</td>
                         </tr>
 
                     </tbody>

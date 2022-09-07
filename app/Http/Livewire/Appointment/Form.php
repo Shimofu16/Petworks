@@ -12,6 +12,10 @@ class Form extends Component
         'date' => 'required',
         'time' => 'required',
     ];
+    public function updated()
+    {
+        $this->validateOnly(['date' => 'date|unique:table,column,except,id']);
+    }
     public function render()
     {
         return view('livewire.appointment.form');

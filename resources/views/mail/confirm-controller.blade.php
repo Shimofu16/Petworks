@@ -1,6 +1,5 @@
 @component('mail::message')
 <h2 class="text-success">APPOINTMENT SUCCESS!</h2>
-<p>Petworks Veterinary Clinic</p>
 
 <p>Note: Please take a screenshot of this message</p>
 
@@ -12,6 +11,5 @@ Phone number: {{ $data['number'] }}<br>
 Address: {{ $data['address'] }} <br>
 
 
-Thanks you and stay safe!<br>
-{{ config('app.name') }}
+Thank you and stay safe!
 @endcomponent

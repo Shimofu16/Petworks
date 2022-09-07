@@ -7,6 +7,7 @@ use App\Mail\Pending as MailPending;
 use App\Mail\PendingController;
 use App\Models\Appointment;
 use Illuminate\Http\Request;
+use Illuminate\Mail\PendingMail;
 use Illuminate\Support\Facades\Mail;
 
 
@@ -83,6 +84,7 @@ class ConfirmController extends Controller
         try {
             $appointment = Appointment::where('id', '=', $id)->firstOrFail();
             $appointment->status = 1;
+            $appointment->doctor_id = $request->input('doctor_id');
             $appointment->update();
             $details = [
                 'name' => $appointment->owner->name,
@@ -109,26 +111,32 @@ class ConfirmController extends Controller
      */
     public function destroy($id)
     {
-        try {
+        /* try {
             $appointment = Appointment::where('id', '=', $id)->firstOrFail();
             $appointment->pending = 1;
             $appointment->update();
-             Mail::to($appointment->owner->email)->send(new PendingController()); 
+            $data = [
+                'message' =>
+            ];
+             Mail::to($appointment->owner->email)->send(new PendingMail());
             toast()->warning('Warning', 'The request is pending')->autoClose(3000)->animation('animate__fadeInRight', 'animate__fadeOutRight')->width('400px');
             return back();
         } catch (\Throwable $th) {
             toast()->warning('Warning', $th->getMessage())->autoClose(3000)->animation('animate__fadeInRight', 'animate__fadeOutRight')->width('400px');
             return back();
-        }
+        } */
     }
 
-    public function reply(Request $request)
+    public function reply(Request $request, $id)
     {
         try {
             $details = [
                 'message' => $request->input('message'),
             ];
-            Mail::to($request->input('email'))->send(new MailPending($details));
+            $appointment = Appointment::where('id', '=', $id)->firstOrFail();
+            $appointment->pending = 1;
+            $appointment->update();
+            Mail::to($appointment->owner->email)->send(new MailPending($details));
             toast()->success('Success', 'Your message has been sent')->autoClose(3000)->animation('animate__fadeInRight', 'animate__fadeOutRight')->width('400px');
             return redirect()->route('admin.appointment.index');
             return back();
