@@ -83,7 +83,7 @@
 
     <section class="menu" id="menu">
 
-      
+        <h1 class="heading pb-3"> our services </h1>
 
         <div class="container">
             <div class="card">
@@ -179,7 +179,7 @@
 
     <section class="gallery" id="gallery">
 
-        <h1 class="heading"> our gallery </h1>
+        <h1 class="heading pb-3"> our gallery </h1>
 
         <div class="box-container container">
 
@@ -247,33 +247,25 @@
 
     <section class="reviews" id="reviews">
 
-        <h1 class="heading">Clinic Doctors</h1>
+        <h1 class="heading pb-3">Clinic Doctor</h1>
 
         <div class="box-container container">
 
-            <div class="box">
+            {{-- <div class="box">
                 <img src="images/pic-1.png" alt="">
                 <h3>Cecille Sy</h3>
                 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit, ipsum eos? Perspiciatis expedita
                     laudantium blanditiis cupiditate at natus, quam alias?</p>
 
-            </div>
+            </div> --}}
 
             <div class="box">
-                <img src="images/pic-2.png" alt="">
-                <h3>john deo</h3>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit, ipsum eos? Perspiciatis expedita
-                    laudantium blanditiis cupiditate at natus, quam alias?</p>
+                <img src="images/doc.png" alt="">
+                <h3>Cecille Sy</h3>
+                <p>Owner and Founder of Petworks Veterinary Clinic</p>
 
             </div>
 
-            <div class="box">
-                <img src="images/pic-3.png" alt="">
-                <h3>john deo</h3>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit, ipsum eos? Perspiciatis expedita
-                    laudantium blanditiis cupiditate at natus, quam alias?</p>
-
-            </div>
 
         </div>
 
@@ -428,7 +420,7 @@
             <a href="https://twitter.com/petworksclinic" class="fab fa-twitter"></a>
             {{-- <a href="#" class="fab fa-github"></a> --}}
         </div>
-        <p class="credit"> created by <span>anonymous</span> | all rights reserved 2022 </p>
+        <p class="credit"> created by <span>BSIT 3-1</span> | all rights reserved 2022 </p>
 
     </section>
     <!-- footer section ends -->

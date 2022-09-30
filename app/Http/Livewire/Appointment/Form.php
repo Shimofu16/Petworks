@@ -135,7 +135,7 @@ class Form extends Component
                 ]);
             }
         }
-        $this->reset();
+      
     }
     public function new()
     {

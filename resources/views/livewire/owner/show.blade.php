@@ -74,6 +74,9 @@
                                             Time
                                         </th>
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            Doctor
+                                        </th>
+                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Comment
                                         </th>
 
@@ -92,12 +95,16 @@
                                             <td>{{ $consultation->service->service }}</td>
                                             <td>{{ date('F d, Y', strtotime($consultation->date)) }}</td>
                                             <td>{{ date('H:i A', strtotime($consultation->time)) }}</td>
+                                            @if ($consultation->doctor->name != null)
+                                                <td>{{ $consultation->doctor->name }}</td>
+                                            @endif
+
                                             <td>
                                                 <button type="button" class="btn btn-link btn-sm text-info"
                                                     data-bs-toggle="modal"
                                                     data-bs-target="#show{{ $consultation->id }}">
                                                     <i class="fa-solid fa-eye text-info me-2" aria-hidden="true"></i>
-                                                   Show
+                                                    Show
                                                 </button>
                                                 @include('Petworks.admin.owner.modal._show')
                                             </td>
@@ -105,7 +112,8 @@
                                                 <button type="button" class="btn btn-link btn-sm"
                                                     data-bs-toggle="modal"
                                                     data-bs-target="#edit{{ $consultation->id }}">
-                                                    <i class="fa-solid fa-pen-to-square text-primary me-2" aria-hidden="true"></i>
+                                                    <i class="fa-solid fa-pen-to-square text-primary me-2"
+                                                        aria-hidden="true"></i>
                                                     Edit
                                                 </button>
                                                 @include('Petworks.admin.owner.modal._edit')

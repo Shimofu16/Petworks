@@ -38,7 +38,7 @@ class AppointmentSeeder extends Seeder
                 'age' => 2,
                 'birthdate' => '2020-08-09',
                 'gender' => 'Female',
-                'breed' => 'K9',
+                'breed' => 'pomeranian',
                 'pet_type' => 'Dog',
             ],
             [
@@ -46,8 +46,8 @@ class AppointmentSeeder extends Seeder
                 'pet_name' => 'raily',
                 'age' => 2,
                 'birthdate' => '2020-02-09',
-                'gender' => 'Male',
-                'breed' => 'K9',
+                'gender' => 'female',
+                'breed' => 'beagle',
                 'pet_type' => 'Dog',
             ],
             [
@@ -56,7 +56,7 @@ class AppointmentSeeder extends Seeder
                 'age' => 2,
                 'birthdate' => '2020-02-09',
                 'gender' => 'Male',
-                'breed' => 'K9',
+                'breed' => 'beagle',
                 'pet_type' => 'Dog',
             ]
         ];

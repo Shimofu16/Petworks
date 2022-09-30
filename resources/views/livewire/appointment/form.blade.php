@@ -1,22 +1,27 @@
 <div>
     @switch($currentStep)
         @case(1)
-            <div class="card shadow bg-light">
-                <div class="card-header">
+            <div class="card shadow bg-light mt-5 ">
+                <div class="card-header bg-primary ">
                     {{-- <div>
                         <img src="{{  }}" alt="">
                     </div> --}}
                     <div>
-                        <h1 class="text-center mb-1 card-title">Welcome!</h1>
-                        <h6 class="text-center">Petworks Veterinary Clinic</h6>
+                        <h1 class="text-center mb-1 card-title text-white">Welcome!</h1>
+                        <h6 class="text-center text-white">Petworks Veterinary Clinic</h6>
                     </div>
                 </div>
                 <div class="card-body">
                     <div class="row justify-content-center align-items-center my-3">
                         <div class="col-md-5 text-center">
-                            <button type="button" class="btn btn-primary mb-3" wire:click='new'>Book Appointment</button>
-                            <button class="btn btn-link" wire:click='old'>Excisting</button>
+                            <button type="button" class="btn btn-info mb-3" wire:click='new'>Book Appointment</button>
+                            <button type="button" class="btn btn-primary mb-3" wire:click='old'>Excisting Appointment</button>
+                            <a class="btn btn-danger" href="{{ route('home.index') }} ">Back to home</a>
                         </div>
+
+
+
+
                     </div>
                 </div>
             </div>
@@ -205,7 +210,9 @@
                         </div>
                         <div class="card-footer bg-transparent border-0 d-flex justify-content-between py-3">
                             <div></div>
-                            <button class="btn btn-success" type="submit" wire:submit>Submit</button>
+                            <button class="btn btn-success float-end" type="submit" wire:submit>Submit</button>
+
+
                         </div>
                     </form>
                 </div>
