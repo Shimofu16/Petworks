@@ -14,9 +14,21 @@
                 <div class="card-body">
                     <div class="row justify-content-center align-items-center my-3">
                         <div class="col-md-5 text-center">
-                            <button type="button" class="btn btn-info mb-3" wire:click='new'>Book Appointment</button>
-                            <button type="button" class="btn btn-primary mb-3" wire:click='old'>Excisting Appointment</button>
-                            <a class="btn btn-danger" href="{{ route('home.index') }} ">Back to home</a>
+                            <div class="dropdown">
+                                <button class="btn btn-info dropdown-toggle mb-3" type="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    Book Appointment
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" wire:click='new' href="#">New Client</a></li>
+                                    <li><a class="dropdown-item" wire:click='old' href="#">Existing Client</a></li>
+                                </ul>
+                            </div>
+                            {{--  <button type="button" class="btn btn-info mb-3" wire:click='new'>Book Appointment</button>
+                            <button type="button" class="btn btn-primary mb-3" wire:click='old'>Excisting Appointment</button> --}}
+
+                            <button type="button" class="btn btn-danger mb-3" wire:click='old'>Cancel Appointment</button>
+                            <a class="btn btn-success" href="{{ route('home.index') }} ">Back to home</a>
                         </div>
 
 
@@ -42,6 +54,7 @@
                                     <input type="text" name="name"
                                         class="form-control @error('name') is-invalid @enderror" placeholder="Enter Name "
                                         wire:model='name'>
+                           
                                     @error('name')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -207,13 +220,25 @@
                                     @enderror
                                 </div>
                             </div>
+                            <hr class="horizontal dark">
+                            <div class="col-12">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="invalidCheck"
+                                        required>
+                                    <label class="form-check-label" for="invalidCheck">
+                                        I Agree to terms and conditions
+                                    </label>
+                                    <div class="invalid-feedback">
+                                        You must agree before submitting.
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="card-footer bg-transparent border-0 d-flex justify-content-between py-3">
                             <div></div>
                             <button class="btn btn-success float-end" type="submit" wire:submit>Submit</button>
-
-
                         </div>
+
                     </form>
                 </div>
             @endif
@@ -379,6 +404,21 @@
                                         @enderror
                                     </div>
                                 </div>
+
+                                <hr class="horizontal dark">
+
+                                <div class="col-12">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck"
+                                            required>
+                                        <label class="form-check-label" for="invalidCheck">
+                                            I Agree to terms and conditions
+                                        </label>
+                                        <div class="invalid-feedback">
+                                            You must agree before submitting.
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <div class="card-footer bg-transparent border-0 d-flex justify-content-between py-3">
                                 <div></div>
@@ -406,7 +446,7 @@
                         </div>
                         <div class="card-footer bg-transparent border-0 d-flex justify-content-between">
                             <div></div>
-                            <button type="submit" class="btn btn-primary" wire:click='verifyEmail'>Submit</button>
+                            <button type="submit" class="btn btn-success" wire:click='verifyEmail'>Submit</button>
                         </div>
                     </div>
                 @endif

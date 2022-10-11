@@ -1,6 +1,6 @@
 @extends('Petworks.admin.index')
 @section('page-title')
-   List of Request Appointments
+   List of Pending Appointments
 @endsection
 @section('contents')
     <div class="row">
@@ -54,26 +54,26 @@
 
 
                             <tbody>
-                                @foreach ($appointments as $appointment)
+                                @foreach ($pendings as $pending)
                                     <tr>
                                         <td>
                                             <div class="d-flex flex-column justify-content-center px-2 py-1">
-                                                <h6 class="mb-0 text-sm">{{ $appointment->owner->name }}</h6>
+                                                <h6 class="mb-0 text-sm">{{ $pending->owner->name }}</h6>
                                             </div>
                                         </td>
                                         <td>
                                             <div class="d-flex flex-column justify-content-center px-2 py-1">
-                                                <h6 class="mb-0 text-sm">{{ $appointment->pet->pet_name }}</h6>
+                                                <h6 class="mb-0 text-sm">{{ $pending->pet->pet_name }}</h6>
                                             </div>
                                         </td>
                                         <td>
                                             <div class="d-flex flex-column justify-content-center px-2 py-1">
-                                                <h6 class="mb-0 text-sm">{{ $appointment->service->service }}</h6>
+                                                <h6 class="mb-0 text-sm">{{ $pending->service->service }}</h6>
                                             </div>
                                         </td>
 
                                         {{-- STATUS --}}
-                                        @if ($appointment->pending == 1)
+                                        @if ($pending->pending == 1)
                                             <td>
                                                 <div class="d-flex flex-column justify-content-center px-2 py-1">
                                                     <button class="btn btn-sm btn-danger">
@@ -97,26 +97,26 @@
                                             <div class="d-flex justify-content-center px-2 py-1">
                                                 <button class="btn btn-link text-info px-3 mb-0" href="#"
                                                     type="button" data-bs-toggle="modal"
-                                                    data-bs-target="#view{{ $appointment->id }}">
+                                                    data-bs-target="#view{{ $pending->id }}">
                                                     <i class="fa-solid fa-eye text-info me-2" aria-hidden="true"></i>
                                                     Show
                                                 </button>
                                             </div>
-                                            @include('Petworks.admin.appointment.modal._show')
+                                            @include('Petworks.admin.pending.modal._show')
                                         </td>
                                         <td>
                                             <div class="d-flex justify-content-center px-2 py-1">
                                                 <button class="btn btn-link text-success px-3 mb-0" href="#"
                                                     type="button" data-bs-toggle="modal"
-                                                    data-bs-target="#confirm{{ $appointment->id }}">
+                                                    data-bs-target="#confirm{{ $pending->id }}">
                                                     <i class="fa-solid fa-circle-check text-success me-2"
                                                         aria-hidden="true"></i>
                                                     Confirm
                                                 </button>
-                                                {{-- @if ($appointment->pending == 1)
+                                                {{-- @if ($pending->pending == 1)
                                                     <button class="btn btn-link text-success px-3 mb-0" href="#"
                                                         type="button" data-bs-toggle="modal"
-                                                        data-bs-target="#confirm{{ $appointment->id }}">
+                                                        data-bs-target="#confirm{{ $pending->id }}">
                                                         <i class="fa-solid fa-circle-check text-success me-2"
                                                             aria-hidden="true"></i>
                                                         Confirm
@@ -124,14 +124,14 @@
                                                 @endif --}}
                                                 <button class="btn btn-link text-danger px-3 mb-0" href="#"
                                                     type="button" data-bs-toggle="modal"
-                                                    data-bs-target="#cancel{{ $appointment->id }}">
+                                                    data-bs-target="#cancel{{ $pending->id }}">
                                                     <i class="fa-solid fa-circle-xmark text-danger me-2"
                                                         aria-hidden="true"></i>
                                                     Pending
                                                 </button>
                                             </div>
-                                            @include('Petworks.admin.appointment.modal._cancel')
-                                            @include('Petworks.admin.appointment.modal._confirm')
+                                            @include('Petworks.admin.pending.modal._cancel')
+                                            @include('Petworks.admin.pending.modal._confirm')
                                         </td>
                                     </tr>
                                 @endforeach
@@ -147,7 +147,7 @@
 @section('page-level-javascript')
     <script>
         $(document).ready(function() {
-            $('#confirm').DataTable(
+            $('#pending').DataTable(
                 'odering': false
             );
         });

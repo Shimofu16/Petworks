@@ -7,6 +7,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\OwnerController;
+use App\Http\Controllers\PendingController;
 use App\Http\Controllers\RecordController;
 use Illuminate\Support\Facades\Route;
 
@@ -38,6 +39,10 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::prefix('appointment')->name('appointment.')->controller(AppointmentController::class)->group(function () {
             Route::get('/',  'index')->name('index');
             Route::post('/store',  'store')->name('store');
+        });
+        /* PENDING*/
+        Route::prefix('pending')->name('pending.')->controller(PendingController::class)->group(function () {
+            Route::get('/',  'index')->name('index');
         });
 
         /* CONFIRM */

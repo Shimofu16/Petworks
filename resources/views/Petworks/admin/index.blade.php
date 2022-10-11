@@ -66,10 +66,13 @@
                         <ul class="nav nav-sm flex-column">
 
                             <li class="nav-item mb-2">
-                                <a href="{{ route('admin.appointment.index') }}" class="nav-link">Pending</a>
+                                <a href="{{ route('admin.appointment.index') }}" class="nav-link">Request Appointments</a>
                             </li>
                             <li class="nav-item mb-2">
-                                <a href="{{ route('admin.confirm.index') }}" class="nav-link">Confirm</a>
+                                <a href="{{ route('admin.pending.index') }}" class="nav-link">Pending Appointments</a>
+                            </li>
+                            <li class="nav-item mb-2">
+                                <a href="{{ route('admin.confirm.index') }}" class="nav-link">Confirm Appointments</a>
                             </li>
 
 

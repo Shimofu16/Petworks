@@ -261,10 +261,23 @@
 
             <div class="box">
                 <img src="images/doc.png" alt="">
+                <h3>Doctor Luealla</h3>
+                <p>Clinic Doctor</p>
+
+            </div>
+            <div class="box">
+                <img src="images/doc.png" alt="">
                 <h3>Cecille Sy</h3>
                 <p>Owner and Founder of Petworks Veterinary Clinic</p>
 
             </div>
+            <div class="box">
+                <img src="images/doc.png" alt="">
+                <h3>Doctor Edmundo Sy</h3>
+                <p>Clinic Doctor</p>
+
+            </div>
+
 
 
         </div>

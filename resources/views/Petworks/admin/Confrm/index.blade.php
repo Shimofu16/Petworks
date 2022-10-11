@@ -1,6 +1,6 @@
 @extends('Petworks.admin.index')
 @section('page-title')
-    Confirm
+    List of  Confirmed Appointments
 @endsection
 @section('contents')
     <div class="row">
