@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AppointmentController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ConfirmController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
@@ -43,12 +44,13 @@ Route::prefix('admin')->name('admin.')->group(function () {
         /* PENDING*/
         Route::prefix('pending')->name('pending.')->controller(PendingController::class)->group(function () {
             Route::get('/',  'index')->name('index');
+            Route::post('/update/{id}', 'update')->name('update');
         });
 
         /* CONFIRM */
         Route::prefix('confirm')->name('confirm.')->controller(ConfirmController::class)->group(function () {
             Route::get('/', 'index')->name('index');
-            Route::post('/update/{id}', 'update')->name('update');
+             Route::post('/update/{id}', 'update')->name('update');
             Route::delete('/delete/{id}', 'destroy')->name('destroy');
             Route::post('/pending/{id}',  'reply')->name('reply');
         });
@@ -71,6 +73,11 @@ Route::prefix('admin')->name('admin.')->group(function () {
         });
 
         Route::prefix('contact')->name('contact.')->controller(ContactController::class)->group(function () {
+        });
+
+         /* CATEGORY*/
+         Route::prefix('category')->name('category.')->controller(CategoryController::class)->group(function () {
+            Route::get('/',  'index')->name('index');
         });
     });
 });

@@ -3,7 +3,7 @@
         <div class="modal-content">
             <div class="modal-header bg-success">
 
-                <h5 class="modal-title text-light font-weight-bold">INFORMATION</h5>
+                <h5 class="modal-title text-light font-weight-bold">WARNING</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 
             </div>
@@ -12,16 +12,7 @@
                 <div class="modal-body">
                     <div class="card shadow-none">
                         <div class="card-body p-0">
-                            <div class="row">
-                                <label for="doctor">Doctor:</label>
-                            </div>
-                            <select class="form-select" aria-label="Default select example" id="doctor"
-                                name="doctor_id">
-                                <option selected>Select Doctor</option>
-                                @foreach ($doctors as $doctor)
-                                    <option value="{{ $doctor->id }}">{{ $doctor->name }}</option>
-                                @endforeach
-                            </select>
+                           <p>You are about to confirm the client's requested appointment.</p>
                         </div>
                     </div>
                 </div>

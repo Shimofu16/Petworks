@@ -1,18 +1,18 @@
-<div class="modal fade" id="view{{ $appointment->id }}" tabindex="-1" role="dialog"
-    aria-labelledby="examplModallongTitle" aria-hidden="true">
+<div class="modal fade" id="view{{ $appointment->id }}" tabindex="-1" role="dialog" aria-labelledby="examplModallongTitle"
+    aria-hidden="true">
     <div class="modal-dialog modal-lg" role document="document">
         <div class="modal-content">
             <div class="modal-header bg-info text-center">
                 <h5 class="modal-title text-light font-weight-bold " id="exampleModalLongtitle">
                     INFORMATION</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
 
 
 
             <div class="modal-body">
                 <table class="table table-hover">
-                  {{--   <thead>
+                    {{--   <thead>
                         <tr>
 
                             <h3 class="modal-title text-dark font-weight-bold text-center">INFORMATION</h3>
@@ -23,9 +23,16 @@
 
                     <tbody>
 
+                      <thead>
+                        <tr>
+                            <h5 class=" text-center text-bold"> CLIENT DETAILS</h5>
+                        </tr>
+                      </thead>
+
+
                         <tr>
                             <td class="text-left">Name:</td>
-                            <td class="text-left">{{ $appointment->owner->name}}</td>
+                            <td class="text-left">{{ $appointment->owner->name }}</td>
                         </tr>
 
                         <tr>
@@ -42,6 +49,13 @@
                             <td class="text-left">Contact number:</td>
                             <td class="text-left">{{ $appointment->owner->number }}</td>
                         </tr>
+
+                        <thead>
+                            <tr>
+                                <th class=" text-center text-md-start-2"> PET DETAILS</>
+
+                            </tr>
+                          </thead>
 
                         <tr>
                             <td class="text-left">Pet name:</td>
@@ -87,10 +101,10 @@
                             <td class="text-left">{{ $appointment->time }}</td>
                         </tr>
 
-
-
-
                     </tbody>
+
+
+
 
                 </table>
 
@@ -99,7 +113,7 @@
 
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              </div>
+            </div>
         </div>
 
     </div>

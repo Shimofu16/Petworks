@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Mail\Pending as MailPending;
 use App\Models\Appointment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class PendingController extends Controller
 {
@@ -71,9 +72,28 @@ class PendingController extends Controller
      * @param  \App\Models\pending  $pending
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, pending $pending)
+    public function update(Request $request, $id)
     {
-        //
+        try {
+            $appointment = Appointment::where('id', '=', $id)->firstOrFail();
+            $appointment->status = 1;
+            $appointment->doctor_id = $request->input('doctor_id');
+            $appointment->update();
+            $details = [
+                'name' => $appointment->owner->name,
+                'date' => $appointment->date,
+                'time' => $appointment->time,
+                'email' =>  $appointment->owner->email,
+                'number' => $appointment->owner->number,
+                'address' => $appointment->owner->address,
+            ];
+          /*   Mail::to($appointment->owner->email)->send(new MailConfirmController($details));  */  /* email */
+            toast()->success('Success', 'You confirmed the request')->autoClose(3000)->animation('animate__fadeInRight', 'animate__fadeOutRight')->width('400px');
+            return redirect()->route('admin.confirm.index');
+        } catch (\Throwable $th) {
+            toast()->warning('Warning', $th->getMessage())->autoClose(3000)->animation('animate__fadeInRight', 'animate__fadeOutRight')->width('400px');
+            return redirect()->back();
+        }
     }
 
     /**

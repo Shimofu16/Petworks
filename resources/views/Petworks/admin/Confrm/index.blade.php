@@ -26,8 +26,7 @@
                                         of
                                         Appointment
                                     </th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Doctor
-                                    </th>
+                                  
                                     <th
                                         class="text-uppercase text-center text-secondary text-xxs font-weight-bolder opacity-7">
                                         More info
@@ -53,11 +52,7 @@
                                                 <h6 class="mb-0 text-sm">{{ $appointment->service->service }}</h6>
                                             </div>
                                         </td>
-                                        <td>
-                                            <div class="d-flex flex-column justify-content-center px-2 py-1">
-                                                <h6 class="mb-0 text-sm">{{ $appointment->doctor->name }}</h6>
-                                            </div>
-                                        </td>
+
 
                                         {{-- BUTTONS --}}
                                         <td>

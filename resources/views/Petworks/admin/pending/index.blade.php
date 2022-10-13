@@ -39,8 +39,7 @@
                                         of
                                         Appointment
                                     </th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status
-                                    </th>
+
                                     <th
                                         class="text-uppercase text-center text-secondary text-xxs font-weight-bolder opacity-7">
                                         More info
@@ -72,24 +71,7 @@
                                             </div>
                                         </td>
 
-                                        {{-- STATUS --}}
-                                        @if ($pending->pending == 1)
-                                            <td>
-                                                <div class="d-flex flex-column justify-content-center px-2 py-1">
-                                                    <button class="btn btn-sm btn-danger">
-                                                        PENDING
-                                                    </button>
-                                                </div>
-                                            </td>
-                                        @else
-                                            <td>
-                                                <div class="d-flex flex-column justify-content-center px-2 py-1">
-                                                    <button class="btn btn-sm btn-secondary">
-                                                        NEW
-                                                    </button>
-                                                </div>
-                                            </td>
-                                        @endif
+
 
 
                                         {{-- BUTTONS --}}
@@ -113,15 +95,7 @@
                                                         aria-hidden="true"></i>
                                                     Confirm
                                                 </button>
-                                                {{-- @if ($pending->pending == 1)
-                                                    <button class="btn btn-link text-success px-3 mb-0" href="#"
-                                                        type="button" data-bs-toggle="modal"
-                                                        data-bs-target="#confirm{{ $pending->id }}">
-                                                        <i class="fa-solid fa-circle-check text-success me-2"
-                                                            aria-hidden="true"></i>
-                                                        Confirm
-                                                    </button>
-                                                @endif --}}
+
                                                 <button class="btn btn-link text-danger px-3 mb-0" href="#"
                                                     type="button" data-bs-toggle="modal"
                                                     data-bs-target="#cancel{{ $pending->id }}">

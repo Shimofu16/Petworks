@@ -94,7 +94,7 @@ class ConfirmController extends Controller
                 'number' => $appointment->owner->number,
                 'address' => $appointment->owner->address,
             ];
-            Mail::to($appointment->owner->email)->send(new MailConfirmController($details));   /* email */
+    /*         Mail::to($appointment->owner->email)->send(new MailConfirmController($details)); */
             toast()->success('Success', 'You confirmed the request')->autoClose(3000)->animation('animate__fadeInRight', 'animate__fadeOutRight')->width('400px');
             return redirect()->route('admin.confirm.index');
         } catch (\Throwable $th) {

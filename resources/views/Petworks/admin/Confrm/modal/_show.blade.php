@@ -85,10 +85,7 @@
                             <td class="text-left">Time:</td>
                             <td class="text-left">{{ $appointment->time }}</td>
                         </tr>
-                        <tr>
-                            <td class="text-left">Doctor:</td>
-                            <td class="text-left">{{ $appointment->doctor->name }}</td>
-                        </tr>
+                        
 
                     </tbody>
 

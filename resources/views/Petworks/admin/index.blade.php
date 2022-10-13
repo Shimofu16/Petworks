@@ -25,6 +25,7 @@
                 </li>
 
 
+                {{-- Dashboard --}}
                 <li class="nav-item">
                     <a class="nav-link {{ Request::routeIs('admin.index') ? 'active' : '' }}"
                         href="{{ route('admin.index') }}">
@@ -38,7 +39,7 @@
 
 
 
-                {{-- Homepage Syste, --}}
+                {{-- COntact us --}}
                 <li class="nav-item">
                     <a class="nav-link {{ Request::routeIs('admin.contact.index') ? 'active' : '' }}"
                         href="{{ route('admin.contact.index') }}">
@@ -52,6 +53,8 @@
                 </li>
 
 
+
+                {{-- Appointment --}}
                 <li class="nav-item">
                     <a class="nav-link collapsed {{ Request::routeIs('admin.appointment.*') ? 'active' : '' }}"
                         href="#appointment" data-bs-toggle="collapse" role="button" aria-expanded="false"
@@ -89,13 +92,14 @@
                 </div> --}}
 
 
+                {{-- RECORDS --}}
                 <hr class="horizontal dark mt-1">
                 <li class="nav-item mt-3">
                     <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Records</h6>
                 </li>
 
 
-                {{-- Single --}}
+                {{-- Client records Single --}}
                 <li class="nav-item">
                     <a class="nav-link {{ Request::routeIs('admin.owner.index') ? 'active' : '' }}"
                         href="{{ route('admin.owner.index') }}">
@@ -108,6 +112,27 @@
                     </a>
                 </li>
 
+
+                {{-- INVENTORY --}}
+                <hr class="horizontal dark mt-1">
+                <li class="nav-item mt-3">
+                    <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">INVENTORY</h6>
+                </li>
+
+
+                {{--  Category Single --}}
+                <li class="nav-item">
+                    <a class="nav-link {{ Request::routeIs('admin.category.index') ? 'active' : '' }}"
+                        href="{{ route('admin.category.index') }}">
+                        <div
+                            class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+
+                            <i class="fa-solid fa-boxes-packing text-sm opacity-10 text-success"></i>
+
+                        </div>
+                        <span class="nav-link-text ms-1">Category</span>
+                    </a>
+                </li>
 
                 {{-- Homepage dropdown --}}
 
