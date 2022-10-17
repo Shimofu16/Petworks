@@ -14,10 +14,10 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $pendingCount = Appointment::where('pending', '=', 1)->count();
+/*         $pendingCount = Appointment::where('pending', '=', 1)->count(); */
         $confirmCount = Appointment::where('status', '=', 1)->count();
         $recordCount = Appointment::count();
-        return view('Petworks.admin.dashboard.index', compact('recordCount', 'confirmCount', 'pendingCount'));
+        return view('Petworks.admin.dashboard.index', compact('recordCount', 'confirmCount'/* , 'pendingCount' */));
     }
 
     /**

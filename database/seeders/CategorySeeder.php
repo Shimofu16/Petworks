@@ -17,15 +17,8 @@ class CategorySeeder extends Seeder
         $data = [
 
 
-            'no' => '1',
-            'prd_id' => '001',
-            'prd_name' => 'goat milks powder',
-            'brand' => 'howbone',
-            'category' => 'food',
-            'date' => '09-10-22',
-            'price' => '250',
-
-    ];
-    category::create($data);
+            'category_name' => 'food',
+        ];
+        category::create($data);
     }
 }

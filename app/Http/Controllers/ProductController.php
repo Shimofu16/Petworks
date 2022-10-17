@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\category;
+use App\Models\product;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class CategoryController extends Controller
+class ProductController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categorys = Category::all();
-        return view('Petworks.admin.inventory.category.index', compact('categorys'));
+        $products = Product::all();
+        return view('Petworks.admin.inventory.product.index', compact('products'));
     }
 
     /**
@@ -37,32 +37,37 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        {
 
-           try {
-                $categorys = new Category();
-                $categorys->category_name = $request->input('category_name');
-                $categorys->save();
-
+            try {
+                product::create(
+                    [
+                        'product_name' => $request->input('product_name'),
+                        'brand_name' => $request->input('brand_name'),
+                        'category_id' => $request->input('category_id'),
+                        'date' => $request->input('date'),
+                        'price' => $request->input('price'),
+                        'stock' => $request->input('stock'),
+                    ]
+                );
 
                 toast()->success('Success', 'You added a new record')->autoClose(3000)->animation('animate__fadeInRight', 'animate__fadeOutRight')->width('400px');
                 return redirect()->back();
             } catch (\Throwable $th) {
-                toast()->warning('Info', 'You did not input any record '. $th->getMessage())->autoClose(3000)->animation('animate__fadeInRight', 'animate__fadeOutRight')->width('400px');
+                toast()->warning('Info', 'You did not input any record ' . $th->getMessage())->autoClose(3000)->animation('animate__fadeInRight', 'animate__fadeOutRight')->width('400px');
                 return redirect()->back();
             }
 
             return redirect()->back();
-        }
+
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\category  $category
+     * @param  \App\Models\product  $product
      * @return \Illuminate\Http\Response
      */
-    public function show(category $category)
+    public function show(product $product)
     {
         //
     }
@@ -70,10 +75,10 @@ class CategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\category  $category
+     * @param  \App\Models\product  $product
      * @return \Illuminate\Http\Response
      */
-    public function edit(category $category)
+    public function edit(product $product)
     {
         //
     }
@@ -82,30 +87,37 @@ class CategoryController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\category  $category
+     * @param  \App\Models\product  $product
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        $categorys = Category::findOrFail($id);
-        $categorys->update(
-            $request->all()
+        $products = Product::findOrFail($id);
+        $products->update(
+            [
+                'product_name' => $request->input('product_name'),
+                'brand_name' => $request->input('brand_name'),
+                'category_id' => $request->input('category_id'),
+                'date' => $request->input('date'),
+                'price' => $request->input('price'),
+                'stock' => $request->input('stock'),
+            ]
         );
-        if ($categorys->wasChanged()) {
+        if ($products->wasChanged()) {
             toast()->success('Success', 'You saved changes')->autoClose(3000)->animation('animate__fadeInRight', 'animate__fadeOutRight')->width('400px');
             return redirect()->back();
         }
         toast()->info('Info', 'There is no changes')->autoClose(3000)->animation('animate__fadeInRight', 'animate__fadeOutRight')->width('400px');
-        return redirect()->route('admin.category.index');
+        return redirect()->route('admin.product.update');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\category  $category
+     * @param  \App\Models\product  $product
      * @return \Illuminate\Http\Response
      */
-    public function destroy(category $category)
+    public function destroy(product $product)
     {
         //
     }

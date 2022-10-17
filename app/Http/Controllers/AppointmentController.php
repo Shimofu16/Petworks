@@ -18,7 +18,7 @@ class AppointmentController extends Controller
      */
     public function index()
     {
-        $appointments = Appointment::where('status', '=', 0)->get();
+        $appointments = Appointment::where('status', '=', 'request')->get();
         $doctors = Doctor::all();
         return view('Petworks.admin.appointment.index', compact('appointments', 'doctors'));
     }

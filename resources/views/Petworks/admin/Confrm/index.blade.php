@@ -26,7 +26,7 @@
                                         of
                                         Appointment
                                     </th>
-                                  
+
                                     <th
                                         class="text-uppercase text-center text-secondary text-xxs font-weight-bolder opacity-7">
                                         More info
@@ -57,11 +57,11 @@
                                         {{-- BUTTONS --}}
                                         <td>
                                             <div class="d-flex justify-content-center px-2 py-1">
-                                                <button class="btn btn-link text-info px-3 mb-0" href="#"
+                                                <button class="btn btn-link text-success px-3 mb-0" href="#"
                                                     type="button" data-bs-toggle="modal"
                                                     data-bs-target="#show{{ $appointment->id }}">
-                                                    <i class="fa-solid fa-eye text-info me-2" aria-hidden="true"></i>
-                                                    Show
+                                                    <i class="fa-solid fa-check text-success me-2" aria-hidden="true"></i>
+                                                    Complete
                                                 </button>
                                             </div>
                                             @include('Petworks.admin.Confrm.modal._show')

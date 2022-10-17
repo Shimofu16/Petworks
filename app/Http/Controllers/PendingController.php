@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\pending;
+use App\Mail\ConfirmController as MailConfirmController;
 use App\Http\Controllers\Controller;
 use App\Mail\Pending as MailPending;
 use App\Models\Appointment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Mail\PendingMail;
 
 class PendingController extends Controller
 {
@@ -18,7 +20,7 @@ class PendingController extends Controller
      */
     public function index()
     {
-        $pendings = Appointment::where('status', '=', 1)->get();
+        $pendings = Appointment::where('status', '=', 'pending')->get();
         return view('Petworks.admin.pending.index', compact('pendings'));
     }
 
@@ -76,7 +78,7 @@ class PendingController extends Controller
     {
         try {
             $appointment = Appointment::where('id', '=', $id)->firstOrFail();
-            $appointment->status = 1;
+            $appointment->status = "pending";
             $appointment->doctor_id = $request->input('doctor_id');
             $appointment->update();
             $details = [
@@ -87,9 +89,9 @@ class PendingController extends Controller
                 'number' => $appointment->owner->number,
                 'address' => $appointment->owner->address,
             ];
-          /*   Mail::to($appointment->owner->email)->send(new MailConfirmController($details));  */  /* email */
-            toast()->success('Success', 'You confirmed the request')->autoClose(3000)->animation('animate__fadeInRight', 'animate__fadeOutRight')->width('400px');
-            return redirect()->route('admin.confirm.index');
+           Mail::to($appointment->owner->email)->send(new MailConfirmController($details));  /* email */
+            toast()->success('Success', 'You accepted the request')->autoClose(3000)->animation('animate__fadeInRight', 'animate__fadeOutRight')->width('400px');
+            return redirect()->route('admin.pending.index');
         } catch (\Throwable $th) {
             toast()->warning('Warning', $th->getMessage())->autoClose(3000)->animation('animate__fadeInRight', 'animate__fadeOutRight')->width('400px');
             return redirect()->back();
@@ -102,8 +104,20 @@ class PendingController extends Controller
      * @param  \App\Models\pending  $pending
      * @return \Illuminate\Http\Response
      */
-    public function destroy(pending $pending)
+    public function destroy($id)
     {
-        //
+        try {
+            $appointment = Appointment::where('id', '=', $id)->firstOrFail();
+            $appointment->delete();
+            $data = [
+                'message' =>'Sorry, but the appointment that you booked has been canceled for the reason that the clinic gave you excess time for waiting time and you agreed to the terms and conditions.'
+            ];
+             Mail::to($appointment->owner->email)->send(new MailPending($data));
+            toast()->warning('Warning', 'The request is cancel')->autoClose(3000)->animation('animate__fadeInRight', 'animate__fadeOutRight')->width('400px');
+            return back();
+        } catch (\Throwable $th) {
+            toast()->warning('Warning', $th->getMessage())->autoClose(3000)->animation('animate__fadeInRight', 'animate__fadeOutRight')->width('400px');
+            return back();
+        }
     }
 }

@@ -25,7 +25,7 @@ class ConfirmController extends Controller
      */
     public function index()
     {
-        $appointments = Appointment::where('status', '=', 1)->get();
+        $appointments = Appointment::where('status', '=', 'confirmed')->get();
         return view('Petworks.admin.Confrm.index', compact('appointments'));
     }
 
@@ -83,7 +83,7 @@ class ConfirmController extends Controller
     {
         try {
             $appointment = Appointment::where('id', '=', $id)->firstOrFail();
-            $appointment->status = 1;
+            $appointment->status = "confirmed";
             $appointment->doctor_id = $request->input('doctor_id');
             $appointment->update();
             $details = [
@@ -94,7 +94,7 @@ class ConfirmController extends Controller
                 'number' => $appointment->owner->number,
                 'address' => $appointment->owner->address,
             ];
-    /*         Mail::to($appointment->owner->email)->send(new MailConfirmController($details)); */
+        /*   Mail::to($appointment->owner->email)->send(new MailConfirmController($details)); */
             toast()->success('Success', 'You confirmed the request')->autoClose(3000)->animation('animate__fadeInRight', 'animate__fadeOutRight')->width('400px');
             return redirect()->route('admin.confirm.index');
         } catch (\Throwable $th) {
@@ -111,25 +111,12 @@ class ConfirmController extends Controller
      */
     public function destroy($id)
     {
-        /* try {
-            $appointment = Appointment::where('id', '=', $id)->firstOrFail();
-            $appointment->pending = 1;
-            $appointment->update();
-            $data = [
-                'message' =>
-            ];
-             Mail::to($appointment->owner->email)->send(new PendingMail());
-            toast()->warning('Warning', 'The request is pending')->autoClose(3000)->animation('animate__fadeInRight', 'animate__fadeOutRight')->width('400px');
-            return back();
-        } catch (\Throwable $th) {
-            toast()->warning('Warning', $th->getMessage())->autoClose(3000)->animation('animate__fadeInRight', 'animate__fadeOutRight')->width('400px');
-            return back();
-        } */
+
     }
 
     public function reply(Request $request, $id)
     {
-        try {
+        /* try {
             $details = [
                 'message' => $request->input('message'),
             ];
@@ -143,6 +130,6 @@ class ConfirmController extends Controller
         } catch (\Throwable $th) {
             toast()->warning('Warning', $th->getMessage())->autoClose(3000)->animation('animate__fadeInRight', 'animate__fadeOutRight')->width('400px');
             return back();
-        }
+        } */
     }
 }

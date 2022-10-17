@@ -1,5 +1,5 @@
 @component('mail::message')
-<h2 class="text-info">MESSAGE</h2>
+<h2 class="text-info text-center">MESSAGE</h2>
 
 {{ $data['message'] }}
 

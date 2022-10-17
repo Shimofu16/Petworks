@@ -29,7 +29,7 @@ class Pending extends Mailable
      */
     public function build()
     {
-        return $this->from(env('MAIL_FROM_ADDRESS'))->subject('PENDING')->markdown('mail.pending', ['data' => $this->data]);
+        return $this->from(env('MAIL_FROM_ADDRESS'))->subject('APPOINTMENT CANCELED')->markdown('mail.pending', ['data' => $this->data]);
 
     }
 }

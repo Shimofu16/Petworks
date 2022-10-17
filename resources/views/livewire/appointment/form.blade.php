@@ -54,7 +54,7 @@
                                     <input type="text" name="name"
                                         class="form-control @error('name') is-invalid @enderror" placeholder="Enter Name "
                                         wire:model='name'>
-                           
+
                                     @error('name')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -221,6 +221,11 @@
                                 </div>
                             </div>
                             <hr class="horizontal dark">
+
+                            <p class="text-justify text-bold"> NOTE: Please be advised that once you book an appointment at the clinic, the clinic will give you 15
+                                minutes of excess time. After that 15 minutes, if you're still not in the clinic, your
+                                appointment will be automatically void.</p>
+
                             <div class="col-12">
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" value="" id="invalidCheck"
@@ -406,7 +411,9 @@
                                 </div>
 
                                 <hr class="horizontal dark">
-
+                                <p class="text-justify text-bold"> NOTE: Please be advised that once you book an appointment at the clinic, the clinic will give you 15
+                                    minutes of excess time. After that 15 minutes, if you're still not in the clinic, your
+                                    appointment will be automatically void.</p>
                                 <div class="col-12">
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" value="" id="invalidCheck"

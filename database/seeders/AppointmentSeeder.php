@@ -68,7 +68,7 @@ class AppointmentSeeder extends Seeder
                 'doctor_id' => 1,
                 'date' => '22-10-22',
                 'time' => '1:00',
-                'status' => 0,
+
             ],
             [
                 'owner_id' => 1,
@@ -77,7 +77,7 @@ class AppointmentSeeder extends Seeder
                 'doctor_id' => 2,
                 'date' => '22-10-22',
                 'time' => '1:00',
-                'status' => 0,
+
             ],
             [
                 'owner_id' => 1,
@@ -86,7 +86,7 @@ class AppointmentSeeder extends Seeder
                 'doctor_id' => 3,
                 'date' => '22-10-22',
                 'time' => '1:00',
-                'status' => 0,
+              
             ],
         ];
 

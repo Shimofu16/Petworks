@@ -1,6 +1,6 @@
 @extends('Petworks.admin.index')
 @section('page-title')
-    Category
+    Products
 @endsection
 @section('contents')
     <div class="row">
@@ -20,7 +20,7 @@
                                                     data-bs-target="#add">
                             <span class="d-flex align-items-center"><i class="fas fa-plus-circle"></i>&#160; Add</span>
                         </button>
-                         @include('Petworks.admin.inventory.category.modal._add')
+                         @include('Petworks.admin.inventory.product.modal._add')
                     </div>
 
                 </div>
@@ -32,30 +32,23 @@
                         <table class="table align-items-center mb-0">
                             <thead {{-- class="table-warning text-black" --}}>
                                 <tr>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">no.
-                                    </th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Category
-                                    </th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Total
-                                       product
-                                    </th>
 
 
-                                  {{--
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Product
-                                        ID
-                                    </th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Product
                                         name
                                     </th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Brand
                                         name
                                     </th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Date
-                                        stock in
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Category
                                     </th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">price
-                                    </th> --}}
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Date
+                                    </th>
+
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Price
+                                    </th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Initial Stocks
+                                    </th>
 
                                     <th
                                         class="text-uppercase text-center text-secondary text-xxs font-weight-bolder opacity-7">
@@ -66,24 +59,43 @@
 
 
                             <tbody>
-                                @foreach ($categorys as $category)
+                                @foreach ($products as $product)
                                     <tr>
                                         <td>
                                             <div class="d-flex flex-column justify-content-center px-2 py-1">
-                                                <h6 class="mb-0 text-sm">{{ $category->id }}</h6>
+                                                <h6 class="mb-0 text-sm">{{ $product->product_name }}</h6>
                                             </div>
                                         </td>
                                         <td>
                                             <div class="d-flex flex-column justify-content-center px-2 py-1">
-                                                <h6 class="mb-0 text-sm">{{ $category->category_name }}</h6>
+                                                <h6 class="mb-0 text-sm">{{ $product->brand_name }}</h6>
                                             </div>
                                         </td>
                                         <td>
                                             <div class="d-flex flex-column justify-content-center px-2 py-1">
-                                                <h6 class="mb-0 text-sm">{{ $category->products->count() }}</h6>
+                                                <h6 class="mb-0 text-sm">{{ $product->category->category_name }}</h6>
                                             </div>
                                         </td>
 
+
+
+                                        <td>
+                                            <div class="d-flex flex-column justify-content-center px-2 py-1">
+                                                <h6 class="mb-0 text-sm">{{ date('F d, Y', strtotime($product->date )) }}</h6>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="d-flex flex-column justify-content-center px-2 py-1">
+                                                <h6 class="mb-0 text-sm">{{ $product->price }}</h6>
+                                            </div>
+                                        </td>
+
+
+                                        <td>
+                                            <div class="d-flex flex-column justify-content-center px-2 py-1">
+                                                <h6 class="mb-0 text-sm">{{ $product->stock }}</h6>
+                                            </div>
+                                        </td>
 
 
 
@@ -91,13 +103,12 @@
                                             <div class="d-flex justify-content-center px-2 py-1">
                                                 <button class="btn btn-link text-warning px-3 mb-0" href="#"
                                                     type="button" data-bs-toggle="modal"
-                                                    data-bs-target="#edit{{ $category->id }}">
+                                                    data-bs-target=" #edit{{ $product->id }} ">
                                                     <i class="fa-solid fa-pen-to-square text-warning me-2"
                                                         aria-hidden="true"></i>
-
                                                     Edit
                                                 </button>
-                                                    @include('Petworks.admin.inventory.category.modal._edit')
+                                                    @include('Petworks.admin.inventory.product.modal._edit')
                                             </div>
                                         </td>
 
@@ -118,7 +129,7 @@
 @section('page-level-javascript')
     <script>
         $(document).ready(function() {
-            $('#category').DataTable(
+            $('#products').DataTable(
                 'odering': false
             );
         });

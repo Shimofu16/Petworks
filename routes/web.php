@@ -9,7 +9,9 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\OwnerController;
 use App\Http\Controllers\PendingController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RecordController;
+use App\Http\Controllers\SaleController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -45,13 +47,13 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::prefix('pending')->name('pending.')->controller(PendingController::class)->group(function () {
             Route::get('/',  'index')->name('index');
             Route::post('/update/{id}', 'update')->name('update');
+            Route::delete('/delete/{id}', 'destroy')->name('destroy');
         });
 
         /* CONFIRM */
         Route::prefix('confirm')->name('confirm.')->controller(ConfirmController::class)->group(function () {
             Route::get('/', 'index')->name('index');
              Route::post('/update/{id}', 'update')->name('update');
-            Route::delete('/delete/{id}', 'destroy')->name('destroy');
             Route::post('/pending/{id}',  'reply')->name('reply');
         });
         /* OWNER */
@@ -78,6 +80,23 @@ Route::prefix('admin')->name('admin.')->group(function () {
          /* CATEGORY*/
          Route::prefix('category')->name('category.')->controller(CategoryController::class)->group(function () {
             Route::get('/',  'index')->name('index');
+            Route::post('/store',  'store')->name('store');
+            Route::put('/update{id}',  'update')->name('update');
+        });
+
+
+         /* PRODUCT*/
+         Route::prefix('product')->name('product.')->controller(ProductController::class)->group(function () {
+            Route::get('/',  'index')->name('index');
+            Route::post('/store',  'store')->name('store');
+            Route::put('/update{id}',  'update')->name('update');
+        });
+
+         /* SLAES*/
+         Route::prefix('sale')->name('sale.')->controller(SaleController::class)->group(function () {
+            Route::get('/',  'index')->name('index');
+            Route::post('/store',  'store')->name('store');
+            Route::put('/update{id}',  'update')->name('update');
         });
     });
 });

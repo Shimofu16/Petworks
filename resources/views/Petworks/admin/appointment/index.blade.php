@@ -92,7 +92,7 @@
                                                     data-bs-target="#confirm{{ $appointment->id }}">
                                                     <i class="fa-solid fa-circle-check text-success me-2"
                                                         aria-hidden="true"></i>
-                                                    Confirm
+                                                    Accept
                                                 </button>
 
                                             </div>

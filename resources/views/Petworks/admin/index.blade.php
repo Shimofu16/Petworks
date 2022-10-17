@@ -134,6 +134,30 @@
                     </a>
                 </li>
 
+                {{--  Products Single --}}
+                <li class="nav-item">
+                    <a class="nav-link {{ Request::routeIs('admin.product.index') ? 'active' : '' }}"
+                        href="{{ route('admin.product.index') }}">
+                        <div
+                            class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="fa-solid fa-boxes-stacked text-sm opacity-10 text-success"></i>
+                        </div>
+                        <span class="nav-link-text ms-1">Products</span>
+                    </a>
+                </li>
+
+
+                 {{--  Sales Single --}}
+                 <li class="nav-item">
+                    <a class="nav-link {{ Request::routeIs('admin.sale.index') ? 'active' : '' }}"
+                        href="{{ route('admin.sale.index') }}">
+                        <div
+                            class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="fa-solid fa-barcode text-sm opacity-10 text-success"></i>
+                        </div>
+                        <span class="nav-link-text ms-1">Sales</span>
+                    </a>
+                </li>
                 {{-- Homepage dropdown --}}
 
 

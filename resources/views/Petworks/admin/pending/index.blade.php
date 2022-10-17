@@ -86,6 +86,7 @@
                                             </div>
                                             @include('Petworks.admin.pending.modal._show')
                                         </td>
+
                                         <td>
                                             <div class="d-flex justify-content-center px-2 py-1">
                                                 <button class="btn btn-link text-success px-3 mb-0" href="#"
@@ -101,7 +102,7 @@
                                                     data-bs-target="#cancel{{ $pending->id }}">
                                                     <i class="fa-solid fa-circle-xmark text-danger me-2"
                                                         aria-hidden="true"></i>
-                                                    Pending
+                                                    Cancel
                                                 </button>
                                             </div>
                                             @include('Petworks.admin.pending.modal._cancel')

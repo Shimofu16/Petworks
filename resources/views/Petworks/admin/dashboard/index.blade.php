@@ -7,7 +7,7 @@
                     <div class="row">
                         <div class="col-8">
                             <div class="numbers">
-                                <p class="text-sm mb-0 text-uppercase font-weight-bold">Client Records</p>
+                                <p class="text-sm mb-0 text-uppercase font-weight-bold">Records</p>
                                 <h5 class="font-weight-bolder">
                                     {{ $recordCount }}
                                 </h5>
@@ -37,7 +37,7 @@
                             <div class="numbers">
                                 <p class="text-sm mb-0 text-uppercase font-weight-bold">Pending</p>
                                 <h5 class="font-weight-bolder">
-                                    {{ $pendingCount }}
+                                 {{--    {{ $pendingCount }} --}}
                                 </h5>
                                 <a class="mb-0 text-decoration-underline" href="#">
                                     <span class="text-success text-sm font-weight-bolder"></span>

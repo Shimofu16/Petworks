@@ -8,6 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Calendar extends Model
 {
     protected $table = 'calendars';
-    public $timestamps = false;
     public $guarded = [];
 }

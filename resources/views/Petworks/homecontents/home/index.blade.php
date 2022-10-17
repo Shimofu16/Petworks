@@ -33,7 +33,7 @@
                 <div class="col-md-6">
                     {{-- <span>Why choose us?</span> --}}
                     <h3 class="title">Mission</h3>
-                    <p class="text-justify"> </p>
+
                     <p class="text-justify"> To provide excellent veterinary service by utilizing the highest standards of
                         care.</p>
                     <p class="text-justify"> To provide the highest quality medical and surgical care to our patients while
@@ -52,7 +52,7 @@
                     <p class="text-justify">Petworks Veterinary Clinic works to be the most trusted and respected pet care
                         provider in our community by administering the best possible medical and emotional care and giving
                         outstanding customer service to every patient and every client every visit.</p>
-                    {{-- <a href="{{ route('about') }}" class="link-btn">read more</a> --}}
+                  <a href="" class="link-btn">read more</a>
 
                     {{-- <div class="icons-container">
                         <div class="icons">

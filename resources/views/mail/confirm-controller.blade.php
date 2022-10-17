@@ -11,5 +11,7 @@ Phone number: {{ $data['number'] }}<br>
 Address: {{ $data['address'] }} <br>
 
 
+
+
 Thank you and stay safe!
 @endcomponent

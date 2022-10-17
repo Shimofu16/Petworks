@@ -12,23 +12,14 @@
 
             <div class="modal-body">
                 <table class="table table-hover">
-                    {{--   <thead>
-                        <tr>
 
-                            <h3 class="modal-title text-dark font-weight-bold text-center">INFORMATION</h3>
-
-
-                        </tr>
-                    </thead> --}}
 
                     <tbody>
 
-                      <thead>
-                        <tr>
-                            <h5 class=" text-center text-bold"> CLIENT DETAILS</h5>
+                        <tr colspan="3">
+                            <td class="text-start text-bold  text-info">  CLIENT DETAILS</h5></div></td>
+                            <td ></td>
                         </tr>
-                      </thead>
-
 
                         <tr>
                             <td class="text-left">Name:</td>
@@ -50,12 +41,12 @@
                             <td class="text-left">{{ $appointment->owner->number }}</td>
                         </tr>
 
-                        <thead>
-                            <tr>
-                                <th class=" text-center text-md-start-2"> PET DETAILS</>
 
-                            </tr>
-                          </thead>
+                        <tr colspan="3">
+                                <td class="text-start text-bold text-info">  PET DETAILS</h5></div></td>
+                                <td ></td>
+                        </tr>
+
 
                         <tr>
                             <td class="text-left">Pet name:</td>
