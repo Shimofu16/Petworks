@@ -79,7 +79,6 @@ class PendingController extends Controller
         try {
             $appointment = Appointment::where('id', '=', $id)->firstOrFail();
             $appointment->status = "pending";
-            $appointment->doctor_id = $request->input('doctor_id');
             $appointment->update();
             $details = [
                 'name' => $appointment->owner->name,

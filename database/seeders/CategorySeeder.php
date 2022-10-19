@@ -16,9 +16,18 @@ class CategorySeeder extends Seeder
     {
         $data = [
 
-
-            'category_name' => 'food',
+            [
+                'category_name' => 'Food',
+            ],
+            [
+                'category_name' => 'Vaccine',
+            ],
+            [
+                'category_name' => 'Treets',
+            ],
         ];
-        category::create($data);
+        foreach ($data as $key => $value) {
+            category::create($value);
+        }
     }
 }

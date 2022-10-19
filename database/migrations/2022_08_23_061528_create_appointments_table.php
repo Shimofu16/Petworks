@@ -30,13 +30,11 @@ class CreateAppointmentsTable extends Migration
                 ->references('id')
                 ->on('services')
                 ->onUpdate('cascade');
-            $table->unsignedBigInteger('doctor_id')->nullable();
-            $table->foreign('doctor_id')
-                ->references('id')
-                ->on('doctors')
-                ->onUpdate('cascade');
+            $table->string('doctor')->nullable();
             $table->date('date');
             $table->time('time');
+            /* Dito sia. */
+            $table->string('color')->nullable();
             $table->string('comment')->nullable();
             $table->string('image_name')->nullable();
             $table->string('path')->nullable();

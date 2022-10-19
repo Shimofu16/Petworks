@@ -18,7 +18,7 @@
                         <button class="btn btn-primary mb-0"
                                                     type="button" data-bs-toggle="modal"
                                                     data-bs-target="#add">
-                            <span class="d-flex align-items-center"><i class="fas fa-plus-circle"></i>&#160; Add</span>
+                            <span class="d-flex align-items-center"><i class="fas fa-plus-circle"></i>&#160; Add Product</span>
                         </button>
                          @include('Petworks.admin.inventory.product.modal._add')
                     </div>
@@ -86,7 +86,7 @@
                                         </td>
                                         <td>
                                             <div class="d-flex flex-column justify-content-center px-2 py-1">
-                                                <h6 class="mb-0 text-sm">{{ $product->price }}</h6>
+                                                <h6 class="mb-0 text-sm">₱{{ number_format($product->price, 2, '.', ',') }}</h6>
                                             </div>
                                         </td>
 
@@ -101,10 +101,10 @@
 
                                         <td>
                                             <div class="d-flex justify-content-center px-2 py-1">
-                                                <button class="btn btn-link text-warning px-3 mb-0" href="#"
+                                                <button class="btn btn-link text-primary px-3 mb-0" href="#"
                                                     type="button" data-bs-toggle="modal"
                                                     data-bs-target=" #edit{{ $product->id }} ">
-                                                    <i class="fa-solid fa-pen-to-square text-warning me-2"
+                                                    <i class="fa-solid fa-pen-to-square text-primary me-2"
                                                         aria-hidden="true"></i>
                                                     Edit
                                                 </button>

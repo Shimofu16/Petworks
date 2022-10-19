@@ -14,18 +14,31 @@ class SaleSeeder extends Seeder
      */
     public function run()
     {
+        /*
+        palitan mo lang yung product_id sa baba 
+        it depends on the product_id sa product table
+         */
         $data = [
-            'product_name' => 'dog food',
-            'brand_name' => 'howbone',
-            'category_id' => '1',
-            'date' => '2022-09-01',
-            'price' => '250.00',
-            'stock' => 15,
-            'sold' => 8,
-            'remain' => 7,
-            'sale' => 2000,
+            [
+                'product_id' => 1,
+                'remain' => 15,
+
+            ],
+            [
+                'product_id' => 2,
+                'remain' => 15,
+
+            ],
+            [
+                'product_id' => 3,
+                'remain' => 15,
+
+            ],
+
 
         ];
-        sale::create($data);
+        foreach ($data as $key => $value) {
+            sale::create($value);
+        }
     }
 }

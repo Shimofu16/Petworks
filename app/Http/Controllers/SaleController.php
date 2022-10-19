@@ -16,6 +16,16 @@ class SaleController extends Controller
     public function index()
     {
         $sales = Sale::all();
+        foreach ($sales as $key => $value) {
+            if ($value->remain != $value->product->stock) {
+                $value->update([
+                    'sold' => $value->sold + 1,
+                    'remain' => $value->remain - 1,
+                    'sale' => ($value->sold + 1) * $value->product->price,
+                ]);
+            }
+        }
+        $sales = Sale::all();
         return view('Petworks.admin.inventory.sales.index', compact('sales'));
     }
 

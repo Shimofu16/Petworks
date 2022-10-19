@@ -1,7 +1,7 @@
 <div class="modal" id="add" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-header bg-info text-center">
+            <div class="modal-header bg-primary text-center">
                 <h5 class="modal-title text-white font-weight-bold " id="exampleModalLongtitle">
                     Add Sales</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -12,8 +12,6 @@
 
                 <form action="{{ route('admin.sale.store') }} " method="POST">
                     @csrf
-
-
                         <div class="row g-3 mb-2">
 
                             <div class="col-md-6">
@@ -86,7 +84,7 @@
 
 
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-success data-bs-dismiss="modal"">Add</button>
+                        <button type="submit" class="btn btn-primary data-bs-dismiss="modal"">Add</button>
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     </div>
 

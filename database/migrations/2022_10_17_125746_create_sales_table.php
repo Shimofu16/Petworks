@@ -15,19 +15,14 @@ class CreateSalesTable extends Migration
     {
         Schema::create('sales', function (Blueprint $table) {
             $table->id();
-            $table->string('product_name');
-            $table->string('brand_name');
-            $table->unsignedBigInteger('category_id')->nullable();
-            $table->foreign('category_id')
+            $table->unsignedBigInteger('product_id');
+            $table->foreign('product_id')
                 ->references('id')
-                ->on('categories') /* relationship for categorypara makuha ang categories na nasa category */
+                ->on('products')
                 ->onUpdate('cascade');
-            $table->date('date');
-            $table->double('price');
-            $table->integer('stock');
-            $table->integer('sold');
-            $table->integer('remain');
-            $table->integer('sale');
+            $table->integer('sold')->default(0); 
+            $table->integer('remain')->default(0);
+            $table->integer('sale')->default(0);
             $table->timestamps();
         });
     }

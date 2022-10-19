@@ -1,7 +1,7 @@
 <div class="modal" id="edit{{ $product->id }}" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-header bg-info text-center">
+            <div class="modal-header bg-primary text-center">
                 <h5 class="modal-title text-white font-weight-bold " id="exampleModalLongtitle">
                     Edit Product</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -24,15 +24,15 @@
                         </div>
                         <div class="col-md-6">
                             <label for="brand_name" class="text-dark text-black font-weight-bold">Brand</label>
-                            <input type="text" class="form-control" name="brand_name" id="brand_name" placeholder="brand_name"
-                                value="{{ $product->brand_name }}">
+                            <input type="text" class="form-control" name="brand_name" id="brand_name"
+                                placeholder="brand_name" value="{{ $product->brand_name }}">
                         </div>
                     </div>
 
                     <div class="row g-3">
 
 
-                       {{--  <div class="col-md-6">
+                        {{-- <div class="col-md-6">
                             <label for="category_id" class="text-dark text-black font-weight-bold">Category</label>
                             <input type="text" class="form-control" name="category_id" id="category_id"
                                 placeholder="Category" value="{{ $product->category_id }}">
@@ -41,12 +41,14 @@
                         <div class="col-md-6">
                             <label for="category_id" class="text-dark text-black font-weight-bold">Category</label>
                             <select class="form-select @error('category_id') is-invalid @enderror"
-                                aria-label="Default select example"name="category_id" wire:model='category_id'>
-                                <option selected>Selecet Category</option>
-                                <option value="Food">Food</option>
-                                <option value="Medicine">Medicine</option>
-                                <option value="Products">Products</option>
-                                <option value="Vaccines">Vaccines</option>
+                                aria-label="Default select example" name="category_id" wire:model='category_id'>
+                                <option selected value="{{ $product->category_id  }}">{{ ($product->category != null) ? $product->category->category_name :
+                                    'Selecet Category' ; }}</option>
+                                @foreach ($categories as $category)
+                                @if ($product->category_id != $category->id)
+                                <option value="{{ $category->id }}"> {{ $category->category_name }}</option>
+                                @endif
+                                @endforeach
                             </select>
                         </div>
 
@@ -69,14 +71,14 @@
                         </div>
                         <div class="col-md-6">
                             <label for="stock" class="text-dark text-black font-weight-bold">Initial Stocks</label>
-                            <input type="number" class="form-control" name="stock" id="stock" placeholder="Initial Stock"
-                                value="{{ $product->stock }}">
+                            <input type="number" class="form-control" name="stock" id="stock"
+                                placeholder="Initial Stock" value="{{ $product->stock }}">
                         </div>
                     </div>
 
 
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-success">Save</button>
+                        <button type="submit" class="btn btn-primary">Save</button>
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     </div>
                 </form>

@@ -1,7 +1,7 @@
 <div class="modal" id="edit{{ $category->id }}" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-header bg-info text-center">
+            <div class="modal-header bg-primary text-center">
                 <h5 class="modal-title text-white font-weight-bold " id="exampleModalLongtitle">
                    Edit Category</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -30,7 +30,7 @@
 
 
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-success">Save</button>
+                        <button type="submit" class="btn btn-primary">Save</button>
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     </div>
                 </form>

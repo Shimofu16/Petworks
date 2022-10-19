@@ -9,4 +9,7 @@ class sale extends Model
 {
     protected $table = 'sales';
     public $guarded = [];
+    public function product(){
+        return $this->belongsTo(product::class,'product_id','id');
+    }
 }

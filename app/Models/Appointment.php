@@ -23,8 +23,8 @@ class Appointment extends Model
     {
         return $this->belongsTo(service::class, 'reason_id');
     }
-    public function doctor()
+   /*  public function doctor()
     {
         return $this->belongsTo(Doctor::class, 'doctor_id');
-    }
+    } */
 }

@@ -65,7 +65,7 @@ class AppointmentSeeder extends Seeder
                 'owner_id' => 1,
                 'pet_id' => 1,
                 'reason_id' => 1,
-                'doctor_id' => 1,
+
                 'date' => '22-10-22',
                 'time' => '1:00',
 
@@ -74,7 +74,7 @@ class AppointmentSeeder extends Seeder
                 'owner_id' => 1,
                 'pet_id' => 2,
                 'reason_id' => 2,
-                'doctor_id' => 2,
+
                 'date' => '22-10-22',
                 'time' => '1:00',
 
@@ -83,10 +83,9 @@ class AppointmentSeeder extends Seeder
                 'owner_id' => 1,
                 'pet_id' => 3,
                 'reason_id' => 3,
-                'doctor_id' => 3,
                 'date' => '22-10-22',
                 'time' => '1:00',
-              
+
             ],
         ];
 

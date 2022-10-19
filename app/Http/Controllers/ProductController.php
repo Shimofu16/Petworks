@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\product;
 use App\Http\Controllers\Controller;
+use App\Models\category;
+use App\Models\sale;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -16,7 +18,8 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::all();
-        return view('Petworks.admin.inventory.product.index', compact('products'));
+        $categories = category::all();
+        return view('Petworks.admin.inventory.product.index', compact('products', 'categories'));
     }
 
     /**
@@ -38,27 +41,29 @@ class ProductController extends Controller
     public function store(Request $request)
     {
 
-            try {
-                product::create(
-                    [
-                        'product_name' => $request->input('product_name'),
-                        'brand_name' => $request->input('brand_name'),
-                        'category_id' => $request->input('category_id'),
-                        'date' => $request->input('date'),
-                        'price' => $request->input('price'),
-                        'stock' => $request->input('stock'),
-                    ]
-                );
-
-                toast()->success('Success', 'You added a new record')->autoClose(3000)->animation('animate__fadeInRight', 'animate__fadeOutRight')->width('400px');
-                return redirect()->back();
-            } catch (\Throwable $th) {
-                toast()->warning('Info', 'You did not input any record ' . $th->getMessage())->autoClose(3000)->animation('animate__fadeInRight', 'animate__fadeOutRight')->width('400px');
-                return redirect()->back();
-            }
-
+        try {
+           $product_id = product::create(
+                [
+                    'product_name' => $request->input('product_name'),
+                    'brand_name' => $request->input('brand_name'),
+                    'category_id' => $request->input('category_id'),
+                    'date' => $request->input('date'),
+                    'price' => $request->input('price'),
+                    'stock' => $request->input('stock'),
+                ]
+            )->id;
+            sale::create([
+                'product_id' => $product_id,
+                'remain' => $request->input('stock'),
+            ]);
+            toast()->success('Success', 'You added a new record')->autoClose(3000)->animation('animate__fadeInRight', 'animate__fadeOutRight')->width('400px');
             return redirect()->back();
+        } catch (\Throwable $th) {
+            toast()->warning('Info', 'You did not input any record ' . $th->getMessage())->autoClose(3000)->animation('animate__fadeInRight', 'animate__fadeOutRight')->width('400px');
+            return redirect()->back();
+        }
 
+        return redirect()->back();
     }
 
     /**
@@ -98,7 +103,7 @@ class ProductController extends Controller
                 'product_name' => $request->input('product_name'),
                 'brand_name' => $request->input('brand_name'),
                 'category_id' => $request->input('category_id'),
-                'date' => $request->input('date'),
+                'date' => $request->date('date'),
                 'price' => $request->input('price'),
                 'stock' => $request->input('stock'),
             ]

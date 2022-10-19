@@ -1,7 +1,7 @@
 <div class="modal" id="add" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-header bg-info text-center">
+            <div class="modal-header bg-primary text-center">
                 <h5 class="modal-title text-white font-weight-bold " id="exampleModalLongtitle">
                     Add Product</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -34,10 +34,9 @@
                                 <select class="form-select @error('category_id') is-invalid @enderror"
                                     aria-label="Default select example"name="category_id" wire:model='category_id'>
                                     <option selected>Selecet Category</option>
-                                    <option value="Food">Food</option>
-                                    <option value="Medicine">Medicine</option>
-                                    <option value="Products">Products</option>
-                                    <option value="Vaccines">Vaccines</option>
+                                    @foreach ($categories as $category)
+                                    <option value="{{ $category->id }}"> {{ $category->category_name }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                             <div class="col-md-6">
@@ -66,7 +65,7 @@
 
 
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-success data-bs-dismiss="modal"">Add</button>
+                        <button type="submit" class="btn btn-primary data-bs-dismiss="modal"">Add</button>
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     </div>
 

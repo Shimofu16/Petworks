@@ -9,7 +9,8 @@ class category extends Model
 {
     protected $table = 'categories';
     public $guarded = [];
-public function products(){
-    return $this->hasMany(product::class,'category_id');
-}
+    public function products()
+    {
+        return $this->hasMany(product::class, 'category_id');
+    }
 }
