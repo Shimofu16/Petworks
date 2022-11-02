@@ -135,7 +135,7 @@ class Form extends Component
                 ]);
             }
         }
-      
+
     }
     public function new()
     {
@@ -177,6 +177,7 @@ class Form extends Component
             if (!empty($this->pet_id)) {
                 $this->pet = Pet::find($this->pet_id);
                 $this->dpet_name = $this->pet->pet_name;
+                $this->dcolor = $this->pet->color;
                 $this->dpet_type = $this->pet->pet_type;
                 $this->dbirthdate = $this->pet->birthdate;
                 $this->dage = $this->pet->age;

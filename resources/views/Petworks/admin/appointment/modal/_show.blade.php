@@ -17,7 +17,7 @@
                     <tbody>
 
                         <tr colspan="3">
-                            <td class="text-start text-bold  text-info">  CLIENT DETAILS</h5></div></td>
+                            <td class="text-start text-bold  text-info">  OWNER DETAILS</h5></div></td>
                             <td ></td>
                         </tr>
 
@@ -51,6 +51,10 @@
                         <tr>
                             <td class="text-left">Pet name:</td>
                             <td class="text-left">{{ $appointment->pet->pet_name }}</td>
+                        </tr>
+                        <tr>
+                            <td class="text-left">Color:</td>
+                            <td class="text-left">{{ $appointment->pet->color }}</td>
                         </tr>
 
                         <tr>

@@ -52,7 +52,7 @@
                     {{-- owner info --}}
                     <div class="col">
                         <div class="card-header border-0 text-bold mt-3 mb-3">
-                            <h5 class="card-title mb-3 text-center text-info">Owner Information</h5>
+                            <h5 class="card-title mb-3 text-center text-info">Owner Detlsai</h5>
 
                             <hr class="horizontal dark mt-1">
                             <p class="card-text">Name: {{ $owner->name }}</p>
@@ -75,7 +75,7 @@
                     {{-- pet info --}}
                     <div class="col">
                         <div class="card-header border-0 text-bold mt-3 mb-3">
-                            <h5 class="card-title mb-3 text-center text-warning">Pet Information</h5>
+                            <h5 class="card-title mb-3 text-center text-info">Pet Details</h5>
 
                             <hr class="horizontal dark mt-1">
                             <select class="form-select mt-1 mb-1" aria-label="Default select example" name="pet_id"

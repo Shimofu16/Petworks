@@ -21,6 +21,7 @@ class CreatePetsTable extends Migration
                 ->on('owners')
                 ->onUpdate('cascade');
             $table->string('pet_name');
+            $table->string('color');
             $table->integer('age');
             $table->date('birthdate');
             $table->string('gender');

@@ -40,6 +40,7 @@ class AppointmentSeeder extends Seeder
                 'gender' => 'Female',
                 'breed' => 'pomeranian',
                 'pet_type' => 'Dog',
+                'color' => 'black',
             ],
             [
                 'owner_id' => 1,
@@ -49,6 +50,7 @@ class AppointmentSeeder extends Seeder
                 'gender' => 'female',
                 'breed' => 'beagle',
                 'pet_type' => 'Dog',
+                'color' => 'brown',
             ],
             [
                 'owner_id' => 1,
@@ -58,6 +60,7 @@ class AppointmentSeeder extends Seeder
                 'gender' => 'Male',
                 'breed' => 'beagle',
                 'pet_type' => 'Dog',
+                'color' => 'gray',
             ]
         ];
         $appointment = [

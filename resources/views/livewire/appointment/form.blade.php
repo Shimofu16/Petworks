@@ -102,12 +102,23 @@
                             </div>
                             <hr class="horizontal dark">
                             <div class="row mb-3">
-                                <div class="col-md-12 ">
+                                <div class="col-md-6 ">
                                     <label>Pet's Name<span class="text-danger ">*</span></label>
                                     <input type="text " name="pet_name"
                                         class="form-control @error('pet_name') is-invalid @enderror"
                                         placeholder="Enter Pet name " wire:model='pet_name'>
                                     @error('pet_name')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                                <div class="col-md-6 ">
+                                    <label>Color<span class="text-danger ">*</span></label>
+                                    <input type="text " name="color"
+                                        class="form-control @error('color') is-invalid @enderror"
+                                        placeholder="Color" wire:model='color'>
+                                    @error('color')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>

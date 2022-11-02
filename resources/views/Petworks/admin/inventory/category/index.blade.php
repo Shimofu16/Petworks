@@ -16,7 +16,7 @@ Category
 
                 <div class="d-flex justify-content-end">
                     <button class="btn btn-primary mb-0" type="button" data-bs-toggle="modal" data-bs-target="#add">
-                        <span class="d-flex align-items-center"><i class="fas fa-plus-circle"></i>&#160; Add</span>
+                        <span class="d-flex align-items-center"><i class="fas fa-plus-circle"></i>&#160; Add Category</span>
                     </button>
                     @include('Petworks.admin.inventory.category.modal._add')
                 </div>
