@@ -52,7 +52,7 @@
                     {{-- owner info --}}
                     <div class="col">
                         <div class="card-header border-0 text-bold mt-3 mb-3">
-                            <h5 class="card-title mb-3 text-center text-info">Owner Detlsai</h5>
+                            <h5 class="card-title mb-3 text-center text-info">Owner Details</h5>
 
                             <hr class="horizontal dark mt-1">
                             <p class="card-text">Name: {{ $owner->name }}</p>

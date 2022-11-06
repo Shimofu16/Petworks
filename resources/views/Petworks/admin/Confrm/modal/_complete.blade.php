@@ -22,14 +22,14 @@
                         <hr class="horizontal dark mt-0">
 
                         <div class="col-md-6">
-                            <label for="color" class="col-sm-2 col-form-label">Chief Complaint:</label>
-                            <input type="number" class="form-control" name="color" id="color" placeholder="Color"
+                            <label for="chief_complaint" class="col-sm-2 col-form-label">Chief Complaint:</label>
+                            <input type="text" class="form-control" name="chief_complaint" id="chief_complaint" placeholder="Cheif Complaint"
                                 value="">
                         </div>
 
                         <div class="col-md-6">
                             <label for="body_weight" class="col-sm-2 col-form-label">Body Weight:</label>
-                            <input type="number" class="form-control" name="color" id="color" placeholder="Color"
+                            <input type="number" class="form-control" name="body_weight" id="body_weight" placeholder="Body Weight"
                                 value="">
                         </div>
 
@@ -50,7 +50,7 @@
                         </div>
                         <div class="col-md-2">
                             <label for="diet" class="col-sm-2 col-form-label">Diet:</label>
-                            <input type="number" class="form-control" name="diet" id="diet" placeholder="Diet"
+                            <input type="text" class="form-control" name="diet" id="diet" placeholder="Diet"
                                 value="">
                         </div>
                         <div class="col-md-4">
@@ -58,7 +58,7 @@
                             <select class="form-select @error('product') is-invalid @enderror"
                                 aria-label="Default select example"name="product" wire:model='product'>
                                 <option selected>Selecet product</option>
-                               
+
                             </select>
                             @error('product')
                                 <span class="invalid-feedback" role="alert">
@@ -75,7 +75,7 @@
                         </div>
                         <div class="col-md-6">
                             <label for="doctor" class="col-sm-2 col-form-label">Doctor:</label>
-                            <input type="number" class="form-control" name="doctor" id="doctor"
+                            <input type="text" class="form-control" name="doctor" id="doctor"
                                 placeholder="Doctor" value="">
                         </div>
 
