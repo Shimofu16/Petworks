@@ -11,8 +11,11 @@
             <div class="modal-body">
 
                 <div class="card">
-                    <div class="card-header">
+                   
 
+
+
+                    <div class="card-header">
                         <img src="{{ asset($consultation->path) }}" alt="Photo" class="card-img">
                     </div>
                     <div class="card-body">
@@ -25,6 +28,6 @@
                     aria-label="Close">Close</button>
             </div>
         </div>
-      
+
     </div>
 </div>

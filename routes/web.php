@@ -5,6 +5,7 @@ use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ConfirmController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\OwnerController;
@@ -64,6 +65,13 @@ Route::prefix('admin')->name('admin.')->group(function () {
         });
         /* CONTACTS */
         Route::prefix('contact')->name('contact.')->controller(ContactController::class)->group(function () {
+            Route::get('/',  'index')->name('index');
+            Route::post('/store',  'store')->name('store');
+            Route::post('/reply',  'reply')->name('reply');
+            Route::delete('/{id}',  'destroy')->name('destroy');
+        });
+        /* DOCTOR */
+        Route::prefix('doctor')->name('doctor.')->controller(DoctorController::class)->group(function () {
             Route::get('/',  'index')->name('index');
             Route::post('/store',  'store')->name('store');
             Route::post('/reply',  'reply')->name('reply');

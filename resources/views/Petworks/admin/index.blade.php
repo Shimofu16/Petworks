@@ -107,7 +107,19 @@ Dashboard
 
                         <i class="fa-solid fa-file-invoice text-sm opacity-10 text-warning"></i>
                     </div>
-                    <span class="nav-link-text ms-1">Client Records</span>
+                    <span class="nav-link-text ms-1">Clients Records</span>
+                </a>
+            </li>
+
+             {{-- Doctor records Single --}}
+            <li class="nav-item">
+                <a class="nav-link {{ Request::routeIs('admin.doctor.index') ? 'active' : '' }}"
+                    href="{{ route('admin.doctor.index') }}">
+                    <div
+                        class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="fa-solid fa-user-doctor text-sm opacity-10 text-warning"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">Doctors Records</span>
                 </a>
             </li>
 
