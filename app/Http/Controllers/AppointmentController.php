@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\Pending;
 use App\Models\Appointment;
 use App\Models\Doctor;
 use App\Models\Owner;
@@ -19,8 +20,7 @@ class AppointmentController extends Controller
     public function index()
     {
         $appointments = Appointment::where('status', '=', 'request')->get();
-        $doctors = Doctor::all();
-        return view('Petworks.admin.appointment.index', compact('appointments', 'doctors'));
+        return view('Petworks.admin.appointment.request.index', compact('appointments'));
     }
 
     /**
@@ -121,9 +121,32 @@ class AppointmentController extends Controller
      * @param  \App\Models\Appointment  $appointment
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Appointment $appointment)
+    public function update(Request $request, $id)
     {
-        //
+        try {
+            $appointment = Appointment::where('id', '=', $id)->firstOrFail();
+            $appointment->update([
+                'status'=>"pending"
+            ]);
+            /*
+                TODO: ayusin mo ito
+                FIXME:dapat ang ilalagay mo sa mail ay naka pending yung appointment nya.
+            */
+            /* $details = [
+                'name' => $appointment->owner->name,
+                'date' => $appointment->date,
+                'time' => $appointment->time,
+                'email' =>  $appointment->owner->email,
+                'number' => $appointment->owner->number,
+                'address' => $appointment->owner->address,
+            ];
+           Mail::to($appointment->owner->email)->send(new Pending($details)); */  /* email */
+            toast()->success('Success', 'You accepted the request')->autoClose(3000)->animation('animate__fadeInRight', 'animate__fadeOutRight')->width('400px');
+            return redirect()->route('admin.pending.index');
+        } catch (\Throwable $th) {
+            toast()->warning('Warning', $th->getMessage())->autoClose(3000)->animation('animate__fadeInRight', 'animate__fadeOutRight')->width('400px');
+            return redirect()->back();
+        }
     }
 
     /**

@@ -1,6 +1,6 @@
 @extends('Petworks.admin.index')
 @section('page-title')
-    List of  Confirmed Appointments
+    List of Request Appointments
 @endsection
 @section('contents')
     <div class="row">
@@ -11,11 +11,24 @@
                     <div class="col">
                         <h6>@yield('page-title')</h6>
                     </div>
+                    <div class="col">
+                        {{-- <div class="d-flex justify-content-end align-items-center ">
+                        <select class="form-select mt-1" aria-label="Default select example">
+                            <option selected>Records</option>
+                            @foreach ($appointments as $appointment)
+                            <option value="{{ $appointment->id }}">{{ $appointment->reason }}</option>
+                            @endforeach
+                        </select>
+                        <button class="ms-2 bg-info text-white btn">
+                            Reset
+                        </button>
+                    </div> --}}
+                    </div>
                 </div>
 
                 <div class="card-body px-0 pt-0 pb-2">
                     <div class="table-responsive p-0">
-                        <table class="table align-items-center mb-0" id="confirm">
+                        <table class="table align-items-center mb-0" id="appointmentTable">
                             <thead {{-- class="table-warning text-black" --}}>
                                 <tr>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Name
@@ -26,16 +39,18 @@
                                         of
                                         Appointment
                                     </th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">More Info
-                                    </th>
-
                                     <th
                                         class="text-uppercase text-center text-secondary text-xxs font-weight-bolder opacity-7">
-                                       Action
+                                        More info
                                     </th>
-
+                                    <th
+                                        class="text-uppercase text-center text-secondary text-xxs font-weight-bolder opacity-7">
+                                        Action
+                                    </th>
                                 </tr>
                             </thead>
+
+
                             <tbody>
                                 @foreach ($appointments as $appointment)
                                     <tr>
@@ -56,31 +71,33 @@
                                         </td>
 
 
+
+
                                         {{-- BUTTONS --}}
                                         <td>
                                             <div class="d-flex justify-content-center px-2 py-1">
                                                 <button class="btn btn-link text-info px-3 mb-0" href="#"
                                                     type="button" data-bs-toggle="modal"
-                                                    data-bs-target="#show{{ $appointment->id }}">
+                                                    data-bs-target="#view{{ $appointment->id }}">
                                                     <i class="fa-solid fa-eye text-info me-2" aria-hidden="true"></i>
                                                     Show
                                                 </button>
+                                                @include('Petworks.admin.appointment.request.modal._show')
                                             </div>
-                                            @include('Petworks.admin.Confrm.modal._show')
                                         </td>
-
                                         <td>
                                             <div class="d-flex justify-content-center px-2 py-1">
                                                 <button class="btn btn-link text-success px-3 mb-0" href="#"
                                                     type="button" data-bs-toggle="modal"
-                                                    data-bs-target="#complete{{ $appointment->id }}">
-                                                    <i class="fa-solid fa-check text-success me-2" aria-hidden="true"></i>
-                                                    Complete
+                                                    data-bs-target="#confirm{{ $appointment->id }}">
+                                                    <i class="fa-solid fa-circle-check text-success me-2"
+                                                        aria-hidden="true"></i>
+                                                    Accept
                                                 </button>
+                                                @include('Petworks.admin.appointment.request.modal._cancel')
+                                                @include('Petworks.admin.appointment.request.modal._confirm')
                                             </div>
-                                            @include('Petworks.admin.Confrm.modal._complete')
                                         </td>
-
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -95,8 +112,8 @@
 @section('js')
     <script>
         $(document).ready(function() {
-            $('#confirm').DataTable(
-                'odering': false
+            $('#appointmentTable').DataTable(
+
             );
         });
     </script>

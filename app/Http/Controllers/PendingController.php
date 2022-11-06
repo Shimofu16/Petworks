@@ -21,7 +21,7 @@ class PendingController extends Controller
     public function index()
     {
         $pendings = Appointment::where('status', '=', 'pending')->get();
-        return view('Petworks.admin.pending.index', compact('pendings'));
+        return view('Petworks.admin.appointment.pending.index', compact('pendings'));
     }
 
     /**
@@ -78,8 +78,7 @@ class PendingController extends Controller
     {
         try {
             $appointment = Appointment::where('id', '=', $id)->firstOrFail();
-            $appointment->status = "pending";
-            $appointment->update();
+            $appointment->update(['status' => 'confirmed']);
             $details = [
                 'name' => $appointment->owner->name,
                 'date' => $appointment->date,
@@ -88,9 +87,9 @@ class PendingController extends Controller
                 'number' => $appointment->owner->number,
                 'address' => $appointment->owner->address,
             ];
-           Mail::to($appointment->owner->email)->send(new MailConfirmController($details));  /* email */
+            Mail::to($appointment->owner->email)->send(new MailConfirmController($details));  /* email */
             toast()->success('Success', 'You accepted the request')->autoClose(3000)->animation('animate__fadeInRight', 'animate__fadeOutRight')->width('400px');
-            return redirect()->route('admin.pending.index');
+            return redirect()->route('admin.confirm.index');
         } catch (\Throwable $th) {
             toast()->warning('Warning', $th->getMessage())->autoClose(3000)->animation('animate__fadeInRight', 'animate__fadeOutRight')->width('400px');
             return redirect()->back();
@@ -109,9 +108,9 @@ class PendingController extends Controller
             $appointment = Appointment::where('id', '=', $id)->firstOrFail();
             $appointment->delete();
             $data = [
-                'message' =>'Sorry, but the appointment that you booked has been canceled for the reason that the clinic gave you excess time for waiting time and you agreed to the terms and conditions.'
+                'message' => 'Sorry, but the appointment that you booked has been canceled for the reason that the clinic gave you excess time for waiting time and you agreed to the terms and conditions.'
             ];
-             Mail::to($appointment->owner->email)->send(new MailPending($data));
+            Mail::to($appointment->owner->email)->send(new MailPending($data));
             toast()->warning('Warning', 'The request is cancel')->autoClose(3000)->animation('animate__fadeInRight', 'animate__fadeOutRight')->width('400px');
             return back();
         } catch (\Throwable $th) {

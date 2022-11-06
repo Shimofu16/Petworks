@@ -6,6 +6,9 @@ use App\Mail\ConfirmController as MailConfirmController;
 use App\Mail\Pending as MailPending;
 use App\Mail\PendingController;
 use App\Models\Appointment;
+use App\Models\Doctor;
+use App\Models\product;
+use App\Models\SoldProduct;
 use Illuminate\Http\Request;
 use Illuminate\Mail\PendingMail;
 use Illuminate\Support\Facades\Mail;
@@ -26,7 +29,9 @@ class ConfirmController extends Controller
     public function index()
     {
         $appointments = Appointment::where('status', '=', 'confirmed')->get();
-        return view('Petworks.admin.Confrm.index', compact('appointments'));
+        $doctors = Doctor::all();
+        $products = product::all();
+        return view('Petworks.admin.appointment.Confrm.index', compact('appointments', 'doctors', 'products'));
     }
 
     /**
@@ -83,19 +88,31 @@ class ConfirmController extends Controller
     {
         try {
             $appointment = Appointment::where('id', '=', $id)->firstOrFail();
-            $appointment->status = "confirmed";
-            $appointment->update();
-            $details = [
-                'name' => $appointment->owner->name,
-                'date' => $appointment->date,
-                'time' => $appointment->time,
-                'email' =>  $appointment->owner->email,
-                'number' => $appointment->owner->number,
-                'address' => $appointment->owner->address,
-            ];
-        /*   Mail::to($appointment->owner->email)->send(new MailConfirmController($details)); */
-            toast()->success('Success', 'You confirmed the request')->autoClose(3000)->animation('animate__fadeInRight', 'animate__fadeOutRight')->width('400px');
-            return redirect()->route('admin.confirm.index');
+            $appointment->update([
+                'status' => 'done',
+                'complaint' => $request->input('complaint'),
+                'weight' => $request->input('weight'),
+                'hr' => $request->input('hr'),
+                'rr' => $request->input('rr'),
+                'temperature' => $request->input('temperature'),
+                'diet' => $request->input('diet'),
+                'next_visit' => $request->input('next_visit'),
+                'doctor_id' => $request->input('doctor_id'),
+                'color' => $request->input('color'),
+                'comment' => $request->input('comment'),
+            ]);
+            /* kaya ako nag gawa ng sold products ay  para dyan ilagay yung mga product na nagamit sa appointment*/
+            /* dapat nga madami to pero eto muna sa ngayon para mapakita ko lang sayo at sa client mo na ganan mangyayari */
+            /* tapos may babaguhin pa sa sales.. */
+            $product = SoldProduct::create([
+                'appointment_id' => $appointment->id,
+                'product_id' => $request->input('product_id'),
+            ]);
+            /* palitan ng message
+                dapat yung message ay success na yung appointment or tapos na something like that :D
+            */
+            toast()->success('Success', 'Done')->autoClose(3000)->animation('animate__fadeInRight', 'animate__fadeOutRight')->width('400px');
+            return redirect()->back();
         } catch (\Throwable $th) {
             toast()->warning('Warning', $th->getMessage())->autoClose(3000)->animation('animate__fadeInRight', 'animate__fadeOutRight')->width('400px');
             return redirect()->back();
@@ -110,7 +127,6 @@ class ConfirmController extends Controller
      */
     public function destroy($id)
     {
-
     }
 
     public function reply(Request $request, $id)

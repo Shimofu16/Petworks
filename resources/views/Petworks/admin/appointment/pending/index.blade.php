@@ -1,6 +1,6 @@
 @extends('Petworks.admin.index')
 @section('page-title')
-List of Request Appointments
+List of Pending Appointments
 @endsection
 @section('contents')
 <div class="row">
@@ -28,8 +28,8 @@ List of Request Appointments
 
             <div class="card-body px-0 pt-0 pb-2">
                 <div class="table-responsive p-0">
-                    <table class="table align-items-center mb-0" id="appointmentTable">
-                        <thead {{-- class="table-warning text-black" --}} >
+                    <table class="table align-items-center mb-0">
+                        <thead {{-- class="table-warning text-black" --}} id="pending">
                             <tr>
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Name
                                 </th>
@@ -39,6 +39,7 @@ List of Request Appointments
                                     of
                                     Appointment
                                 </th>
+
                                 <th
                                     class="text-uppercase text-center text-secondary text-xxs font-weight-bolder opacity-7">
                                     More info
@@ -52,21 +53,21 @@ List of Request Appointments
 
 
                         <tbody>
-                            @foreach ($appointments as $appointment)
+                            @foreach ($pendings as $pending)
                             <tr>
                                 <td>
                                     <div class="d-flex flex-column justify-content-center px-2 py-1">
-                                        <h6 class="mb-0 text-sm">{{ $appointment->owner->name }}</h6>
+                                        <h6 class="mb-0 text-sm">{{ $pending->owner->name }}</h6>
                                     </div>
                                 </td>
                                 <td>
                                     <div class="d-flex flex-column justify-content-center px-2 py-1">
-                                        <h6 class="mb-0 text-sm">{{ $appointment->pet->pet_name }}</h6>
+                                        <h6 class="mb-0 text-sm">{{ $pending->pet->pet_name }}</h6>
                                     </div>
                                 </td>
                                 <td>
                                     <div class="d-flex flex-column justify-content-center px-2 py-1">
-                                        <h6 class="mb-0 text-sm">{{ $appointment->service->service }}</h6>
+                                        <h6 class="mb-0 text-sm">{{ $pending->service->service }}</h6>
                                     </div>
                                 </td>
 
@@ -77,25 +78,30 @@ List of Request Appointments
                                 <td>
                                     <div class="d-flex justify-content-center px-2 py-1">
                                         <button class="btn btn-link text-info px-3 mb-0" href="#" type="button"
-                                            data-bs-toggle="modal" data-bs-target="#view{{ $appointment->id }}">
+                                            data-bs-toggle="modal" data-bs-target="#view{{ $pending->id }}">
                                             <i class="fa-solid fa-eye text-info me-2" aria-hidden="true"></i>
                                             Show
                                         </button>
                                     </div>
-                                    @include('Petworks.admin.appointment.modal._show')
+                                    @include('Petworks.admin.appointment.pending.modal._show')
                                 </td>
+
                                 <td>
                                     <div class="d-flex justify-content-center px-2 py-1">
                                         <button class="btn btn-link text-success px-3 mb-0" href="#" type="button"
-                                            data-bs-toggle="modal" data-bs-target="#confirm{{ $appointment->id }}">
+                                            data-bs-toggle="modal" data-bs-target="#confirm{{ $pending->id }}">
                                             <i class="fa-solid fa-circle-check text-success me-2"
                                                 aria-hidden="true"></i>
-                                            Accept
+                                            Confirm
                                         </button>
-
+                                        <button class="btn btn-link text-danger px-3 mb-0" href="#" type="button"
+                                            data-bs-toggle="modal" data-bs-target="#cancel{{ $pending->id }}">
+                                            <i class="fa-solid fa-circle-xmark text-danger me-2" aria-hidden="true"></i>
+                                            Cancel
+                                        </button>
                                     </div>
-                                    @include('Petworks.admin.appointment.modal._cancel')
-                                    @include('Petworks.admin.appointment.modal._confirm')
+                                    @include('Petworks.admin.appointment.pending.modal._cancel')
+                                    @include('Petworks.admin.appointment.pending.modal._confirm')
                                 </td>
                             </tr>
                             @endforeach
@@ -110,9 +116,9 @@ List of Request Appointments
 
 @section('js')
 <script>
-     $(document).ready(function() {
-            $('#appointmentTable').DataTable(
-
+    $(document).ready(function() {
+            $('#pending').DataTable(
+                'odering': false
             );
         });
 </script>

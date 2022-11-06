@@ -51,7 +51,9 @@ class OwnerController extends Controller
     {
         try {
             $owner = Owner::findOrFail($id);
-            $services = Appointment::where('owner_id', '=', $owner->id)->get();
+            $services = Appointment::where('owner_id', '=', $owner->id)
+                ->where('status', '=', 'done')
+                ->get();
             return view('Petworks.admin.owner.show', compact('owner', 'services'));
         } catch (\Throwable $th) {
             //throw $th;

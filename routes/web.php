@@ -42,6 +42,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
         /* APPOINTMENT */
         Route::prefix('appointment')->name('appointment.')->controller(AppointmentController::class)->group(function () {
             Route::get('/',  'index')->name('index');
+            Route::post('/update/{id}', 'update')->name('update');
             Route::post('/store',  'store')->name('store');
         });
         /* PENDING*/
@@ -54,7 +55,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
         /* CONFIRM */
         Route::prefix('confirm')->name('confirm.')->controller(ConfirmController::class)->group(function () {
             Route::get('/', 'index')->name('index');
-             Route::post('/update/{id}', 'update')->name('update');
+            Route::post('/update/{id}', 'update')->name('update');
             Route::post('/pending/{id}',  'reply')->name('reply');
         });
         /* OWNER */
@@ -85,23 +86,23 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::prefix('contact')->name('contact.')->controller(ContactController::class)->group(function () {
         });
 
-         /* CATEGORY*/
-         Route::prefix('category')->name('category.')->controller(CategoryController::class)->group(function () {
+        /* CATEGORY*/
+        Route::prefix('category')->name('category.')->controller(CategoryController::class)->group(function () {
             Route::get('/',  'index')->name('index');
             Route::post('/store',  'store')->name('store');
             Route::put('/update{id}',  'update')->name('update');
         });
 
 
-         /* PRODUCT*/
-         Route::prefix('product')->name('product.')->controller(ProductController::class)->group(function () {
+        /* PRODUCT*/
+        Route::prefix('product')->name('product.')->controller(ProductController::class)->group(function () {
             Route::get('/',  'index')->name('index');
             Route::post('/store',  'store')->name('store');
             Route::put('/update{id}',  'update')->name('update');
         });
 
-         /* SLAES*/
-         Route::prefix('sale')->name('sale.')->controller(SaleController::class)->group(function () {
+        /* SLAES*/
+        Route::prefix('sale')->name('sale.')->controller(SaleController::class)->group(function () {
             Route::get('/',  'index')->name('index');
             Route::post('/store',  'store')->name('store');
             Route::put('/update{id}',  'update')->name('update');

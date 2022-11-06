@@ -7,7 +7,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 
             </div>
-            <form action=" {{ route('admin.pending.update', $appointment->id) }}" method="POST">
+            <form action=" {{ route('admin.appointment.update', $appointment->id) }}" method="POST">
                 @csrf
                 <div class="modal-body">
                     <div class="card shadow-none">

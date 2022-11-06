@@ -31,7 +31,7 @@ Dashboard
                     href="{{ route('admin.index') }}">
                     <div
                         class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="fa-solid fa-tv text-sm opacity-10"></i>
+                        <i class="fa-solid fa-tv text-sm opacity-10 {{ Request::routeIs('admin.index') ? '' : 'text-primary' }}"></i>
                     </div>
                     <span class="nav-link-text ms-1">Dashboard</span>
                 </a>
@@ -46,7 +46,7 @@ Dashboard
                     <div
                         class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
 
-                        <i class="fa-solid fa-message text-sm opacity-10 text-primary"></i>
+                        <i class="fa-solid fa-message text-sm opacity-10 {{ Request::routeIs('admin.contact.index') ? '' : 'text-primary' }}"></i>
                     </div>
                     <span class="nav-link-text ms-1">Contact us</span>
                 </a>
@@ -61,23 +61,21 @@ Dashboard
                     aria-controls="appointment">
                     <div
                         class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="fa-solid fa-calendar-days text-sm opacity-10 text-primary"></i>
+                        <i class="fa-solid fa-calendar-days text-sm opacity-10  {{ Request::routeIs(['admin.appointment.*','admin.pending.*','admin.confirm.*']) ? '' : 'text-primary' }}"></i>
                     </div>
                     <span class="nav-link-text">Appointment</span>
                 </a>
-                <div class="collapse" id="appointment">
-                    <ul class="nav nav-sm flex-column">
-                        <li class="nav-item mb-2">
-                            <a href="{{ route('admin.appointment.index') }}" class="nav-link">Request Appointments</a>
+                <div class="collapse mt-1 bg-primary rounded mx-2" id="appointment">
+                    <ul class="nav nav-sm flex-column p-2">
+                        <li class="nav-item  mb-1 {{ Request::routeIs('admin.appointment.index' ) ? 'nav-item-active' : '' }}">
+                            <a href="{{ route('admin.appointment.index') }}" class="nav-link text-white">Request Appointments</a>
                         </li>
-                        <li class="nav-item mb-2">
-                            <a href="{{ route('admin.pending.index') }}" class="nav-link">Pending Appointments</a>
+                        <li class="nav-item mb-1 {{ Request::routeIs('admin.pending.index' ) ? 'nav-item-active' : '' }}">
+                            <a href="{{ route('admin.pending.index') }}" class="nav-link text-white">Pending Appointments</a>
                         </li>
-                        <li class="nav-item mb-2">
-                            <a href="{{ route('admin.confirm.index') }}" class="nav-link">Confirm Appointments</a>
+                        <li class="nav-item mb-1 {{ Request::routeIs('admin.confirm.index' ) ? 'nav-item-active' : '' }}">
+                            <a href="{{ route('admin.confirm.index') }}" class="nav-link text-white">Confirm Appointments</a>
                         </li>
-
-
                     </ul>
                 </div>
             </li>
@@ -100,12 +98,12 @@ Dashboard
 
             {{-- Client records Single --}}
             <li class="nav-item">
-                <a class="nav-link {{ Request::routeIs('admin.owner.index') ? 'active' : '' }}"
+                <a class="nav-link {{ Request::routeIs('admin.owner.*') ? 'active' : '' }}"
                     href="{{ route('admin.owner.index') }}">
                     <div
                         class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
 
-                        <i class="fa-solid fa-file-invoice text-sm opacity-10 text-warning"></i>
+                        <i class="fa-solid fa-file-invoice text-sm opacity-10  {{ Request::routeIs('admin.owner.*') ? '' : 'text-warning' }}"></i>
                     </div>
                     <span class="nav-link-text ms-1">Clients Records</span>
                 </a>
@@ -117,7 +115,7 @@ Dashboard
                     href="{{ route('admin.doctor.index') }}">
                     <div
                         class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="fa-solid fa-user-doctor text-sm opacity-10 text-warning"></i>
+                        <i class="fa-solid fa-user-doctor text-sm opacity-10  {{ Request::routeIs('admin.doctor.*') ? '' : 'text-warning' }}"></i>
                     </div>
                     <span class="nav-link-text ms-1">Doctors Records</span>
                 </a>
@@ -138,7 +136,7 @@ Dashboard
                     <div
                         class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
 
-                        <i class="fa-solid fa-boxes-packing text-sm opacity-10 text-success"></i>
+                        <i class="fa-solid fa-boxes-packing text-sm opacity-10  {{ Request::routeIs('admin.category.index') ? '' : 'text-success' }}"></i>
 
                     </div>
                     <span class="nav-link-text ms-1">Category</span>
@@ -151,7 +149,7 @@ Dashboard
                     href="{{ route('admin.product.index') }}">
                     <div
                         class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="fa-solid fa-boxes-stacked text-sm opacity-10 text-success"></i>
+                        <i class="fa-solid fa-boxes-stacked text-sm opacity-10 text-  {{ Request::routeIs('admin.product.index') ? '' : 'text-success' }}"></i>
                     </div>
                     <span class="nav-link-text ms-1">Products</span>
                 </a>
@@ -164,7 +162,7 @@ Dashboard
                     href="{{ route('admin.sale.index') }}">
                     <div
                         class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="fa-solid fa-barcode text-sm opacity-10 text-success"></i>
+                        <i class="fa-solid fa-barcode text-sm opacity-10 {{ Request::routeIs('admin.sale.index') ? '' : 'text-success' }}"></i>
                     </div>
                     <span class="nav-link-text ms-1">Sales</span>
                 </a>

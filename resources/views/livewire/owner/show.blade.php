@@ -139,7 +139,7 @@
                                 <td>{{ $consultation->service->service }}</td>
                                 <td>{{ date('F d, Y', strtotime($consultation->date)) }}</td>
                                 <td>{{ date('H:i A', strtotime($consultation->time)) }}</td>
-                                <td>{{ $consultation->doctor}}</td>
+                                <td>{{ $consultation->doctor->name}}</td>
                                 <td>
                                     <div>
                                         <button type="button" class="btn btn-link btn-sm text-info"

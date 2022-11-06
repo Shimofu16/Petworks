@@ -15,20 +15,20 @@
                     <div class="row justify-content-center align-items-center my-3">
                         <div class="col-md-5 text-center">
                             <div class="dropdown">
-                                <button class="btn btn-info dropdown-toggle mb-3" type="button" data-bs-toggle="dropdown"
+                                <button class="btn btn-primary dropdown-toggle mb-3" type="button" data-bs-toggle="dropdown"
                                     aria-expanded="false">
                                     Book Appointment
                                 </button>
                                 <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" wire:click='new' href="#">New Client</a></li>
                                     <li><a class="dropdown-item" wire:click='old' href="#">Existing Client</a></li>
+                                    <li><a class="dropdown-item" wire:click='cancel' href="#">Cancel</a></li>
                                 </ul>
                             </div>
                             {{--  <button type="button" class="btn btn-info mb-3" wire:click='new'>Book Appointment</button>
                             <button type="button" class="btn btn-primary mb-3" wire:click='old'>Excisting Appointment</button> --}}
 
-                            <button type="button" class="btn btn-danger mb-3" wire:click='old'>Cancel Appointment</button>
-                            <a class="btn btn-success" href="{{ route('home.index') }} ">Back to home</a>
+                            <a class="btn btn-link" href="{{ route('home.index') }} ">Back to home</a>
                         </div>
 
 
@@ -116,8 +116,8 @@
                                 <div class="col-md-6 ">
                                     <label>Color<span class="text-danger ">*</span></label>
                                     <input type="text " name="color"
-                                        class="form-control @error('color') is-invalid @enderror"
-                                        placeholder="Color" wire:model='color'>
+                                        class="form-control @error('color') is-invalid @enderror" placeholder="Color"
+                                        wire:model='color'>
                                     @error('color')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -177,12 +177,23 @@
                                 </div>
                             </div>
                             <div class="row mb-3">
-                                <div class="col-md-12">
+                                <div class="col-md-6">
                                     <label>Breed<span class="text-danger ">*</span></label>
                                     <input type="text " name="breed"
                                         class="form-control  @error('breed') is-invalid @enderror" placeholder="Enter breed "
                                         wire:model='breed'>
                                     @error('breed')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                                <div class="col-md-6">
+                                    <label>Color<span class="text-danger ">*</span></label>
+                                    <input type="text " name="color"
+                                        class="form-control  @error('color') is-invalid @enderror" placeholder="Enter color "
+                                        wire:model='color'>
+                                    @error('color')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
@@ -233,7 +244,8 @@
                             </div>
                             <hr class="horizontal dark">
 
-                            <p class="text-justify text-bold"> NOTE: Please be advised that once you book an appointment at the clinic, the clinic will give you 15
+                            <p class="text-justify text-bold"> NOTE: Please be advised that once you book an appointment at the
+                                clinic, the clinic will give you 15
                                 minutes of excess time. After that 15 minutes, if you're still not in the clinic, your
                                 appointment will be automatically void.</p>
 
@@ -251,7 +263,7 @@
                             </div>
                         </div>
                         <div class="card-footer bg-transparent border-0 d-flex justify-content-between py-3">
-                            <div></div>
+                            <button type="button" class="btn btn-secondary" wire:click='back'>Back</button>
                             <button class="btn btn-success float-end" type="submit" wire:submit>Submit</button>
                         </div>
 
@@ -268,23 +280,29 @@
                         <form wire:submit.prevent='appointment'>
                             <div class="card-body">
                                 <div class="row mb-3">
-                                    <div class="col-md-7 ">
-                                        <label>Pets</label>
-                                        <select class="form-select @error('pet_id') is-invalid @enderror" name="pet_id"
-                                            aria-label="Default select example " wire:model='pet_id'>
-                                            <option selected>Open this and select</option>
-                                            @foreach ($pets as $pet)
-                                                <option value="{{ $pet->id }}">{{ $pet->pet_name }}</option>
-                                            @endforeach
-                                        </select>
-                                        @error('pet_id')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
-                                    </div>
+                                    @if (!$addPet)
+                                        <div class="col-md-7 ">
+                                            <label>Pets</label>
+                                            <select class="form-select @error('pet_id') is-invalid @enderror" name="pet_id"
+                                                aria-label="Default select example " wire:model='pet_id'>
+                                                <option selected>Open this and select</option>
+                                                @foreach ($pets as $pet)
+                                                    <option value="{{ $pet->id }}">{{ $pet->pet_name }}</option>
+                                                @endforeach
+                                            </select>
+                                            @error('pet_id')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </div>
+                                    @else
+                                        <div class="col-md-7">
+
+                                        </div>
+                                    @endif
                                     <div class="col-md-5">
-                                        <input type="checkbox" class="custom-checkbox" wire:click='addPet'> Add Pet</input>
+                                        <input type="checkbox" class="custom-checkbox" {{  ($addPet) ? 'checked' : '' ; }} wire:click='addPet'> Add Pet</input>
                                     </div>
                                 </div>
                                 <hr class="horizontal dark">
@@ -354,12 +372,23 @@
                                         </div>
                                     </div>
                                     <div class="row mb-3">
-                                        <div class="col-md-12">
+                                        <div class="col-md-6">
                                             <label>Breed<span class="text-danger ">*</span></label>
                                             <input type="text " name="breed"
                                                 class="form-control  @error('breed') is-invalid @enderror"
                                                 placeholder="Enter breed " wire:model='breed'>
                                             @error('breed')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label>Color<span class="text-danger ">*</span></label>
+                                            <input type="text " name="color"
+                                                class="form-control  @error('color') is-invalid @enderror"
+                                                placeholder="Enter color " wire:model='color'>
+                                            @error('color')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
                                                 </span>
@@ -422,7 +451,8 @@
                                 </div>
 
                                 <hr class="horizontal dark">
-                                <p class="text-justify text-bold"> NOTE: Please be advised that once you book an appointment at the clinic, the clinic will give you 15
+                                <p class="text-justify text-bold"> NOTE: Please be advised that once you book an appointment at
+                                    the clinic, the clinic will give you 15
                                     minutes of excess time. After that 15 minutes, if you're still not in the clinic, your
                                     appointment will be automatically void.</p>
                                 <div class="col-12">
@@ -439,7 +469,7 @@
                                 </div>
                             </div>
                             <div class="card-footer bg-transparent border-0 d-flex justify-content-between py-3">
-                                <div></div>
+                                <button type="button" class="btn btn-secondary" wire:click='back'>Back</button>
                                 <button class="btn btn-success" type="submit" wire:submit>Submit</button>
                             </div>
                         </form>
@@ -468,6 +498,40 @@
                         </div>
                     </div>
                 @endif
+            @endif
+            @if ($cancel)
+            @if ($hasEmail)
+            <div class="card bg-light">
+                <div class="card-header bg-transparent border-0">
+                        <h4 class="mb-2 text-secondary text-center">Appointment / Scheduling Form</h4>
+                        <h6 class="text-secondary text-center">Petworks Veterinary Clinic</h6>
+                    </div>
+                    <div class="card-body">
+                        {{-- dito yung cancel appointment --}}
+                        {{-- design --}}
+                    </div>
+                </div>
+            @else
+                <div class="card bg-light">
+                    <div class="card-body">
+                        <div class="mt-3">
+                            <label for="emailAddress" class="form-label">Email</label>
+                            <input type="email" class="form-control  @error('emailAddress') is-invalid @enderror"
+                                id="emailAddress" name="emailAddress" placeholder="name@example.com"
+                                wire:model='emailAddress'>
+                            @error('emailAddress')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="card-footer bg-transparent border-0 d-flex justify-content-between">
+                        <div></div>
+                        <button type="submit" class="btn btn-success" wire:click='verifyEmail'>Submit</button>
+                    </div>
+                </div>
+            @endif
             @endif
         @break
 

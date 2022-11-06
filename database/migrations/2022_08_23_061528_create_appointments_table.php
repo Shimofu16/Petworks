@@ -32,18 +32,21 @@ class CreateAppointmentsTable extends Migration
                 ->onUpdate('cascade');
             $table->date('date');
             $table->time('time');
+            /* Dito sia. */
             $table->string('complaint')->nullable();
             $table->string('weight')->nullable();
             $table->string('hr')->nullable();
             $table->string('rr')->nullable();
             $table->string('temperature')->nullable();
             $table->string('diet')->nullable();
-            $table->string('product')->nullable();
             $table->string('next_visit')->nullable();
-            $table->string('doctor')->nullable();
-            /* Dito sia. */
-            $table->string('color')->nullable();
             $table->string('comment')->nullable();
+            $table->unsignedBigInteger('doctor_id')->nullable();
+            $table->foreign('doctor_id')
+                ->references('id')
+                ->on('doctors')
+                ->onUpdate('cascade');
+   
             $table->string('image_name')->nullable();
             $table->string('path')->nullable();
             $table->text('status')->default("request");

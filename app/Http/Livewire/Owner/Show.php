@@ -38,7 +38,7 @@ class Show extends Component
             $appointment = Appointment::findOrFail($appointment_id);
             $pet = Pet::findOrFail($pet_id);
             $path = 'uploads/appointment/' . $appointment->name . '/' . $pet->pet_name . '/' . $appointment->service->service;
-            
+
             $extension = $this->picture->getClientOriginalExtension();
             $file_name = $appointment->service->service . '.' . $extension;
             $appointment->image_name = $file_name;
@@ -48,13 +48,6 @@ class Show extends Component
             }
             $this->picture->storeAs($path, $file_name);
             $appointment->update();
-            if (!empty($this->pet_id)) {
-                $this->services = Appointment::where('owner_id', '=', $this->owner->id)
-                    ->where('pet_id', '=', $this->pet_id)
-                    ->get();
-            } else {
-                $this->services = Appointment::where('owner_id', '=', $this->owner->id)->get();
-            }
             session()->flash('message', 'Data successfully updated.');
             $this->reset(['picture', 'comment']);
         } catch (\Throwable $th) {
@@ -73,12 +66,15 @@ class Show extends Component
             $this->pet_breed = $this->pet->breed;
             return view('livewire.owner.show', [
                 'services' => Appointment::where('owner_id', '=', $this->owner->id)
+                    ->where('status', '=', 'done')
                     ->where('pet_id', '=', $this->pet_id)
                     ->paginate(5),
             ]);
         }
         return view('livewire.owner.show', [
-            'services' => Appointment::where('owner_id', '=', $this->owner->id)->paginate(5),
+            'services' => Appointment::where('owner_id', '=', $this->owner->id)
+                ->where('status', '=', 'done')
+                ->paginate(5),
         ]);
         /* if (!empty($this->reason_id)) {
             $this->title = service::find($this->reason_id);
