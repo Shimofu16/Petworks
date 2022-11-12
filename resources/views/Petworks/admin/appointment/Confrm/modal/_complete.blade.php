@@ -95,6 +95,18 @@
                             </select>
                         </div>
                     </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="product" class="col-sm-2 col-form-label">Product:</label>
+                            <select class="form-select" aria-label="Default select example" name="product"
+                                id="product_id">
+                                <option selected>--- Selecet product ---</option>
+                                @foreach ($products as $product)
+                                    <option value="{{ $product->id }}">{{ $product->product_name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-success">Save</button>

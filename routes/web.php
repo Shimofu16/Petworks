@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AppointmentController;
+use App\Http\Controllers\CancelController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ConfirmController;
 use App\Http\Controllers\ContactController;
@@ -55,6 +56,14 @@ Route::prefix('admin')->name('admin.')->group(function () {
         /* CONFIRM */
         Route::prefix('confirm')->name('confirm.')->controller(ConfirmController::class)->group(function () {
             Route::get('/', 'index')->name('index');
+            Route::get('/show/{id}',  'show')->name('show');
+            Route::post('/update/{id}', 'update')->name('update');
+            Route::post('/pending/{id}',  'reply')->name('reply');
+        });
+        /* CONFIRM */
+        Route::prefix('cancel')->name('cancel.')->controller(CancelController::class)->group(function () {
+            Route::get('/', 'index')->name('index');
+            Route::get('/show/{id}',  'show')->name('show');
             Route::post('/update/{id}', 'update')->name('update');
             Route::post('/pending/{id}',  'reply')->name('reply');
         });

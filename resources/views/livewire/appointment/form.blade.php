@@ -2,7 +2,7 @@
     @switch($currentStep)
         @case(1)
             <div class="card shadow bg-light mt-5 ">
-                <div class="card-header bg-primary ">
+                <div class="card-header bg-pw-primary">
                     {{-- <div>
                         <img src="{{  }}" alt="">
                     </div> --}}
@@ -42,9 +42,9 @@
         @case(2)
             @if ($isNewClient)
                 <div class="card bg-light">
-                    <div class="card-header bg-transparent border-0">
-                        <h4 class="mb-2 text-secondary text-center">Appointment / Scheduling Form</h4>
-                        <h6 class="text-secondary text-center">Petworks Veterinary Clinic</h6>
+                    <div class="card-header  bg-pw-primary  border-0">
+                        <h4 class="mb-2 text-white text-center">Appointment / Scheduling Form</h4>
+                        <h6 class="text-white text-center">Petworks Veterinary Clinic</h6>
                     </div>
                     <form wire:submit.prevent='appointment'>
                         <div class="card-body">
@@ -270,12 +270,13 @@
                     </form>
                 </div>
             @endif
+
             @if ($isOldClient)
                 @if ($hasEmail)
-                    <div class="card bg-light">
-                        <div class="card-header bg-transparent border-0">
-                            <h4 class="mb-2 text-secondary text-center">Appointment / Scheduling Form</h4>
-                            <h6 class="text-secondary text-center">Petworks Veterinary Clinic</h6>
+                    <div class="card bg-light shadow ">
+                        <div class="card-header  bg-pw-primary  border-0">
+                            <h4 class="mb-2 text-white text-center">Appointment / Scheduling Form</h4>
+                            <h6 class="text-white text-center">Petworks Veterinary Clinic</h6>
                         </div>
                         <form wire:submit.prevent='appointment'>
                             <div class="card-body">
@@ -302,7 +303,8 @@
                                         </div>
                                     @endif
                                     <div class="col-md-5">
-                                        <input type="checkbox" class="custom-checkbox" {{  ($addPet) ? 'checked' : '' ; }} wire:click='addPet'> Add Pet</input>
+                                        <input type="checkbox" class="custom-checkbox" {{ $addPet ? 'checked' : '' }}
+                                            wire:click='addPet'> Add Pet</input>
                                     </div>
                                 </div>
                                 <hr class="horizontal dark">
@@ -475,8 +477,8 @@
                         </form>
                     </div>
                 @else
-                    <div class="card bg-light">
-                        {{-- <div class="card-header bg-transparent border-0">
+                    <div class="card bg-light shadow">
+                        {{-- <div class="card-header  bg-pw-primary bg-transparent border-0">
 
                         </div> --}}
                         <div class="card-body">
@@ -500,40 +502,92 @@
                 @endif
             @endif
             @if ($cancel)
-            @if ($hasEmail)
-            <div class="card bg-light">
-                <div class="card-header bg-transparent border-0">
-                        <h4 class="mb-2 text-secondary text-center">Appointment / Scheduling Form</h4>
-                        <h6 class="text-secondary text-center">Petworks Veterinary Clinic</h6>
-                    </div>
-                    <div class="card-body">
-                        {{-- dito yung cancel appointment --}}
-                        {{-- design --}}
-                    </div>
-                </div>
-            @else
-                <div class="card bg-light">
-                    <div class="card-body">
-                        <div class="mt-3">
-                            <label for="emailAddress" class="form-label">Email</label>
-                            <input type="email" class="form-control  @error('emailAddress') is-invalid @enderror"
-                                id="emailAddress" name="emailAddress" placeholder="name@example.com"
-                                wire:model='emailAddress'>
-                            @error('emailAddress')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
+                @if ($hasEmail)
+                    <div class="card bg-light shadow">
+                        <div class="card-header  bg-pw-primary  ">
+                            <h4 class="mb-2  text-center text-white ">Appointment / Scheduling Form</h4>
+                            <h6 class="text-white text-center ">Petworks Veterinary Clinic</h6>
                         </div>
-                    </div>
-                    <div class="card-footer bg-transparent border-0 d-flex justify-content-between">
-                        <div></div>
-                        <button type="submit" class="btn btn-success" wire:click='verifyEmail'>Submit</button>
-                    </div>
-                </div>
-            @endif
-            @endif
-        @break
 
-    @endswitch
+                        <table class="table align-items-center mb-0" id="confirm">
+                            <thead>
+
+                                <tr>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        Pet name
+                                    </th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Reason
+                                    </th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        Date
+                                    </th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Time
+                                    </th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Action
+                                    </th>
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+                                @foreach ($appointments as $appointment)
+
+                                <tr>
+
+                                    <td>
+                                        <div class="d-flex flex-column justify-content-center px-2 py-1">
+                                            <h6 class="mb-0 text-sm">{{$appointment->pet->pet_name}}</h6>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="d-flex flex-column justify-content-center px-2 py-1">
+                                            <h6 class="mb-0 text-sm">{{ $appointment->service->service }}</h6>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="d-flex flex-column justify-content-center px-2 py-1">
+                                            <h6 class="mb-0 text-sm">{{ $appointment->date }}</h6>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="d-flex flex-column justify-content-center px-2 py-1">
+                                            <h6 class="mb-0 text-sm">{{ $appointment->time }}</h6>
+                                        </div>
+                                    </td>
+
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+
+
+
+
+
+                    </div>
+        </div>
+    @else
+        <div class="card bg-light shadow">
+            <div class="card-body">
+                <div class="mt-3">
+                    <label for="emailAddress" class="form-label">Email</label>
+                    <input type="email" class="form-control  @error('emailAddress') is-invalid @enderror"
+                        id="emailAddress" name="emailAddress" placeholder="name@example.com" wire:model='emailAddress'>
+                    @error('emailAddress')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
+            </div>
+            <div class="card-footer bg-transparent border-0 d-flex justify-content-between">
+                <div></div>
+                <button type="submit" class="btn btn-success" wire:click='verifyEmail'>Submit</button>
+            </div>
+        </div>
+        @endif
+        @endif
+    @break
+
+@endswitch
 </div>

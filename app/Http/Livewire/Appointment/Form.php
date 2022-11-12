@@ -51,6 +51,7 @@ class Form extends Component
     /* appointment */
     public $reason_id;
     public $date;
+    public $appointments;
     public $time;
     protected $rules = [
         'date' => 'required',
@@ -171,12 +172,14 @@ class Form extends Component
     }
     public function verifyEmail()
     {
-       
+
             try {
                 $this->owner = Owner::where('email', '=', $this->emailAddress)->firstOrFail();
                 if ($this->isOldClient) {
                     $this->pets = Pet::where('owner_id', '=',   $this->owner->id)->get();
-                }
+              } else{
+                $this->appointments=appointment::where('owner_id', '=',   $this->owner->id)->where('status','!=','done')->get();
+              }
                 $this->hasEmail = true;
             } catch (\Throwable $th) {
                 $this->addError('emailAddress', 'Invalid Email');

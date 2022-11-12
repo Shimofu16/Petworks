@@ -1,0 +1,9 @@
+:root {
+    --pw-primary: #7ba0c5;
+    --pw-secondary: #ea917b;
+    --pw-light: #f8f6ee;
+}
+
+.bg-pw-primary {
+    background-color: var(--pw-primary) !important;
+}

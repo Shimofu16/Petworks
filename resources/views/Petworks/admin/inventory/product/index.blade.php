@@ -14,14 +14,21 @@
                     </div>
 
 
-                    <div class="d-flex justify-content-end">
-                        <button class="btn btn-primary mb-0"
-                                                    type="button" data-bs-toggle="modal"
-                                                    data-bs-target="#add">
-                            <span class="d-flex align-items-center"><i class="fas fa-plus-circle"></i>&#160; Add Product</span>
-                        </button>
-                         @include('Petworks.admin.inventory.product.modal._add')
+                    <div class="col">
+                        <div class="d-flex justify-content-end">
+                            <a class="btn btn-primary mb-0" type="button" data-bs-toggle="modal" data-bs-target="#add">
+                                <span class="d-flex align-items-center"><i class="fas fa-plus-circle"></i>&#160; Add
+                                    Product</span>
+                            </a>
+                            @include('Petworks.admin.inventory.product.modal._add')
+                        </div>
+
+
+
                     </div>
+
+
+
 
                 </div>
 
@@ -29,6 +36,19 @@
 
                 <div class="card-body px-0 pt-0 pb-2">
                     <div class="table-responsive p-0">
+                        <div class="row mx-3">
+                            <div class="d-flex justify-content-end mt-2">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    Product Category
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                    <li><a class="dropdown-item" href="#">Action</a></li>
+                                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                </ul>
+                            </div>
+                        </div>
                         <table class="table align-items-center mb-0">
                             <thead {{-- class="table-warning text-black" --}}>
                                 <tr>
@@ -47,7 +67,8 @@
 
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Price
                                     </th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Initial Stocks
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Initial
+                                        Stocks
                                     </th>
 
                                     <th
@@ -81,12 +102,14 @@
 
                                         <td>
                                             <div class="d-flex flex-column justify-content-center px-2 py-1">
-                                                <h6 class="mb-0 text-sm">{{ date('F d, Y', strtotime($product->date )) }}</h6>
+                                                <h6 class="mb-0 text-sm">{{ date('F d, Y', strtotime($product->date)) }}
+                                                </h6>
                                             </div>
                                         </td>
                                         <td>
                                             <div class="d-flex flex-column justify-content-center px-2 py-1">
-                                                <h6 class="mb-0 text-sm">₱{{ number_format($product->price, 2, '.', ',') }}</h6>
+                                                <h6 class="mb-0 text-sm">₱{{ number_format($product->price, 2, '.', ',') }}
+                                                </h6>
                                             </div>
                                         </td>
 
@@ -108,7 +131,7 @@
                                                         aria-hidden="true"></i>
                                                     Edit
                                                 </button>
-                                                    @include('Petworks.admin.inventory.product.modal._edit')
+                                                @include('Petworks.admin.inventory.product.modal._edit')
                                             </div>
                                         </td>
 

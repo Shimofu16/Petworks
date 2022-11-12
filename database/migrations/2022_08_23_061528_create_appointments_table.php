@@ -46,10 +46,11 @@ class CreateAppointmentsTable extends Migration
                 ->references('id')
                 ->on('doctors')
                 ->onUpdate('cascade');
-   
+
             $table->string('image_name')->nullable();
             $table->string('path')->nullable();
             $table->text('status')->default("request");
+            $table->text('canceled_by')->nullable();
             $table->timestamps();
         });
     }

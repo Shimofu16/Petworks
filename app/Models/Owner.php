@@ -10,7 +10,7 @@ class Owner extends Model
     protected $table = 'owners';
     public $guarded = [];
 
-    public function appointment(){
+    public function appointments(){
         return $this-> hasMany(Appointment::class,'owner_id');
     }
 

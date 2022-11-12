@@ -76,6 +76,9 @@ Dashboard
                         <li class="nav-item mb-1 {{ Request::routeIs('admin.confirm.index' ) ? 'nav-item-active' : '' }}">
                             <a href="{{ route('admin.confirm.index') }}" class="nav-link text-white">Confirm Appointments</a>
                         </li>
+                        <li class="nav-item mb-1 {{ Request::routeIs('admin.cancel.index' ) ? 'nav-item-active' : '' }}">
+                            <a href="{{ route('admin.cancel.index') }}" class="nav-link text-white">Canceled Appointments</a>
+                        </li>
                     </ul>
                 </div>
             </li>

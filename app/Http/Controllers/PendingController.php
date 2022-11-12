@@ -10,6 +10,7 @@ use App\Models\Appointment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Mail\PendingMail;
+use Illuminate\Support\Facades\Auth;
 
 class PendingController extends Controller
 {
@@ -104,15 +105,16 @@ class PendingController extends Controller
      */
     public function destroy($id)
     {
+
         try {
             $appointment = Appointment::where('id', '=', $id)->firstOrFail();
-            $appointment->delete();
+            $appointment->update(['status'=>'canceled','canceled_by'=>'admin']);
             $data = [
                 'message' => 'Sorry, but the appointment that you booked has been canceled for the reason that the clinic gave you excess time for waiting time and you agreed to the terms and conditions.'
             ];
             Mail::to($appointment->owner->email)->send(new MailPending($data));
             toast()->warning('Warning', 'The request is cancel')->autoClose(3000)->animation('animate__fadeInRight', 'animate__fadeOutRight')->width('400px');
-            return back();
+            return redirect(route('admin.cancel.index'));
         } catch (\Throwable $th) {
             toast()->warning('Warning', $th->getMessage())->autoClose(3000)->animation('animate__fadeInRight', 'animate__fadeOutRight')->width('400px');
             return back();

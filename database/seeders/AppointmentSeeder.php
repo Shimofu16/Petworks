@@ -42,6 +42,7 @@ class AppointmentSeeder extends Seeder
                 'pet_type' => 'Dog',
                 'color' => 'black',
             ],
+            
             [
                 'owner_id' => 1,
                 'pet_name' => 'raily',

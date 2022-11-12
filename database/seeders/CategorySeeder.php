@@ -20,11 +20,22 @@ class CategorySeeder extends Seeder
                 'category_name' => 'Food',
             ],
             [
-                'category_name' => 'Vaccine',
+                'category_name' => 'Treats',
             ],
             [
-                'category_name' => 'Treets',
+                'category_name' => 'Medecine',
             ],
+            [
+                'category_name' => 'Grooming',
+            ],
+            [
+                'category_name' => 'Accessories',
+            ],
+            [
+                'category_name' => 'Supplies',
+            ],
+
+            /* dito sia */
         ];
         foreach ($data as $key => $value) {
             category::create($value);

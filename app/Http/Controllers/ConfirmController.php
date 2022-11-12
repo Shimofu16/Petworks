@@ -6,6 +6,7 @@ use App\Mail\ConfirmController as MailConfirmController;
 use App\Mail\Pending as MailPending;
 use App\Mail\PendingController;
 use App\Models\Appointment;
+use App\Models\category;
 use App\Models\Doctor;
 use App\Models\product;
 use App\Models\SoldProduct;
@@ -41,7 +42,6 @@ class ConfirmController extends Controller
      */
     public function create()
     {
-        //
     }
 
     /**
@@ -61,9 +61,12 @@ class ConfirmController extends Controller
      * @param  \App\Models\Confirm  $confirm
      * @return \Illuminate\Http\Response
      */
-    public function show($confirm)
+    public function show($id)
     {
-        //
+        $doctors = Doctor::all();
+        $products = product::all();
+        $categories = category::all();
+        return view('Petworks.admin.appointment.Confrm.show', compact('id','doctors','products','categories'));
     }
 
     /**
