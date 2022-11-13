@@ -49,6 +49,11 @@
                     <form wire:submit.prevent='appointment'>
                         <div class="card-body">
                             <div class="row mb-3">
+
+
+                                <h5 class="card-title mb-3 text-center text-info">Owner Information</h5>
+
+
                                 <div class=" col-md-12 ">
                                     <label>Owner Name<span class="text-danger ">*</span></label>
                                     <input type="text" name="name"
@@ -101,6 +106,8 @@
 
                             </div>
                             <hr class="horizontal dark">
+                            <h5 class="card-title mb-3 text-center text-warning">Pet Information</h5>
+
                             <div class="row mb-3">
                                 <div class="col-md-6 ">
                                     <label>Pet's Name<span class="text-danger ">*</span></label>
@@ -165,7 +172,7 @@
                                     <label>Gender<span class="text-danger ">*</span></label>
                                     <select class="form-select @error('gender') is-invalid @enderror"
                                         aria-label="Default select example"name="gender" wire:model='gender'>
-                                        <option selected>Selecet Gender</option>
+                                        <option selected>Select Gender</option>
                                         <option value="Male">Male</option>
                                         <option value="Female">Female</option>
                                     </select>
@@ -307,6 +314,8 @@
                                             wire:click='addPet'> Add Pet</input>
                                     </div>
                                 </div>
+                                <hr class="horizontal dark">
+                                <h5 class="card-title mb-3 text-center text-warning">Pet Information</h5>
                                 <hr class="horizontal dark">
                                 @if ($addPet)
                                     <div class="row mb-3">
@@ -510,7 +519,7 @@
                         </div>
 
                         <table class="table align-items-center mb-0" id="confirm">
-                            <thead>
+                            <thead class="md-3">
 
                                 <tr>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
@@ -531,31 +540,45 @@
 
                             <tbody>
                                 @foreach ($appointments as $appointment)
+                                    <tr>
 
-                                <tr>
+                                        <td>
+                                            <div class="d-flex flex-column justify-content-center px-2 py-1">
+                                                <h6 class="mb-0 text-sm">{{ $appointment->pet->pet_name }}</h6>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="d-flex flex-column justify-content-center px-2 py-1">
+                                                <h6 class="mb-0 text-sm">{{ $appointment->service->service }}</h6>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="d-flex flex-column justify-content-center px-2 py-1">
+                                                <h6 class="mb-0 text-sm">{{ $appointment->date }}</h6>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="d-flex flex-column justify-content-center px-2 py-1">
+                                                <h6 class="mb-0 text-sm">{{ $appointment->time }}</h6>
+                                            </div>
+                                        </td>
 
-                                    <td>
-                                        <div class="d-flex flex-column justify-content-center px-2 py-1">
-                                            <h6 class="mb-0 text-sm">{{$appointment->pet->pet_name}}</h6>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="d-flex flex-column justify-content-center px-2 py-1">
-                                            <h6 class="mb-0 text-sm">{{ $appointment->service->service }}</h6>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="d-flex flex-column justify-content-center px-2 py-1">
-                                            <h6 class="mb-0 text-sm">{{ $appointment->date }}</h6>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="d-flex flex-column justify-content-center px-2 py-1">
-                                            <h6 class="mb-0 text-sm">{{ $appointment->time }}</h6>
-                                        </div>
-                                    </td>
 
-                                </tr>
+
+                                         {{-- BUTTONS --}}
+                                         <td>
+                                            <div class="d-flex justify-content-center px-2 py-1">
+                                                <button class="btn btn-danger text-white px-3 mb-0" href="#"
+                                                    type="button" data-bs-toggle="modal"
+                                                    data-bs-target="#view">
+                                                    <i class="fa-solid fa-eye text-info me-2" aria-hidden="true"></i>
+                                                    Cancel
+                                                </button>
+                                            {{--     @include('Petworks.admin.appointment.request.modal._show') --}}
+                                            </div>
+                                        </td>
+
+                                    </tr>
                                 @endforeach
                             </tbody>
                         </table>
