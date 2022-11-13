@@ -25,6 +25,7 @@ class CreateSoldProductsTable extends Migration
                 ->references('id')
                 ->on('products')
                 ->onUpdate('cascade');
+            $table->integer('quantity')->default(0);
             $table->timestamps();
         });
     }

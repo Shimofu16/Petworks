@@ -42,7 +42,7 @@ class ProductController extends Controller
     {
 
         try {
-           $product_id = product::create(
+            $product_id = product::create(
                 [
                     'product_name' => $request->input('product_name'),
                     'brand_name' => $request->input('brand_name'),
@@ -72,9 +72,13 @@ class ProductController extends Controller
      * @param  \App\Models\product  $product
      * @return \Illuminate\Http\Response
      */
-    public function show(product $product)
+    public function show($id)
     {
-        //
+        $products = product::where('category_id','=',$id)->get();
+        $category = category::find($id);
+        $categories = category::all();
+
+        return view('Petworks.admin.inventory.product.show', compact('products','category','categories'));
     }
 
     /**

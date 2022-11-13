@@ -26,10 +26,9 @@ class RedirectIfAuthenticated
                 if ($guard == 'admin') {
                     return redirect()->intended(route('admin.index'));
                 }
+                return redirect(route('admin.user.login.form'));
             }
-            return redirect()->route('admin.user.login.form');
         }
-
         return $next($request);
     }
 }

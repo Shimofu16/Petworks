@@ -1,6 +1,6 @@
 @extends('Petworks.admin.index')
 @section('page-title')
-    All Products
+    {{ $category->category_name }}
 @endsection
 @section('contents')
     <div class="row">
@@ -12,17 +12,15 @@
                     <div class="col">
                         <h6>@yield('page-title')</h6>
                     </div>
-
-{{--
-                    <div class="d-flex justify-content-end">
-                        <button class="btn btn-primary mb-0"
-                                                    type="button" data-bs-toggle="modal"
-                                                    data-bs-target="#add">
-                            <span class="d-flex align-items-center"><i class="fas fa-plus-circle"></i>&#160; Add Product</span>
-                        </button>
-                         @include('Petworks.admin.inventory.product.modal._add')
-                    </div> --}}
-
+                    <div class="col">
+                        {{-- back to products index   --}}
+                        <div class="d-flex justify-content-end">
+                            <a class="btn btn-primary mb-0" type="button" href="{{ route('admin.product.index') }}">
+                                <span class="d-flex align-items-center"><i class="fas fa-arrow-circle-left"></i>&#160; Back
+                                    to Products</span>
+                            </a>
+                        </div>
+                    </div>
                 </div>
 
 
@@ -40,14 +38,13 @@
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Brand
                                         name
                                     </th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Category
-                                    </th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Date
                                     </th>
 
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Price
                                     </th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Initial Stocks
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Initial
+                                        Stocks
                                     </th>
 
                                     <th
@@ -71,22 +68,17 @@
                                                 <h6 class="mb-0 text-sm">{{ $product->brand_name }}</h6>
                                             </div>
                                         </td>
-                                        <td>
-                                            <div class="d-flex flex-column justify-content-center px-2 py-1">
-                                                <h6 class="mb-0 text-sm">{{ $product->category->category_name }}</h6>
-                                            </div>
-                                        </td>
-
-
 
                                         <td>
                                             <div class="d-flex flex-column justify-content-center px-2 py-1">
-                                                <h6 class="mb-0 text-sm">{{ date('F d, Y', strtotime($product->date )) }}</h6>
+                                                <h6 class="mb-0 text-sm">{{ date('F d, Y', strtotime($product->date)) }}
+                                                </h6>
                                             </div>
                                         </td>
                                         <td>
                                             <div class="d-flex flex-column justify-content-center px-2 py-1">
-                                                <h6 class="mb-0 text-sm">₱{{ number_format($product->price, 2, '.', ',') }}</h6>
+                                                <h6 class="mb-0 text-sm">₱{{ number_format($product->price, 2, '.', ',') }}
+                                                </h6>
                                             </div>
                                         </td>
 
@@ -108,7 +100,7 @@
                                                         aria-hidden="true"></i>
                                                     Edit
                                                 </button>
-                                                    @include('Petworks.admin.inventory.product.modal._edit')
+                                                @include('Petworks.admin.inventory.product.modal._edit')
                                             </div>
                                         </td>
 

@@ -15,7 +15,7 @@ class CancelController extends Controller
      */
     public function index()
     {
-        $appointments=Appointment::where('status','=','canceled')->get();
+        $appointments=Appointment::where('status','=','cancelled')->get();
         return view('Petworks.admin.appointment.cancel.index',compact('appointments'));
     }
 

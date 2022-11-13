@@ -18,8 +18,12 @@ class isAdmin
     public function handle(Request $request, Closure $next)
     {
         if (Auth::guard('admin')->check()) {
-            return $next($request);
+            if (Auth::guard('admin')->user()->status == "Online") {
+                return $next($request);
+            }
         }
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
         return redirect(route('admin.user.login.form'));
     }
 }

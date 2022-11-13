@@ -36,7 +36,7 @@ Route::get('/calendar', [HomeController::class, 'calendar'])->name('calendar.ind
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/login/form', [HomeController::class, 'form'])->name('user.login.form');
     Route::post('/login', [LoginController::class, 'authenticate'])->name('user.login');
-    Route::middleware(['isAdmin'])->group(function () {
+    Route::middleware(['isActive'])->group(function () {
         Route::post('/logout', [LoginController::class, 'logout'])->name('user.logout');
         /* ADMIN */
         Route::get('/dashboard', [AdminController::class, 'index'])->name('index');
@@ -106,6 +106,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
         /* PRODUCT*/
         Route::prefix('product')->name('product.')->controller(ProductController::class)->group(function () {
             Route::get('/',  'index')->name('index');
+            Route::get('/show/{id}',  'show')->name('show');
             Route::post('/store',  'store')->name('store');
             Route::put('/update{id}',  'update')->name('update');
         });

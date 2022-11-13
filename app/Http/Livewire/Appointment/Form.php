@@ -53,6 +53,10 @@ class Form extends Component
     public $date;
     public $appointments;
     public $time;
+
+    public $cancelBtn = false;
+    public $yes = false;
+    public $cancelId =0;
     protected $rules = [
         'date' => 'required',
         'time' => 'required',
@@ -170,27 +174,52 @@ class Form extends Component
         $this->increment();
         $this->cancel = true;
     }
+    public function no()
+    {
+        $this->cancelBtn = false;
+    }
+    /* function cancel button */
+    public function cancelButton($id)
+    {
+        $this->cancelBtn = true;
+        $this->cancelId = $id;
+    }
+
+    public function cancelAppointment($id)
+    {
+        $appointment = Appointment::find($id);
+        if ($appointment->status == 'request' || $appointment->status == 'pending') {
+            $appointment->update(['status' => 'cancelled','cancelled_by' => 'Client']);
+            /* session success message */
+            session()->flash('success', 'Appointment cancelled successfully');
+        }
+        $this->appointments = appointment::where('owner_id', '=',   $this->owner->id)->where(function ($query) {
+            $query->where('status', '=', 'request')->orWhere('status', '=', 'pending');
+        })->get();
+    }
     public function verifyEmail()
     {
-
-            try {
-                $this->owner = Owner::where('email', '=', $this->emailAddress)->firstOrFail();
-                if ($this->isOldClient) {
-                    $this->pets = Pet::where('owner_id', '=',   $this->owner->id)->get();
-              } else{
-                $this->appointments=appointment::where('owner_id', '=',   $this->owner->id)->where('status','!=','done')->get();
-              }
-                $this->hasEmail = true;
-            } catch (\Throwable $th) {
-                $this->addError('emailAddress', 'Invalid Email');
-                $this->hasEmail = false;
+        try {
+            $this->owner = Owner::where('email', '=', $this->emailAddress)->firstOrFail();
+            if ($this->isOldClient) {
+                $this->pets = Pet::where('owner_id', '=',   $this->owner->id)->get();
+            } else {
+                $this->appointments = appointment::where('owner_id', '=',   $this->owner->id)->where(function ($query) {
+                    $query->where('status', '=', 'request')->orWhere('status', '=', 'pending');
+                })->get();
             }
-            # code...
+            $this->hasEmail = true;
+        } catch (\Throwable $th) {
+            $this->addError('emailAddress', 'Invalid Email');
+            $this->hasEmail = false;
+        }
+        # code...
 
     }
-    public function back(){
+    public function back()
+    {
         $this->decrement();
-        $this->reset('isNewClient','isOldClient','cancel');
+        $this->reset('isNewClient', 'isOldClient', 'cancel');
     }
     public function addPet()
     {
@@ -207,6 +236,11 @@ class Form extends Component
 
     public function render()
     {
+        /*   if ($this->cancel) {
+            $this->appointments = appointment::where('owner_id', '=',   $this->owner->id)->where(function ($query) {
+                $query->where('status', '!=', 'done')->orWhere('status', '!=', 'cancelled');
+            })->get();
+        } */
         if ($this->isOldClient == true && $this->hasEmail == true) {
             if (!empty($this->pet_id)) {
                 $this->pet = Pet::find($this->pet_id);

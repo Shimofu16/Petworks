@@ -19,7 +19,8 @@
                                 <img alt="Image placeholder" src="{{ asset('images/petworks.png') }}">
                             </span>
                             <div class="media-body ms-2 d-none d-lg-block">
-                                <span class="mb-0 text-sm  font-weight-bold text-white">{{-- {{ Auth::guard('admin')->user()->name }} --}}</span>
+                                <span
+                                    class="mb-0 text-sm  font-weight-bold text-white">{{ Auth::guard('admin')->user()->name }}</span>
                             </div>
                         </div>
                     </a>

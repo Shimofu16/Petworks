@@ -43,9 +43,9 @@
                                     Product Category
                                 </button>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                    @foreach($categories as $category)
+                                    <li><a class="dropdown-item" href="{{route('admin.product.show',['id'=>$category->id])}}">{{ $category->category_name }}</a></li>
+                                    @endforeach
                                 </ul>
                             </div>
                         </div>

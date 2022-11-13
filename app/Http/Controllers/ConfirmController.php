@@ -63,10 +63,7 @@ class ConfirmController extends Controller
      */
     public function show($id)
     {
-        $doctors = Doctor::all();
-        $products = product::all();
-        $categories = category::all();
-        return view('Petworks.admin.appointment.Confrm.show', compact('id','doctors','products','categories'));
+        return view('Petworks.admin.appointment.Confrm.show', compact('id'));
     }
 
     /**

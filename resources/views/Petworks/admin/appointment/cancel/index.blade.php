@@ -22,20 +22,21 @@
                             <thead>
                                 <tr>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Name
-                                    </th>
+                                    </th>   
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Pet
                                     </th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Reason
                                         of
                                         Appointment
                                     </th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Cancel by
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Cancel
+                                        by
                                     </th>
                                     <th
                                         class="text-uppercase text-center text-secondary text-xxs font-weight-bolder opacity-7">
                                         More info
                                     </th>
-                                   
+
                                 </tr>
                             </thead>
 
@@ -44,36 +45,18 @@
                                 @foreach ($appointments as $appointment)
                                     <tr>
                                         <td>
-                                            <div class="d-flex flex-column justify-content-center px-2 py-1">
-                                                <h6 class="mb-0 text-sm">{{ $appointment->owner->name }}</h6>
-                                            </div>
+                                            <h6 class="mb-0 text-sm">{{ $appointment->owner->name }}</h6>
                                         </td>
                                         <td>
-                                            <div class="d-flex flex-column justify-content-center px-2 py-1">
-                                                <h6 class="mb-0 text-sm">{{ $appointment->pet->pet_name }}</h6>
-                                            </div>
+                                            <h6 class="mb-0 text-sm">{{ $appointment->pet->pet_name }}</h6>
                                         </td>
                                         <td>
-                                            <div class="d-flex flex-column justify-content-center px-2 py-1">
-                                                <h6 class="mb-0 text-sm">{{ $appointment->service->service }}</h6>
-                                            </div>
+                                            <h6 class="mb-0 text-sm">{{ $appointment->service->service }}</h6>
                                         </td>
-
-
 
                                         <td>
-                                            <div class="d-flex flex-column justify-content-center px-2 py-1">
-                                                <button class="btn btn-sm btn-danger">
-
-                                                    {{ $appointment->canceled_by }}
-
-                                                </button>
-                                            </div>
+                                            <h6 class="mb-0 text-sm">{{ $appointment->cancelled_by }}</h6>
                                         </td>
-
-
-
-
 
                                     </tr>
                                 @endforeach
