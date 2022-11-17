@@ -28,6 +28,8 @@
                         <h6>Diet: {{ $consultation->diet }}</h6>
                         <h6>Next Visit: {{ date('F d, Y',strtotime($consultation->next_visit)) }}</h6>
                         <h6>Doctor: {{ $consultation->doctor->name }}</h6>
+                        <h6>Medical History: {{ $consultation->history }}</h6>
+                        <h6>Prescription: {{ $consultation->prescription }}</h6>
                         <h6>Comment: {{ $consultation->comment }}</h6>
                         <h6 class="card-title">Comment: {{ $consultation->comment }}</h6>
                     </div>

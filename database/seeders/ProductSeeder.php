@@ -20,7 +20,7 @@ class ProductSeeder extends Seeder
         */
         $data = [
 
-            /* FOOD */
+            /* FOOD -3 */
             [
                 'product_name' => 'Goats Milk',
                 'brand_name' => 'Howbone',
@@ -29,6 +29,7 @@ class ProductSeeder extends Seeder
                 'price' => 250,
                 'stock' => 15,
             ],
+
             [
                 'product_name' => 'Dog Snacks',
                 'brand_name' => 'Howbone',
@@ -37,6 +38,7 @@ class ProductSeeder extends Seeder
                 'price' => 100,
                 'stock' => 15,
             ],
+
             [
                 'product_name' => 'Pets Milk',
                 'brand_name' => 'Cosi',
@@ -46,7 +48,7 @@ class ProductSeeder extends Seeder
                 'stock' => 14, // 14 lang kasi 1 na naka sell
             ],
 
-            /* TREATS*/
+            /* TREATS - 3*/
            [
                 'product_name' => 'Food and Vegetables',
                 'brand_name' => 'Smart Heart',
@@ -63,14 +65,7 @@ class ProductSeeder extends Seeder
                 'price' => 99.75,
                 'stock' => 15,
             ],
-            [
-                'product_name' => 'Tasty Bites (Chewy Bones Beef)',
-                'brand_name' => 'Pedigree',
-                'category_id' => 2,
-                'date' => '2022-09-01',
-                'price' => 99.75,
-                'stock' => 14,
-            ],
+
             [
                 'product_name' => 'Long Lasting Dentak Bar',
                 'brand_name' => 'Goodies',
@@ -80,7 +75,7 @@ class ProductSeeder extends Seeder
                 'stock' => 14,
             ],
 
-            /* MEDECINE */
+            /* MEDECINE =4 */
             [
                 'product_name' => 'Pet Multivitamins in Syrup',
                 'brand_name' => 'LC-Vit t',
@@ -108,13 +103,13 @@ class ProductSeeder extends Seeder
             [
                 'product_name' => 'Ascorbic Acid',
                 'brand_name' => 'PetSure',
-                'category_id' => 2,
+                'category_id' => 3,
                 'date' => '2022-09-01',
                 'price' => 149,
                 'stock' => 14,
             ],
 
-            /* GROOMING */
+            /* GROOMING -4*/
             [
                 'product_name' => 'Dog Trainer Toilet Set',
                 'brand_name' => 'Puppy Love',
@@ -148,7 +143,7 @@ class ProductSeeder extends Seeder
                 'stock' => 14,
             ],
 
-            /* ACCESSORIES */
+            /* ACCESSORIES -4*/
             [
                 'product_name' => 'Air Tennis Balls Dog Toy Extra Small',
                 'brand_name' => 'Kong Squeak ',
@@ -181,7 +176,7 @@ class ProductSeeder extends Seeder
                 'price' => 179,
                 'stock' => 14,
             ],
-            /* SUPPLIES*/
+            /* SUPPLIES 3*/
             [
                 'product_name' => 'Rectangular Plush ',
                 'brand_name' => 'Pet Pals',

@@ -1,6 +1,6 @@
 @extends('Petworks.admin.index')
 @section('page-title')
-    Products
+    All Products
 @endsection
 @section('contents')
     <div class="row">

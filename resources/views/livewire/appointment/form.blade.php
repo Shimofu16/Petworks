@@ -455,7 +455,9 @@
                                 <p class="text-justify text-bold"> NOTE: Please be advised that once you book an appointment at
                                     the clinic, the clinic will give you 15
                                     minutes of excess time. After that 15 minutes, if you're still not in the clinic, your
-                                    appointment will be automatically void.</p>
+                                    appointment will be automatically void.
+                                </p>
+
                                 <div class="col-12">
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" value="" id="invalidCheck"
@@ -512,15 +514,15 @@
                                 <thead class="thead-light">
 
                                     <tr>
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-info">
                                             Pet name
                                         </th>
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Reason
+                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-info">Reason
                                         </th>
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-info">
                                             Date & Time
                                         </th>
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Action
+                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-info">Action
                                         </th>
                                     </tr>
 

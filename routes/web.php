@@ -60,7 +60,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
             Route::post('/update/{id}', 'update')->name('update');
             Route::post('/pending/{id}',  'reply')->name('reply');
         });
-        /* CONFIRM */
+        /* CANCEL*/
         Route::prefix('cancel')->name('cancel.')->controller(CancelController::class)->group(function () {
             Route::get('/', 'index')->name('index');
             Route::get('/show/{id}',  'show')->name('show');

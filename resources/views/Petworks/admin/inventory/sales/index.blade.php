@@ -53,7 +53,7 @@ Sales
                                     Sold
                                 </th>
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Stock
-                                    Remain
+                                    Remaing
                                 </th>
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Sales
                                 </th>

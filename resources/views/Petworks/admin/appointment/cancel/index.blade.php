@@ -22,7 +22,7 @@
                             <thead>
                                 <tr>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Name
-                                    </th>   
+                                    </th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Pet
                                     </th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Reason
@@ -56,6 +56,19 @@
 
                                         <td>
                                             <h6 class="mb-0 text-sm">{{ $appointment->cancelled_by }}</h6>
+                                        </td>
+
+
+                                        <td>
+                                            <div class="d-flex justify-content-center px-2 py-1">
+                                                <button class="btn btn-link text-info px-3 mb-0" href="#"
+                                                    type="button" data-bs-toggle="modal"
+                                                    data-bs-target="#show{{ $appointment->id }}">
+                                                    <i class="fa-solid fa-eye text-info me-2" aria-hidden="true"></i>
+                                                    Show
+                                                </button>
+                                            </div>
+                                            @include('Petworks.admin.appointment.cancel.modal._show')
                                         </td>
 
                                     </tr>

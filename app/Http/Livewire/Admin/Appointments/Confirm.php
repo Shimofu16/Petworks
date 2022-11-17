@@ -26,6 +26,19 @@ class Confirm extends Component
 
     /* dito yung variables ng inc */
     public $complaint;
+    public $weight;
+    public $hr;
+    public $rr;
+    public $diet;
+    public $temperature;
+    public $color;
+    public $next_visit;
+    public $doctor_id;
+    public $history;
+    public $prescription;
+    public $comment;
+
+
 
     public function next()
     {
