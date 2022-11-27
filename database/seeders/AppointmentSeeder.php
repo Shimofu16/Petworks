@@ -19,15 +19,33 @@ class AppointmentSeeder extends Seeder
         $owner = [
             [
                 'name' => 'Krysia Hernandez',
-                'address' => '158 silangan, St. Brgy. Dayap, Calaan, Laguna',
+                'address' => 'Brgy. Dayap, Calauan, Laguna',
                 'email' => 'krysialee023@gmail.com',
                 'number' => '09655271032',
             ],
             [
+                'name' => 'Ryan Danday',
+                'address' => ' Brgy. Mabacan, Calauan, Laguna',
+                'email' => 'shainedanday@gmail.com',
+                'number' => '09123456890',
+            ],
+            [
+                'name' => 'Mark Delos Reyes',
+                'address' => ' Brgy. Curva, Calauan, Laguna',
+                'email' => 'krysialee023@gmail.com',
+                'number' => '09123456890',
+            ],
+            [
                 'name' => 'Glenard Hernandez',
-                'address' => '158 silangan, St. Brgy. Dayap, Calaan, Laguna',
-                'email' => 'glenard23@gmail.com',
-                'number' => '09655271032',
+                'address' => ' Brgy. Dayap, Calauan, Laguna',
+                'email' => 'glenardhernandez8@gmail.com',
+                'number' => '09123456890',
+            ],
+            [
+                'name' => 'Roy Joseph Latayan',
+                'address' => ' Brgy. Lamot, Calaan, Laguna',
+                'email' => 'royjosephlatayan16@gmail.com',
+                'number' => '09123456890',
             ],
         ];
 
@@ -42,11 +60,11 @@ class AppointmentSeeder extends Seeder
                 'pet_type' => 'Dog',
                 'color' => 'black',
             ],
-            
+
             [
-                'owner_id' => 1,
-                'pet_name' => 'raily',
-                'age' => 2,
+                'owner_id' => 2,
+                'pet_name' => 'snow',
+                'age' => 1,
                 'birthdate' => '2020-02-09',
                 'gender' => 'female',
                 'breed' => 'beagle',
@@ -54,16 +72,38 @@ class AppointmentSeeder extends Seeder
                 'color' => 'brown',
             ],
             [
-                'owner_id' => 1,
+                'owner_id' => 3,
                 'pet_name' => 'Kaido',
                 'age' => 2,
-                'birthdate' => '2020-02-09',
+                'birthdate' => '2020-10-09',
+                'gender' => 'Male',
+                'breed' => 'beagle',
+                'pet_type' => 'Dog',
+                'color' => 'gray',
+            ],
+            [
+                'owner_id' => 4,
+                'pet_name' => 'garry',
+                'age' => 1,
+                'birthdate' => '2020-03-05',
+                'gender' => 'female',
+                'breed' => 'beagle',
+                'pet_type' => 'Dog',
+                'color' => 'brown',
+            ],
+            [
+                'owner_id' => 5,
+                'pet_name' => 'buboy',
+                'age' => 2,
+                'birthdate' => '2020-08-19',
                 'gender' => 'Male',
                 'breed' => 'beagle',
                 'pet_type' => 'Dog',
                 'color' => 'gray',
             ]
         ];
+
+
         $appointment = [
             [
                 'owner_id' => 1,
@@ -71,23 +111,41 @@ class AppointmentSeeder extends Seeder
                 'reason_id' => 1,
                 'date' => '22-10-22',
                 'time' => '1:00',
-
             ],
+
+
             [
-                'owner_id' => 1,
+                'owner_id' => 2,
                 'pet_id' => 2,
-                'reason_id' => 2,
+                'reason_id' => 6,
                 'date' => '22-10-22',
-                'time' => '1:00',
-
+                'time' => '2:00',
             ],
+
+
             [
-                'owner_id' => 1,
+                'owner_id' => 3,
                 'pet_id' => 3,
                 'reason_id' => 3,
                 'date' => '22-10-22',
-                'time' => '1:00',
+                'time' => '12:00',
+            ],
 
+            [
+                'owner_id' => 4,
+                'pet_id' => 4,
+                'reason_id' => 1,
+                'date' => '22-10-22',
+                'time' => '3:00',
+            ],
+
+
+            [
+                'owner_id' => 5,
+                'pet_id' => 5,
+                'reason_id' => 4,
+                'date' => '22-10-22',
+                'time' => '5:00',
             ],
         ];
 

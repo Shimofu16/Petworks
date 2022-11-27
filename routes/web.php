@@ -6,6 +6,7 @@ use App\Http\Controllers\CancelController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ConfirmController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\DailyController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
@@ -113,6 +114,13 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
         /* SLAES*/
         Route::prefix('sale')->name('sale.')->controller(SaleController::class)->group(function () {
+            Route::get('/',  'index')->name('index');
+            Route::post('/store',  'store')->name('store');
+            Route::put('/update{id}',  'update')->name('update');
+        });
+
+          /* DAILY */
+        Route::prefix('daily')->name('daily.')->controller(DailyController::class)->group(function () {
             Route::get('/',  'index')->name('index');
             Route::post('/store',  'store')->name('store');
             Route::put('/update{id}',  'update')->name('update');

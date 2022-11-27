@@ -186,7 +186,7 @@
                                         </span>
                                     @enderror
                                 </div>
-                                <div class="col-md-6">
+                              {{--   <div class="col-md-6">
                                     <label>Color<span class="text-danger ">*</span></label>
                                     <input type="text " name="color"
                                         class="form-control  @error('color') is-invalid @enderror" placeholder="Enter color "
@@ -196,7 +196,7 @@
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
-                                </div>
+                                </div> --}}
                             </div>
                             <div class="row mb-3">
                                 <div class="col-md-12 ">

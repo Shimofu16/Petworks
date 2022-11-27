@@ -75,6 +75,14 @@
                             <textarea class="form-control" placeholder="Doctors prescription" id="prescription" name="prescription" wire:model='prescription'></textarea>
                         </div>
                     </div>
+
+             {{--        <div class="row mb-3">
+                        <div class="col">
+                            <label for="picture" class="col-form-label">Picture</label>
+                            <input class="form-control" type="file" id="picture" wire:model='picture'>
+                        </div>
+                    </div> --}}
+
                     <div class="row mb-3">
                         <div class="col">
                             <label for="comment" class="col-form-label">Comment:</label>
@@ -133,10 +141,11 @@
 
             <div class="row">
                 <hr class="horizontal dark mt-0">
-                <h5 class="text-center text-bold text-success mt-0">Receipt</h5>
+                <h5 class="text-center text-bold text-success mt-0">Billing Statement</h5>
                 <hr class="horizontal dark mt-0">
             </div>
-
+            <h6 class="text-left text-bold text-primary mt-0">Products</h6>
+            <hr class="horizontal dark mt-0">
             <table class="table align-items-center mb-0" id="confirm">
                 <tr>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
@@ -175,6 +184,44 @@
                     </tr>
                 </tfoot>
             </table>
+            <h6 class="text-left text-bold text-primary mt-3">Services</h6>
+            <hr class="horizontal dark mt-0 ">
+            <table class="table align-items-center mb-0" id="confirm">
+                <tr>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                       Service
+                    </th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Price
+                    </th>
+
+                </tr>
+
+                <tfoot>
+                    <tr>
+                        <th colspan="3">
+                            <div class="d-flex justify-content-end me-3">
+                                <span>Total: {{ number_format($total, 2) }}</span>
+                            </div>
+                        </th>
+                    </tr>
+
+
+                </tfoot>
+
+
+            </table>
+
+
+            <div class="d-flex justify-content-end mt-3">
+                <button class="btn btn-primary mb-0" type="button" data-bs-toggle="modal" data-bs-target="#add">
+                    <span class="d-flex align-items-center"><i class="fa-solid fa-print"></i>&#160; Print</span>
+                </button>
+                @include('Petworks.admin.inventory.category.modal._add')
+            </div>
         </div>
+
+
+
+
     </div>
 </div>

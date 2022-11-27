@@ -52,7 +52,7 @@
                     <p class="text-justify">Petworks Veterinary Clinic works to be the most trusted and respected pet care
                         provider in our community by administering the best possible medical and emotional care and giving
                         outstanding customer service to every patient and every client every visit.</p>
-                  <a href="" class="link-btn">read more</a>
+
 
                     {{-- <div class="icons-container">
                         <div class="icons">
@@ -236,7 +236,7 @@
                     {{-- <a href="#" class="link-btn">read more</a> --}}
                 </div>
             </div>
-
+          {{--   <a href="" class="link-btn text-center">read more</a> --}}
         </div>
 
     </section>

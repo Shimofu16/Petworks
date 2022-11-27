@@ -110,24 +110,24 @@
                         <thead {{-- class="table-warning text-black" --}}>
                             <tr>
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                    Record
+                                    Reason
                                 </th>
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                    Date
-                                </th>
-                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                    Time
+                                    Date & time
                                 </th>
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                     Doctor
                                 </th>
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                    Comment
+                                    Information
                                 </th>
 
 
-                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                              {{--   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                     Action
+                                </th> --}}
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                    Reminder
                                 </th>
                             </tr>
                         </thead>
@@ -137,8 +137,14 @@
                             <tr>
 
                                 <td>{{ $consultation->service->service }}</td>
-                                <td>{{ date('F d, Y', strtotime($consultation->date)) }}</td>
-                                <td>{{ date('H:i A', strtotime($consultation->time)) }}</td>
+                                <td>
+                                    <div class="d-flex flex-column px-2 py-1">
+                                        <h5 class="mb-0 text-sm">{{ date('F d, Y', strtotime($consultation->date)) }}</h5>
+                                        <p class="text-sm text-secondary mb-0">
+                                            {{ date('H:i A', strtotime($consultation->time)) }}
+                                        </p>
+                                    </div>
+                                </td>
                                 <td>{{ $consultation->doctor->name}}</td>
                                 <td>
                                     <div>
@@ -150,7 +156,7 @@
                                         @include('Petworks.admin.owner.modal._show')
                                     </div>
                                 </td>
-                                <td>
+                              {{--   <td>
                                     <div>
                                         <button type="button" class="btn btn-link btn-sm" data-bs-toggle="modal"
                                             data-bs-target="#edit{{ $consultation->id }}">
@@ -159,6 +165,17 @@
                                             Edit
                                         </button>
                                         @include('Petworks.admin.owner.modal._edit')
+                                    </div>
+                                </td> --}}
+                                <td>
+                                    <div>
+                                        <button type="button" class="btn btn-link btn-sm text-danger" data-bs-toggle="modal"
+                                            data-bs-target="#edit{{-- {{ $consultation->id }} --}}">
+                                            <i class="fa-solid fa-bell text-danger me-2"
+                                                aria-hidden="true"></i>
+                                            Remind
+                                        </button>
+                                  {{--       @include('Petworks.admin.owner.modal._edit') --}}
                                     </div>
                                 </td>
                             </tr>

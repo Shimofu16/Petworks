@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Admin\Appointments;
 
+use App\Models\Appointment;
 use App\Models\category;
 use App\Models\Doctor;
 use App\Models\product;
@@ -106,6 +107,24 @@ class Confirm extends Component
         }
 
         $this->reset('productId');
+    }
+    public function submit(){
+        $appointment=Appointment::where('id','=',$this->appointment_id)->first();
+        $appointment->update([
+            'complaint'=>$this->complaint,
+            'weight'=>$this->weight,
+            'hr'=>$this->hr,
+            'rr'=>$this->rr,
+            'temperature'=>$this->temperature,
+            'diet'=>$this->diet,
+            'next_visit'=>$this->next_visit,
+            'history'=>$this->history,
+            'prescription'=>$this->prescription,
+            'comment'=>$this->comment,
+            'doctor_id'=>$this->doctor_id,
+            'status'=>'done'
+
+        ]);
     }
     public function render()
     {

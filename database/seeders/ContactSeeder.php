@@ -15,13 +15,30 @@ class ContactSeeder extends Seeder
     public function run()
     {
         $data = [
-          
+            [
 
                 'name' => 'Krysia Hernandez',
                 'email' => 'krysialee023@gmail.com',
                 'message' => 'Hi',
+            ],
+
+            [
+                'name' => 'Ryan Danday',
+                'email' => 'shainedanday@gmail.com',
+                'message' => 'Goodafternoon',
+            ],
+
+            [
+                'name' => 'Mark Anjelo',
+                'email' => 'krysialee023@gmail.com',
+                'message' => 'hello',
+            ]
+
 
         ];
-        Contact::create($data);
+        foreach ($data as $key => $value) {
+            # code...
+            Contact::create($value);
+        }
     }
 }

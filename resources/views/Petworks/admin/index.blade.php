@@ -167,6 +167,21 @@
                         </a>
                     </li>
 
+                    {{-- Daily Transaction --}}
+                    <li class="nav-item">
+                        <a class="nav-link {{ Request::routeIs('admin.daily.index') ? 'active' : '' }}"
+                            href="{{ route('admin.daily.index') }}">
+                            <div
+                                class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+
+                                <i
+                                    class="fa-solid fa-money-bills text-sm opacity-10  {{ Request::routeIs('admin.daily.index') ? '' : 'text-success' }}"></i>
+
+                            </div>
+                            <span class="nav-link-text ms-1">Daily Ttransaction</span>
+                        </a>
+                    </li>
+
                     {{-- Products Single --}}
                     <li class="nav-item">
                         <a class="nav-link {{ Request::routeIs('admin.product.index') ? 'active' : '' }}"

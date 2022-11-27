@@ -50,7 +50,7 @@ section.side {
 .separator {
     width: 150px;
     height: 4px;
-    background-color: #4da6ff;
+    background-color: #7ba0c5;
     margin: 24px;
 }
 
@@ -95,12 +95,12 @@ input~i {
     left: 32px;
     top: 50%;
     transform: translateY(-50%);
-    color: #4da6ff;
+    color: #7ba0c5;
     transition: color 0.4s;
 }
 
 input:focus~i {
-    color: #ffcc99;
+    color: #ea917b;
 }
 
 button.submit {
@@ -110,14 +110,14 @@ button.submit {
     text-transform: uppercase;
     letter-spacing: 2px;
     font-weight: bold;
-    background: linear-gradient(to right, #4da6ff 0%, #00ffff 100%);
+    background: linear-gradient(to right, #7ba0c5 0%, #9bf3f3 100%);
     cursor: pointer;
     transition: opacity 0.4s;
 }
 
 button.submit:hover {
     opacity: 0.9;
-    background: linear-gradient(to right, #ffcc99 0%, #ffffcc 100%);
+    background: linear-gradient(to right, #ea917b 0%, #ffffcc 100%);
 }
 
 
