@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AlbumController;
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\CancelController;
 use App\Http\Controllers\CategoryController;
@@ -124,6 +125,14 @@ Route::prefix('admin')->name('admin.')->group(function () {
             Route::get('/',  'index')->name('index');
             Route::post('/store',  'store')->name('store');
             Route::put('/update{id}',  'update')->name('update');
+        });
+
+           /* ALBUM */
+           Route::prefix('album')->name('album.')->controller(AlbumController::class)->group(function () {
+            Route::get('/',  'index')->name('index');
+            Route::post('/store',  'store')->name('store');
+            Route::post('/reply',  'reply')->name('reply');
+            Route::delete('/{id}',  'destroy')->name('destroy');
         });
     });
 });

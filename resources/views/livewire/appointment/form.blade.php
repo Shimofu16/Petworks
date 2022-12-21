@@ -38,6 +38,7 @@
             @if ($isNewClient)
                 <div class="card bg-light shadow">
                     <div class="card-header  bg-pw-primary  py-3">
+                        <img class="height-30 width-30" src="{{asset('images/header.png')}}" alt="">
                         <h4 class="mb-2 text-white text-center">Appointment / Scheduling Form</h4>
                         <h6 class="text-white text-center">Petworks Veterinary Clinic</h6>
                     </div>
