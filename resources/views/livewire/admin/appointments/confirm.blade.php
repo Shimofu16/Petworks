@@ -65,27 +65,27 @@
                     </div>
                     <div class="row mb-3">
                         <div class="col">
-                            <label for="history" class="col-form-label">Medical History:</label>
+                            <label for="history">Medical History:</label>
                             <textarea class="form-control" placeholder="What is the Medical History?" id="history" name="history" wire:model='history'></textarea>
                         </div>
                     </div>
                     <div class="row mb-3">
                         <div class="col">
-                            <label for="prescription" class="col-form-label">Prescription:</label>
+                            <label for="prescription">Prescription:</label>
                             <textarea class="form-control" placeholder="Doctors prescription" id="prescription" name="prescription" wire:model='prescription'></textarea>
                         </div>
                     </div>
 
              {{--        <div class="row mb-3">
                         <div class="col">
-                            <label for="picture" class="col-form-label">Picture</label>
+                            <label for="picture">Picture</label>
                             <input class="form-control" type="file" id="picture" wire:model='picture'>
                         </div>
                     </div> --}}
 
                     <div class="row mb-3">
                         <div class="col">
-                            <label for="comment" class="col-form-label">Comment:</label>
+                            <label for="comment">Comment:</label>
                             <textarea class="form-control" placeholder="Leave a comment here" id="comment" name="comment" wire:model='comment'></textarea>
                         </div>
                     </div>
@@ -126,13 +126,13 @@
                     <div></div>
                 @endif
                 @if ($currentStep != 1)
-                    <button type="button" class="btn btn-secondary" wire:click="back()">Back</button>
+                    <button type="button" class="btn btn-secondary" wire:loading.attr="disabled"  wire:click="back()">Back</button>
                 @endif
                 @if ($currentStep != $totalSteps)
-                    <button type="button" class="btn btn-primary" wire:click="next()">Next</button>
+                    <button type="button" class="btn btn-primary" wire:loading.attr="disabled" wire:click="next()">Next</button>
                 @endif
                 @if ($currentStep == $totalSteps)
-                    <button type="submit" class="btn btn-success" wire:click="submit()">Submit</button>
+                    <button type="submit" class="btn btn-success"  wire:loading.attr="disabled" wire:click="submit()">Submit</button>
                 @endif
             </div>
         </div>
@@ -178,7 +178,7 @@
                     <tr>
                         <th colspan="3">
                             <div class="d-flex justify-content-end me-3">
-                                <span>Total: {{ number_format($total, 2) }}</span>
+                                <span>Total: {{ number_format($sub_product, 2) }}</span>
                             </div>
                         </th>
                     </tr>
@@ -187,20 +187,36 @@
             <h6 class="text-left text-bold text-primary mt-3">Services</h6>
             <hr class="horizontal dark mt-0 ">
             <table class="table align-items-center mb-0" id="confirm">
-                <tr>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                       Service
-                    </th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Price
-                    </th>
+                <thead>
+                    <tr>
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                           Service
+                        </th>
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Price
+                        </th>
 
-                </tr>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td> {{ $appointment->service->service }}</td>
+                        <td>{{$appointment->service->price }}</td>
+                    </tr>
+                </tbody>
 
                 <tfoot>
                     <tr>
                         <th colspan="3">
                             <div class="d-flex justify-content-end me-3">
-                                <span>Total: {{ number_format($total, 2) }}</span>
+                                <span>Total: {{ number_format($sub_service, 2) }}</span>
+                            </div>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th colspan="3">
+                            <div class="d-flex justify-content-end me-3">
+                                <span>Overall Total: {{ number_format($total, 2) }}</span>
                             </div>
                         </th>
                     </tr>

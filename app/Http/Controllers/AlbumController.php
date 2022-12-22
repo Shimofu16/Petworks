@@ -15,7 +15,7 @@ class AlbumController extends Controller
      */
     public function index()
     {
-        $Album = Album::all();
+        $album = Album::all();
         return view('Petworks.admin.album.index', compact('album'));
     }
 

@@ -1,50 +1,6 @@
 <div>
     <div class="row mb-3">
-        {{-- <div class="col-md-4 p-0  me-3">
-            <div class="card border-0 shadow">
-                <div class="card-header border-0 text-bold">
-                    <h5 class="card-title">Owner Information</h5>
-                    <hr class="horizontal dark mt-0">
-                    <p class="card-text">Name: {{ $owner->name }}</p>
-                    <p class="card-text ">Email: {{ $owner->email }}</p>
-                    <p class="card-text">Address: {{ $owner->address }}</p>
-                    <p class="card-text">Contact: {{ $owner->number }}</p>
-                </div>
 
-                <div class="card-body pt-0">
-                    <select class="form-select mt-1" aria-label="Default select example" name="pet_id"
-                        wire:model='pet_id'>
-                        <option selected value="">Pet Name</option>
-                        @foreach ($owner->pets as $pet)
-                        <option value="{{ $pet->id }}">{{ $pet->pet_name }}</option>
-                        @endforeach
-                    </select>
-                    <select class="form-select mt-1" aria-label="Default select example" name="reason_id"
-                        wire:model='reason_id'>
-                        <option selected>Appointments</option>
-                        @forelse ($services as $service)
-                        <option value="{{ $service->reason_id }}">{{ $service->service->service }}</option>
-                        @empty
-                        <option value="">No Appointments</option>
-                        @endforelse
-                    </select>
-                    <hr class="horizontal dark mt-0">
-                    <h5 class="card-title">Pet Information</h5>
-                    <hr class="horizontal dark mt-0">
-
-                    <p class="card-text">Pet name: {{ $pet_name }}</p>
-                    <p class="card-text">Pet Type: {{ $pet_type }}</p>
-                    <p class="card-text">Date of Birth: {{ $pet_birthdate }}</p>
-                    <p class="card-text">Age: {{ $pet_age }}</p>
-                    <p class="card-text">Gender: {{ $pet_gender }}</p>
-                    <p class="card-text">Breed: {{ $pet_breed }}</p>
-
-                    <hr class="horizontal dark mt-0">
-
-                </div>
-
-            </div>
-        </div> --}}
         {{-- TABLEEEEEEE --}}
         <div class="card ">
             <div class="card-body p-0">
@@ -80,7 +36,7 @@
                             <hr class="horizontal dark mt-1">
                             <select class="form-select mt-1 mb-1" aria-label="Default select example" name="pet_id"
                                 wire:model='pet_id'>
-                                <option selected disabled>Pet Name</option>
+                                <option selected value="">Pet Name</option>
                                 @foreach ($owner->pets as $pet)
                                 <option value="{{ $pet->id }}">{{ $pet->pet_name }}</option>
                                 @endforeach

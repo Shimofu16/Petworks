@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Admin\Appointments;
 
 use App\Models\Appointment;
 use App\Models\category;
+use App\Models\Daily;
 use App\Models\Doctor;
 use App\Models\product;
 use App\Models\SoldProduct;
@@ -16,6 +17,7 @@ class Confirm extends Component
     public $totalSteps = 2;
     public $doctors;
     public $appointment_id;
+    public $appointment;
     public $categories;
     public $category_id;
     public $products = [];
@@ -23,6 +25,8 @@ class Confirm extends Component
     public $productId;
     public $prevProductId;
     public $total = 0;
+    public $sub_product = 0;
+    public $sub_service = 0;
     public $once = true;
 
     /* dito yung variables ng inc */
@@ -61,6 +65,13 @@ class Confirm extends Component
     {
         $this->doctors = Doctor::all();
         $this->categories = category::all();
+        $this->appointment = Appointment::find($this->appointment_id);
+        $this->selected_products = SoldProduct::where('appointment_id', $this->appointment_id)->get();
+        foreach ($this->selected_products as $product) {
+            $this->sub_product = $this->sub_product + ($product->product->price * $product->quantity);
+        }
+        $this->sub_service = $this->appointment->service->price;
+        $this->total = $this->sub_product + $this->sub_service;
     }
     public function increase($id)
     {
@@ -70,6 +81,9 @@ class Confirm extends Component
                 ->firstOrFail();
             $product->quantity = $product->quantity + 1;
             $product->update();
+            $product_price = product::find($id)->price;
+            $this->sub_product = $this->sub_product + $product_price;
+            $this->total = $this->total + $product_price;
         } catch (\Throwable $th) {
             dd($th);
         }
@@ -82,6 +96,9 @@ class Confirm extends Component
                 ->firstOrFail();
             $product->quantity = $product->quantity - 1;
             $product->update();
+            $product_price = product::find($id)->price;
+            $this->sub_product = $this->sub_product - $product_price;
+            $this->total = $this->total - $product_price;
             if ($product->quantity == 0) {
                 $product->delete();
             }
@@ -98,41 +115,50 @@ class Confirm extends Component
                 ->firstOrFail();
             $sold->quantity = $sold->quantity + 1;
             $sold->update();
+            $product_price = product::find($productId)->price;
+            $this->sub_product = $this->sub_product + $product_price;
+            $this->total = $this->total + $product_price;
         } catch (\Throwable $th) {
             SoldProduct::create([
                 'appointment_id' => $this->appointment_id,
                 'product_id' => $product->id,
                 'quantity' => 1,
+
             ]);
+            $product_price = product::find($productId)->price;
+            $this->sub_product = $this->sub_product + $product_price;
+            $this->total = $this->total + $product_price;
         }
 
         $this->reset('productId');
     }
-    public function submit(){
-        $appointment=Appointment::where('id','=',$this->appointment_id)->first();
+    public function submit()
+    {
+        $appointment = Appointment::where('id', '=', $this->appointment_id)->first();
         $appointment->update([
-            'complaint'=>$this->complaint,
-            'weight'=>$this->weight,
-            'hr'=>$this->hr,
-            'rr'=>$this->rr,
-            'temperature'=>$this->temperature,
-            'diet'=>$this->diet,
-            'next_visit'=>$this->next_visit,
-            'history'=>$this->history,
-            'prescription'=>$this->prescription,
-            'comment'=>$this->comment,
-            'doctor_id'=>$this->doctor_id,
-            'status'=>'done'
+            'complaint' => $this->complaint,
+            'weight' => $this->weight,
+            'hr' => $this->hr,
+            'rr' => $this->rr,
+            'temperature' => $this->temperature,
+            'diet' => $this->diet,
+            'next_visit' => $this->next_visit,
+            'history' => $this->history,
+            'prescription' => $this->prescription,
+            'comment' => $this->comment,
+            'doctor_id' => $this->doctor_id,
+            'status' => 'done'
 
         ]);
+        $transaction = Daily::create([
+            'appointment_id'=>$this->appointment_id,
+            'amount'=>$this->total,
+        ]);
+        return redirect(route('admin.owner.index'));
     }
     public function render()
     {
-        $this->total = 0;
         $this->selected_products = SoldProduct::where('appointment_id', $this->appointment_id)->get();
-        foreach ($this->selected_products as $product) {
-            $this->total = $this->total + ($product->product->price * $product->quantity);
-        }
         $this->products = product::where('category_id', '=', $this->category_id)->get();
         return view('livewire.admin.appointments.confirm');
     }

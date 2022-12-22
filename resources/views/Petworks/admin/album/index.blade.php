@@ -6,20 +6,26 @@
     <div class="row">
         <div class="col-12">
             <div class="card mb-4">
-                <div class="card-header pb-0">
-                    <h6>@yield('page-title')</h6>
-                </div>
-                <div class="col">
-                    <div class="d-flex justify-content-end">
-                        <a class="btn btn-primary mb-0" type="button" data-bs-toggle="modal" data-bs-target="#add">
-                            <span class="d-flex align-items-center"><i class="fas fa-plus-circle"></i>&#160; Add Album</span>
-                        </a>
-                        @include('Petworks.admin.inventory.product.modal._add')
+                <div class="card-header d-flex justify-content-between align-items-center mb-3 pb-0">
+
+                    <div class="col">
+                        <h6>@yield('page-title')</h6>
                     </div>
 
 
-
+                    <div class="col">
+                        <div class="d-flex justify-content-end">
+                            <a class="btn btn-primary mb-0" type="button" data-bs-toggle="modal" data-bs-target="#add">
+                                <span class="d-flex align-items-center"><i class="fas fa-plus-circle"></i>&#160; Add
+                                    ALbum</span>
+                            </a>
+                       {{--      @include('Petworks.admin.inventory.product.modal._add') --}}
+                        </div>
+                    </div>
                 </div>
+
+
+
                 <div class="card-body px-0 pt-0 pb-2">
                     <div class="table-responsive p-0">
                         <table class="table align-items-center mb-0">

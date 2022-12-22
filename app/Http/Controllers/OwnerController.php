@@ -16,8 +16,9 @@ class OwnerController extends Controller
      */
     public function index()
     {
-        $owners = Owner::all();
+        $owners = Owner::orderBy('name','ASC')->get();
         return view('Petworks.admin.owner.index', compact('owners'));
+
     }
 
     /**

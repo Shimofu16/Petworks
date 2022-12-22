@@ -15,7 +15,7 @@ class Show extends Component
     public $owner;
     public $appointments;
     public $consultations = [];
-    public $pet_id;
+    public $pet_id = '';
     public $pet = [];
     public $pet_name;
     public $pet_type;
@@ -78,7 +78,7 @@ class Show extends Component
         ]);
         /* if (!empty($this->reason_id)) {
             $this->title = service::find($this->reason_id);
-            $this->consultations = Appointment::where('owner_id', '=', $this->owner->id)    
+            $this->consultations = Appointment::where('owner_id', '=', $this->owner->id)
                 ->where('pet_id', '=', $this->pet_id)
                 ->where('reason_id', '=', $this->reason_id)
                 ->get();

@@ -29,7 +29,7 @@ class ConfirmController extends Controller
      */
     public function index()
     {
-        $appointments = Appointment::where('status', '=', 'confirmed')->get();
+        $appointments = Appointment::where('status', '=', 'confirmed')->orderBy('created_at','ASC')->get();
         $doctors = Doctor::all();
         $products = product::all();
         return view('Petworks.admin.appointment.Confrm.index', compact('appointments', 'doctors', 'products'));

@@ -21,7 +21,7 @@ class PendingController extends Controller
      */
     public function index()
     {
-        $pendings = Appointment::where('status', '=', 'pending')->get();
+        $pendings = Appointment::where('status', '=', 'pending')->orderBy('created_at','ASC')->get();
         return view('Petworks.admin.appointment.pending.index', compact('pendings'));
     }
 

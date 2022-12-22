@@ -19,7 +19,8 @@ class AppointmentController extends Controller
      */
     public function index()
     {
-        $appointments = Appointment::where('status', '=', 'request')->get();
+
+        $appointments = Appointment::where('status', '=', 'request')->orderBy('created_at','ASC')->get();
         return view('Petworks.admin.appointment.request.index', compact('appointments'));
     }
 

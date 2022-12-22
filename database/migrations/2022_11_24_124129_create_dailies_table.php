@@ -15,6 +15,12 @@ class CreateDailiesTable extends Migration
     {
         Schema::create('dailies', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('appointment_id');
+            $table->foreign('appointment_id')
+                ->references('id')
+                ->on('appointments')
+                ->onUpdate('cascade');
+            $table->double('amount');
             $table->timestamps();
         });
     }
