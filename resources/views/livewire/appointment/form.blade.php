@@ -33,7 +33,7 @@
                 </div>
             </div>
         @break
-
+        
         @case(2)
             @if ($isNewClient)
                 <div class="card bg-light shadow">
