@@ -29,7 +29,7 @@ Daily Transaction
                                 </th>
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Client
                                 </th>
-                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">PAtient
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Patient
                                 </th>
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Product
                                 </th>
@@ -39,7 +39,7 @@ Daily Transaction
                                 </th>
 
 
-                              
+
                             </tr>
                         </thead>
 
