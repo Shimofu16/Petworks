@@ -15,12 +15,12 @@
 </head>
 
 <body>
+
     <div class="container bg-pw-light">
-        <div class="row">
-            <div class="col-md-7 offset-md-3 my-5">
-                <div class="signup-form">
+
+        <div class="row flex-nowrap mb-3 mt-5  justify-content-center">
+            <div class="col-md-7 my-5">
                     @livewire('appointment.form', ['services' => $services])
-                </div>
             </div>
         </div>
     </div>

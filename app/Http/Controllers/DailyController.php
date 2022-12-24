@@ -15,8 +15,8 @@ class DailyController extends Controller
      */
     public function index()
     {
-        $dailys = Daily::all();
-        return view('Petworks.admin.inventory.daily.index', compact('dailys'));
+        $daylies = Daily::with('appointment')->get();
+        return view('Petworks.admin.inventory.daily.index', compact('daylies'));
     }
 
     /**

@@ -9,4 +9,8 @@ class Daily extends Model
 {
     protected $table = 'dailies';
     public $guarded = [];
+    public function appointment(){
+        return $this->belongsTo(Appointment::class, 'appointment_id');
+    } 
+
 }

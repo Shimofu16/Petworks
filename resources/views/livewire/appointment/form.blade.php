@@ -38,7 +38,9 @@
             @if ($isNewClient)
                 <div class="card bg-light shadow">
                     <div class="card-header  bg-pw-primary  py-3">
+                    <div class="d-flex justify-content-center align-items-center">
                         <img class="height-30 width-30" src="{{asset('images/header.png')}}" alt="">
+                    </div>
                         <h4 class="mb-2 text-white text-center">Appointment / Scheduling Form</h4>
                         <h6 class="text-white text-center">Petworks Veterinary Clinic</h6>
                     </div>
@@ -273,6 +275,9 @@
                 @if ($hasEmail)
                     <div class="card bg-light shadow ">
                         <div class="card-header  bg-pw-primary  py-3">
+                            {{-- <div class="d-flex justify-content-center align-items-center">
+                                <img class="height-30 width-30" src="{{asset('images/header.png')}}" alt="">
+                            </div> --}}
                             <h4 class="mb-2 text-white text-center">Appointment / Scheduling Form</h4>
                             <h6 class="text-white text-center">Petworks Veterinary Clinic</h6>
                         </div>
@@ -480,10 +485,14 @@
                     </div>
                 @else
                     <div class="card bg-light shadow">
-                        {{-- <div class="card-header  bg-pw-primary bg-transparent border-0">
-
-                        </div> --}}
+                        <div class="card-header  bg-pw-primary bg-transparent border-0">
+                            <div class="d-flex justify-content-center align-items-center">
+                                <img class="height-30 width-30" src="{{asset('images/header.png')}}" alt="">
+                            </div>
+                        </div>
+                        <hr class="mx-3">
                         <div class="card-body">
+
                             <div class="mt-3">
                                 <label for="emailAddress" class="form-label">Email</label>
                                 <input type="email" class="form-control  @error('emailAddress') is-invalid @enderror"
@@ -555,7 +564,7 @@
                                                     @if ($cancelBtn && $appointment->id == $cancelId)
                                                         <span>Cancel this appointment?</span>
                                                         <div class="d-flex">
-                                                            <button class="btn btn-sm btn-success"
+                                                            <button class="btn btn-sm btn-success me-1"
                                                                 wire:click='cancelAppointment({{ $appointment->id }})'>
                                                                 Yes
                                                             </button>
