@@ -15,7 +15,7 @@ class DailyController extends Controller
      */
     public function index()
     {
-        $daylies = Daily::with('appointment')->get();
+        $daylies = Daily::with('appointment')->whereDay('created_at','=',now()->format('d'))->whereMonth('created_at','=',now()->format('m'))->get();
         return view('Petworks.admin.inventory.daily.index', compact('daylies'));
     }
 

@@ -31,7 +31,7 @@ class CreateAppointmentsTable extends Migration
                 ->on('services')
                 ->onUpdate('cascade');
             $table->date('date');
-            $table->time('time');
+            $table->string('time');
             $table->string('complaint')->nullable();
             $table->string('weight')->nullable();
             $table->string('hr')->nullable();
@@ -53,6 +53,7 @@ class CreateAppointmentsTable extends Migration
             $table->string('path')->nullable();
             $table->text('status')->default("request");
             $table->text('cancelled_by')->nullable();
+            $table->string('type')->default('new client');
             $table->timestamps();
         });
     }

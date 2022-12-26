@@ -147,7 +147,8 @@ class Confirm extends Component
             'prescription' => $this->prescription,
             'comment' => $this->comment,
             'doctor_id' => $this->doctor_id,
-            'status' => 'done'
+            'status' => 'done',
+            'type' => 'old client'
 
         ]);
         $transaction = Daily::create([

@@ -3,6 +3,9 @@
         @case(1)
             <div class="card shadow bg-light mt-5 ">
                 <div class="card-header bg-pw-primary py-3">
+                    <div class="d-flex justify-content-center align-items-center">
+                        <img class="height-30 width-30" src="{{ asset('images/header.png') }}" alt="">
+                    </div>
                     <h1 class="text-center mb-1 card-title text-white">Welcome!</h1>
                     <h6 class="text-center text-white">Petworks Veterinary Clinic</h6>
                 </div>
@@ -33,14 +36,14 @@
                 </div>
             </div>
         @break
-        
+
         @case(2)
             @if ($isNewClient)
                 <div class="card bg-light shadow">
                     <div class="card-header  bg-pw-primary  py-3">
-                    <div class="d-flex justify-content-center align-items-center">
-                        <img class="height-30 width-30" src="{{asset('images/header.png')}}" alt="">
-                    </div>
+                        <div class="d-flex justify-content-center align-items-center">
+                            <img class="height-30 width-30" src="{{ asset('images/header.png') }}" alt="">
+                        </div>
                         <h4 class="mb-2 text-white text-center">Appointment / Scheduling Form</h4>
                         <h6 class="text-white text-center">Petworks Veterinary Clinic</h6>
                     </div>
@@ -189,7 +192,7 @@
                                         </span>
                                     @enderror
                                 </div>
-                              {{--   <div class="col-md-6">
+                                {{--   <div class="col-md-6">
                                     <label>Color<span class="text-danger ">*</span></label>
                                     <input type="text " name="color"
                                         class="form-control  @error('color') is-invalid @enderror" placeholder="Enter color "
@@ -233,7 +236,7 @@
 
                                 <div class="col-md-6">
                                     <label>Time<span class="text-danger">*</span></label>
-                                    <input type="time" name="time" id="time"
+                                    <input type="text" name="time" id="time"
                                         class="form-control @error('time') is-invalid @enderror" placeholder="Enter Time"
                                         wire:model='time'>
                                     @error('time')
@@ -243,6 +246,10 @@
                                     @enderror
                                 </div>
                             </div>
+
+
+
+
                             <hr class="horizontal dark">
 
                             <p class="text-justify text-bold"> NOTE: Please be advised that once you book an appointment at the
@@ -278,6 +285,9 @@
                             {{-- <div class="d-flex justify-content-center align-items-center">
                                 <img class="height-30 width-30" src="{{asset('images/header.png')}}" alt="">
                             </div> --}}
+                            <div class="d-flex justify-content-center align-items-center">
+                                <img class="height-30 width-30" src="{{ asset('images/header.png') }}" alt="">
+                            </div>
                             <h4 class="mb-2 text-white text-center">Appointment / Scheduling Form</h4>
                             <h6 class="text-white text-center">Petworks Veterinary Clinic</h6>
                         </div>
@@ -446,7 +456,7 @@
 
                                     <div class="col-md-6">
                                         <label>Time<span class="text-danger">*</span></label>
-                                        <input type="time" name="time" id="time"
+                                        <input type="type" name="time" id="time"
                                             class="form-control @error('time') is-invalid @enderror" placeholder="Enter Time"
                                             wire:model='time'>
                                         @error('time')
@@ -487,7 +497,7 @@
                     <div class="card bg-light shadow">
                         <div class="card-header  bg-pw-primary bg-transparent border-0">
                             <div class="d-flex justify-content-center align-items-center">
-                                <img class="height-30 width-30" src="{{asset('images/header.png')}}" alt="">
+                                <img class="height-30 width-30" src="{{ asset('images/header.png') }}" alt="">
                             </div>
                         </div>
                         <hr class="mx-3">
@@ -516,6 +526,9 @@
                 @if ($hasEmail)
                     <div class="card bg-light shadow">
                         <div class="card-header  bg-pw-primary py-3">
+                            <div class="d-flex justify-content-center align-items-center">
+                                <img class="height-30 width-30" src="{{ asset('images/header.png') }}" alt="">
+                            </div>
                             <h4 class="mb-2  text-center text-white ">Cancel Appointment</h4>
                             <h6 class="text-white text-center ">Petworks Veterinary Clinic</h6>
                         </div>
@@ -524,15 +537,21 @@
                                 <thead class="thead-light">
 
                                     <tr>
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-info">
+                                        <th
+                                            class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-info">
                                             Pet name
                                         </th>
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-info">Reason
+                                        <th
+                                            class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-info">
+                                            Reason
                                         </th>
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-info">
+                                        <th
+                                            class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-info">
                                             Date & Time
                                         </th>
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-info">Action
+                                        <th
+                                            class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-info">
+                                            Action
                                         </th>
                                     </tr>
 
@@ -589,7 +608,7 @@
                             {{-- bootstrap alert with close button  --}}
                             @if (session()->has('success'))
                                 <div class="alert alert-success alert-dismissible fade show" role="alert">
-                                     {{ session('success') }}
+                                    {{ session('success') }}
                                     <button type="button" class="btn-close" data-bs-dismiss="alert"
                                         aria-label="Close"></button>
                                 </div>
@@ -598,6 +617,9 @@
                     </div>
                 @else
                     <div class="card bg-light shadow">
+                        <div class="d-flex justify-content-center align-items-center">
+                            <img class="height-30 width-30" src="{{ asset('images/header.png') }}" alt="">
+                        </div>
                         <div class="card-body">
                             <div class="mt-3">
                                 <label for="emailAddress" class="form-label">Email</label>

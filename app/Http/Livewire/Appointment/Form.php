@@ -100,6 +100,7 @@ class Form extends Component
                     'birthdate' => $this->birthdate,
                     'breed' => $this->breed,
                     'pet_type' => $this->pet_type,
+                    'color' => $this->color,
                 ]
             )->id;
             Appointment::create(

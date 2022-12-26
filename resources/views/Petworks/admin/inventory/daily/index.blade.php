@@ -24,10 +24,9 @@
                                     </th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Patient
                                     </th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Product
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Transaction
                                     </th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Services
-                                    </th>
+
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Amount
                                     </th>
                                 </tr>
@@ -54,18 +53,15 @@
                                         </td>
                                         <td>
                                             <div class="d-flex flex-column justify-content-center px-2 py-1">
-                                                <button type="button" class="btn" data-bs-toggle="modal"
-                                                data-bs-target="#show{{ $daily->id }} ">
-                                                    <i class="fa fa-eye" aria-hidden="true"></i>
+
+                                                <button type="button" class="btn btn-link text-info" data-bs-toggle="modal"
+                                                data-bs-target="#show{{ $daily->id }} ">   <i class="fa fa-eye" aria-hidden="true"></i> Show
+
                                                 </button>
                                                 @include('Petworks.admin.inventory.daily.modal.show')
                                             </div>
                                         </td>
-                                        <td>
-                                            <div class="d-flex flex-column justify-content-center px-2 py-1">
-                                                <h6 class="mb-0 text-sm">{{ $daily->appointment->service->service }}</h6>
-                                            </div>
-                                        </td>
+
                                         <td>
                                             <div class="d-flex flex-column justify-content-center px-2 py-1">
                                                 <h6 class="mb-0 text-sm">₱{{ number_format($daily->amount, 2, '.', ',') }}

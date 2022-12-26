@@ -16,9 +16,13 @@ class OwnerController extends Controller
      */
     public function index()
     {
-        $owners = Owner::orderBy('name','ASC')->get();
+        $owners = Owner::whereHas('appointments',
+            function ($query) {
+                $query->where('type', '=', 'old client');
+            }
+        )->orderBy('name', 'ASC')->get();
+        
         return view('Petworks.admin.owner.index', compact('owners'));
-
     }
 
     /**
