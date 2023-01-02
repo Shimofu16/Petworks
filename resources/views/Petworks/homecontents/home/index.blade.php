@@ -183,60 +183,33 @@
 
         <div class="box-container container">
 
-            <div class="box">
-                <img src="images/pet_5.jpg" alt="">
-                <div class="content">
-                    <h3>Dogs</h3>
-                    {{-- <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus, dolore?</p> --}}
-                    {{-- <a href="#" class="link-btn">read more</a> --}}
-                </div>
-            </div>
+            <div class="container mb-4">
 
-            <div class="box">
-                <img src="images/pet_6.jpg" alt="">
-                <div class="content">
-                    <h3>Breast feeding</h3>
-                    {{-- <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus, dolore?</p> --}}
-                    {{-- <a href="#" class="link-btn">read more</a> --}}
+                <div class="row g-3" data-aos="fade-right" data-aos-offset="0" data-aos-delay="50" data-aos-duration="1000"
+                    data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="true"
+                    data-aos-anchor-placement="top">
+                    @foreach ($albums as $album)
+                        <div class="col-md-4 col-sm-4 ">
+                            <a href="{{ route('gallery.show', ['id' => $album->id]) }}"
+                                class="text-decoration-none text-dark">
+                                <div class="card shadow-sm">
+                                    <img class="card-img-top card-img-full-2" src="{{ asset($album->path) }}"
+                                        alt="{{ $album->photo }}" />
+                                    <div class="card-body">
+                                        <h4 class="card-title">{{ $album->title }}</h4>
+                                        <div class="d-flex justify-content-between">
+                                            <small class="text-muted">{{ date('M d, Y', strtotime($album->date)) }}</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    @endforeach
                 </div>
             </div>
-
-            <div class="box">
-                <img src="images/pet_2.jpg" alt="">
-                <div class="content">
-                    <h3>Incubator</h3>
-                    {{-- <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus, dolore?</p> --}}
-                    {{-- <a href="#" class="link-btn">read more</a> --}}
-                </div>
-            </div>
-
-            <div class="box">
-                <img src="images/pet_3.jpg" alt="">
-                <div class="content">
-                    <h3>Puppies</h3>
-                    {{-- <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus, dolore?</p> --}}
-                    {{-- <a href="#" class="link-btn">read more</a> --}}
-                </div>
-            </div>
-
-            <div class="box">
-                <img src="images/pet_4.jpg" alt="">
-                <div class="content">
-                    <h3>Product</h3>
-                    {{-- <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus, dolore?</p> --}}
-                    {{-- <a href="#" class="link-btn">read more</a> --}}
-                </div>
-            </div>
-
-            <div class="box">
-                <img src="images/pet_1.jpg" alt="">
-                <div class="content">
-                    <h3>Clinic</h3>
-                    {{-- <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus, dolore?</p> --}}
-                    {{-- <a href="#" class="link-btn">read more</a> --}}
-                </div>
-            </div>
-          {{--   <a href="" class="link-btn text-center">read more</a> --}}
+        </div>
+        <div class="d-flex justify-content-center">
+            <a href="{{ route('gallery.index') }}" class="link-btn text-center">more photos</a>
         </div>
 
     </section>

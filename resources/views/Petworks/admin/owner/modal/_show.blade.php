@@ -13,7 +13,11 @@
                 <div class="card">
 
                     <div class="card-header">
-                        <img src="{{ asset($consultation->path) }}" alt="Photo" class="card-img">
+                        @foreach ($consultation->photos as $photo)
+
+                        <img src="{{ asset($photo->path) }}" alt="Photo" class="card-img" style="height: 100px; width: 100px">
+
+                        @endforeach
                     </div>
                     <hr class="horizontal dark mt-0">
                     <div class="card-body">

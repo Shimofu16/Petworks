@@ -529,10 +529,13 @@
                             <div class="d-flex justify-content-center align-items-center">
                                 <img class="height-30 width-30" src="{{ asset('images/header.png') }}" alt="">
                             </div>
+                            <hr class="mx-3">
                             <h4 class="mb-2  text-center text-white ">Cancel Appointment</h4>
                             <h6 class="text-white text-center ">Petworks Veterinary Clinic</h6>
+
                         </div>
                         <div class="card-body">
+
                             <table class="table align-items-center mb-0" id="confirm">
                                 <thead class="thead-light">
 
@@ -620,6 +623,7 @@
                         <div class="d-flex justify-content-center align-items-center">
                             <img class="height-30 width-30" src="{{ asset('images/header.png') }}" alt="">
                         </div>
+                        <hr class="mx-3">
                         <div class="card-body">
                             <div class="mt-3">
                                 <label for="emailAddress" class="form-label">Email</label>

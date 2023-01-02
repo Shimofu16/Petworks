@@ -40,12 +40,12 @@
 
                 {{-- ALBUM --}}
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::routeIs('admin.album.index') ? 'active' : '' }}"
-                        href="{{ route('admin.album.index') }}">
+                    <a class="nav-link {{ Request::routeIs('admin.gallery.index') ? 'active' : '' }}"
+                        href="{{ route('admin.gallery.index') }}">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                             <i
-                                class="fa-solid fa-images text-sm opacity-10 {{ Request::routeIs('admin.album.index') ? '' : 'text-primary' }}"></i>
+                                class="fa-solid fa-images text-sm opacity-10 {{ Request::routeIs('admin.gallery.index') ? '' : 'text-primary' }}"></i>
                         </div>
                         <span class="nav-link-text ms-1">Album</span>
                     </a>

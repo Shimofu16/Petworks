@@ -13,11 +13,12 @@ class AlbumController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function indexA()
     {
-        $album = Album::all();
-        return view('Petworks.admin.album.index', compact('album'));
+
     }
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -50,6 +51,7 @@ class AlbumController extends Controller
     {
         //
     }
+
 
     /**
      * Show the form for editing the specified resource.

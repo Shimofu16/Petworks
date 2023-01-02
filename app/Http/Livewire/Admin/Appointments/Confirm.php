@@ -6,13 +6,18 @@ use App\Models\Appointment;
 use App\Models\category;
 use App\Models\Daily;
 use App\Models\Doctor;
+use App\Models\Photos;
 use App\Models\product;
 use App\Models\SoldProduct;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
+use Illuminate\Support\Str;
+use Livewire\WithFileUploads;
 
 class Confirm extends Component
 {
+    use WithFileUploads;
     public $currentStep = 1;
     public $totalSteps = 2;
     public $doctors;
@@ -29,6 +34,7 @@ class Confirm extends Component
     public $sub_service = 0;
     public $once = true;
 
+
     /* dito yung variables ng inc */
     public $complaint;
     public $weight;
@@ -42,7 +48,7 @@ class Confirm extends Component
     public $history;
     public $prescription;
     public $comment;
-
+    public $photos;
 
 
     public function next()
@@ -152,10 +158,36 @@ class Confirm extends Component
 
         ]);
         $transaction = Daily::create([
-            'appointment_id'=>$this->appointment_id,
-            'amount'=>$this->total,
+            'appointment_id' => $this->appointment_id,
+            'amount' => $this->total,
         ]);
-        return redirect(route('admin.owner.index'));
+        $path = 'uploads/appointments/' . $appointment->owner->name . '/' . $appointment->service->service;
+        $title= $appointment->service->service;
+        try {
+            // Iterate through each photo
+            foreach ($this->photos as $key => $photo) {
+                // Generate a unique filename
+                $filename = $title . '-' . ($key + 1) . '.' . $photo->getClientOriginalExtension();
+                // Check if the file already exists in the given path
+                while (Storage::exists($path . '/' . $filename)) {
+                    // If it does, increment the key and generate a new filename
+                    $filename = $title . '-' . ++$key . '.' . $photo->getClientOriginalExtension();
+                }
+                // Create a new photo in the database
+                Photos::create([
+                    'appointment_id' => $this->appointment_id,
+                    'photo' => Str::lower($title . '-' . $key),
+                    'path' => $path . '/' . $filename,
+                ]);
+                // Save the photo to the given path
+                $photo->storeAs($path, $filename);
+            }
+            return redirect(route('admin.owner.index'));
+        } catch (\Throwable $th) {
+            toast()->error('SYSTEM MESSAGE', $th->getMessage())->autoClose(5000)->width('500px')->animation('animate__fadeInRight', 'animate__fadeOutDown')->timerProgressBar();
+            return redirect(request()->header('Referer'));
+        }
+
     }
     public function render()
     {

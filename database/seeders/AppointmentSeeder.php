@@ -29,12 +29,7 @@ class AppointmentSeeder extends Seeder
                 'email' => 'shainedanday@gmail.com',
                 'number' => '09123456890',
             ],
-            [
-                'name' => 'Mark Delos Reyes',
-                'address' => ' Brgy. Curva, Calauan, Laguna',
-                'email' => 'krysialee023@gmail.com',
-                'number' => '09123456890',
-            ],
+
             [
                 'name' => 'Glenard Hernandez',
                 'address' => ' Brgy. Dayap, Calauan, Laguna',
@@ -91,16 +86,7 @@ class AppointmentSeeder extends Seeder
                 'pet_type' => 'Dog',
                 'color' => 'brown',
             ],
-            [
-                'owner_id' => 5,
-                'pet_name' => 'buboy',
-                'age' => 2,
-                'birthdate' => '2020-08-19',
-                'gender' => 'Male',
-                'breed' => 'beagle',
-                'pet_type' => 'Dog',
-                'color' => 'gray',
-            ]
+
         ];
 
 
@@ -140,13 +126,7 @@ class AppointmentSeeder extends Seeder
             ],
 
 
-            [
-                'owner_id' => 5,
-                'pet_id' => 5,
-                'reason_id' => 4,
-                'date' => '22-10-22',
-                'time' => '5:00',
-            ],
+          
         ];
 
 

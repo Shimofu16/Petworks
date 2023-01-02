@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Album;
 use App\Models\service;
 use Illuminate\Http\Request;
 
@@ -9,7 +10,9 @@ class HomeController extends Controller
 {
     public function index()
     {
-        return view('Petworks.homecontents.home.index');
+        $albums = Album::has('photos')->orderBy('id', 'desc')->paginate(3);
+        return view('Petworks.homecontents.home.index', compact('albums'));
+
     }
     public function guidlines()
     {

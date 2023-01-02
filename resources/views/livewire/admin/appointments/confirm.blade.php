@@ -76,12 +76,12 @@
                         </div>
                     </div>
 
-             {{--        <div class="row mb-3">
+                   <div class="row mb-3">
                         <div class="col">
                             <label for="picture">Picture</label>
-                            <input class="form-control" type="file" id="picture" wire:model='picture'>
+                            <input class="form-control" type="file" id="picture" multiple wire:model='photos'>
                         </div>
-                    </div> --}}
+                    </div>
 
                     <div class="row mb-3">
                         <div class="col">

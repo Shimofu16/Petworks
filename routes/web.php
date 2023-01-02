@@ -9,6 +9,7 @@ use App\Http\Controllers\ConfirmController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DailyController;
 use App\Http\Controllers\DoctorController;
+use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\OwnerController;
@@ -34,6 +35,10 @@ Route::get('/guidlines', [HomeController::class, 'guidlines'])->name('guidlines.
 Route::get('/appointment', [HomeController::class, 'appointment'])->name('appointment.index');
 Route::get('/existing', [HomeController::class, 'existing'])->name('existing.index');
 Route::get('/calendar', [HomeController::class, 'calendar'])->name('calendar.index');
+Route::name('gallery.')->prefix('gallery')->controller(GalleryController::class)->group(function () {
+    Route::get('/',  'indexHome')->name('index');
+    Route::get('/{id}',  'showHome')->name('show');
+});
 
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/login/form', [HomeController::class, 'form'])->name('user.login.form');
@@ -133,6 +138,13 @@ Route::prefix('admin')->name('admin.')->group(function () {
             Route::post('/store',  'store')->name('store');
             Route::post('/reply',  'reply')->name('reply');
             Route::delete('/{id}',  'destroy')->name('destroy');
+        });
+
+        /* ALBUM AND PHOTO */
+        Route::name('gallery.')->prefix('gallery')->controller(GalleryController::class)->group(function () {
+            Route::get('/', 'indexAdmin')->name('index');
+            Route::get('/{id}', 'showAdmin')->name('show');
+            Route::get('/delete/{id}', 'destroy')->name('destroy');
         });
     });
 });
