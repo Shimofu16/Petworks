@@ -529,7 +529,7 @@
                             <div class="d-flex justify-content-center align-items-center">
                                 <img class="height-30 width-30" src="{{ asset('images/header.png') }}" alt="">
                             </div>
-                            <hr class="mx-3">
+                          
                             <h4 class="mb-2  text-center text-white ">Cancel Appointment</h4>
                             <h6 class="text-white text-center ">Petworks Veterinary Clinic</h6>
 

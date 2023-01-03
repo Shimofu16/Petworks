@@ -5,8 +5,8 @@
 @section('contents')
     <div class="row">
         <div class="col-12">
-
             <div class="card mb-4">
+                
                 <div class="card-header d-flex justify-content-between align-items-center mb-3 pb-0">
 
                     <div class="col">

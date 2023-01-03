@@ -74,7 +74,7 @@
                         @endphp
                        <tr>
                             <td colspan="2" class="text-right text-danger text-bold">Service Total:</td>
-                            <td>₱{{ number_format( $service_sub  , 2, '.', ',') }}</td>
+                            <td class="text-right text-danger text-bold">₱{{ number_format( $service_sub  , 2, '.', ',') }}</td>
                         </tr>
 
 
