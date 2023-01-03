@@ -79,12 +79,6 @@
                                 </th>
 
 
-                              {{--   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                    Action
-                                </th> --}}
-                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                    Reminder
-                                </th>
                             </tr>
                         </thead>
 
@@ -123,17 +117,7 @@
                                         @include('Petworks.admin.owner.modal._edit')
                                     </div>
                                 </td> --}}
-                                <td>
-                                    <div>
-                                        <button type="button" class="btn btn-link btn-sm text-danger" data-bs-toggle="modal"
-                                            data-bs-target="#edit{{-- {{ $consultation->id }} --}}">
-                                            <i class="fa-solid fa-bell text-danger me-2"
-                                                aria-hidden="true"></i>
-                                            Remind
-                                        </button>
-                                  {{--       @include('Petworks.admin.owner.modal._edit') --}}
-                                    </div>
-                                </td>
+
                             </tr>
                             @empty
                             <tr>
