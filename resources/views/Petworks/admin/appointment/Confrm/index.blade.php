@@ -26,7 +26,7 @@
                                         of
                                         Appointment
                                     </th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">More Info
+                                    <th class="text-uppercase  text-center text-secondary text-xxs font-weight-bolder opacity-7">More Info
                                     </th>
 
                                     <th

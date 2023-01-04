@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\sale;
 use App\Http\Controllers\Controller;
+use App\Models\SoldProduct;
 use Illuminate\Http\Request;
 
 class SaleController extends Controller
@@ -15,15 +16,16 @@ class SaleController extends Controller
      */
     public function index()
     {
-        $sales = Sale::all();
-        foreach ($sales as $key => $value) {
-            if ($value->remain != $value->product->stock) {
-                $value->update([
-                    'sold' => $value->sold + 1,
-                    'remain' => $value->remain - 1,
-                    'sale' => ($value->sold + 1) * $value->product->price,
-                ]);
-            }
+        $sold_products = SoldProduct::all();
+        foreach ($sold_products as $key => $product) {
+          /*   sale::create(); */
+
+            sale::with('product')->where('product_id','=',$product->product_id)->firstOrCreate([
+                'product_id' => $product->product_id,
+                'sold' => $product->quantity,
+                'remain' => $product->product->stock -$product->quantity,
+                'sale' => $product->quantity*$product->product->price
+            ]);
         }
         $sales = Sale::all();
         return view('Petworks.admin.inventory.sales.index', compact('sales'));

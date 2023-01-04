@@ -136,7 +136,7 @@
                 @endif
             </div>
         </div>
-        {{-- RECEIPT --}}
+        {{-- -----------------------------------RECEIPT-------------------- --}}
         <div class="col">
 
             <div class="row">
@@ -229,10 +229,9 @@
 
 
             <div class="d-flex justify-content-end mt-3">
-                <button class="btn btn-primary mb-0" type="button" data-bs-toggle="modal" data-bs-target="#add">
+                <a class="btn btn-primary mb-0"  href="{{ route('admin.confirm.download', ['id'=>$appointment_id]) }}" target="__blank">
                     <span class="d-flex align-items-center"><i class="fa-solid fa-print"></i>&#160; Print</span>
-                </button>
-                @include('Petworks.admin.inventory.category.modal._add')
+                </a>
             </div>
         </div>
 

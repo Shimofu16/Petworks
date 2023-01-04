@@ -4,19 +4,19 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="icon" type="image/png" href="{{ asset('images/petworks.png') }}">
+    <link rel="icon" type="image/png" href="/images/petworks.png">
     <title>Admin - @yield('tab-title')</title>
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
     <!-- Nucleo Icons -->
-    <link href="{{ asset('assets/argon-dashboard/assets/css/nucleo-icons.css') }}" rel="stylesheet" />
-    <link href="{{ asset('assets/argon-dashboard/assets/css/nucleo-svg.css') }}" rel="stylesheet" />
+    <link href="/assets/argon-dashboard/assets/css/nucleo-icons.css" rel="stylesheet" />
+    <link href="/assets/argon-dashboard/assets/css/nucleo-svg.css" rel="stylesheet" />
     <!-- Font Awesome Icons -->
-    <link href="{{ asset('assets/font awesome/css/all.min.css') }}" rel="stylesheet" />
-    <link href="{{ asset('assets/argon-dashboard/assets/css/nucleo-svg.css') }}" rel="stylesheet" />
-    <script src="{{ asset('assets/argon-dashboard/assets/js/fontawesome.js') }}"></script>
+    <link href="/assets/font awesome/css/all.min.css" rel="stylesheet" />
+    <link href="/assets/argon-dashboard/assets/css/nucleo-svg.css" rel="stylesheet" />
+    <script src="/assets/argon-dashboard/assets/js/fontawesome.js"></script>
     <!-- CSS Files -->
-    <link id="pagestyle" href="{{ asset('assets/argon-dashboard/assets/css/argon-dashboard.css') }}" rel="stylesheet" />
+    <link id="pagestyle" href="/assets/argon-dashboard/assets/css/argon-dashboard.css" rel="stylesheet" />
     @livewireStyles
 </head>
 
@@ -144,11 +144,11 @@
     </div>
 
     <!--   Core JS Files   -->
-    <script src="{{ asset('assets/argon-dashboard/assets/js/core/popper.min.js') }}"></script>
-    <script src="{{ asset('assets/argon-dashboard/assets/js/core/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('assets/argon-dashboard/assets/js/plugins/perfect-scrollbar.min.js') }}"></script>
-    <script src="{{ asset('assets/argon-dashboard/assets/js/plugins/smooth-scrollbar.min.js') }}"></script>
-    {{-- <script src="{{ asset('assets/argon-dashboard/assets/js/plugins/chartjs.min.js') }}"></script> --}}
+    <script src="/assets/argon-dashboard/assets/js/core/popper.min.js"></script>
+    <script src="/assets/argon-dashboard/assets/js/core/bootstrap.min.js"></script>
+    <script src="/assets/argon-dashboard/assets/js/plugins/perfect-scrollbar.min.js"></script>
+    <script src="/assets/argon-dashboard/assets/js/plugins/smooth-scrollbar.min.js"></script>
+    {{-- <script src="/assets/argon-dashboard/assets/js/plugins/chartjs.min.js') }}"></script> --}}
     {{-- <script>
         var ctx1 = document.getElementById("chart-line").getContext("2d");
 
@@ -245,7 +245,7 @@
     <!-- Github buttons -->
     {{-- <script async defer src="https://buttons.github.io/buttons.js"></script> --}}
     <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
-    <script src="{{ asset('assets/argon-dashboard/assets/js/argon-dashboard.min.js') }}"></script>
+    <script src="/assets/argon-dashboard/assets/js/argon-dashboard.min.js') }}"></script>
 
     @yield('js')
     @stack('scripts')

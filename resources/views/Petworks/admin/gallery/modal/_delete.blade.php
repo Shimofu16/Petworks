@@ -1,23 +1,27 @@
 <!-- Modal -->
-<div class="modal fade" id="delete{{ $gallery->id }}" tabindex="-1" role="dialog" aria-labelledby="modelTitleId"
-    aria-hidden="true">
+<div class="modal" id="delete{{ $gallery->id }}" tabindex="-1" role="dialog" >
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header bg-danger">
-                <h5 class="modal-title text-white">Delete</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true" class="text-white">&times;</span>
-                </button>
+                <h5 class="modal-title text-light font-weight-bold">Delete</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="{{ route('admin.gallery.destroy', ['id' => $gallery->id]) }}" method="post">
-                <div class="modal-body">
-                    @csrf
-                    @method('DELETE')
+
+            <div class="modal-body">
+                <p> Are you sure you want to delete {{ $gallery->title }} ?</p>
+
+            <form action="{{ route('admin.gallery.destroy', ['id' => $gallery->id]) }}" method="POST">
+                @csrf
+                @method('delete')
+
+                
+
+             {{--    <div class="modal-body">
                     <h5 class="text-start">Are you sure you want to delete {{ $gallery->title }} ?</h5>
-                </div>
+                </div> --}}
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                    <button type="submit" class="btn btn-outline-danger">Yes</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-success">YES</button>
                 </div>
             </form>
         </div>

@@ -27,7 +27,7 @@ class AppointmentSeeder extends Seeder
                 'name' => 'Ryan Danday',
                 'address' => ' Brgy. Mabacan, Calauan, Laguna',
                 'email' => 'shainedanday@gmail.com',
-                'number' => '09123456890',
+                'number' => '09355563898',
             ],
 
             [
@@ -40,7 +40,7 @@ class AppointmentSeeder extends Seeder
                 'name' => 'Roy Joseph Latayan',
                 'address' => ' Brgy. Lamot, Calaan, Laguna',
                 'email' => 'royjosephlatayan16@gmail.com',
-                'number' => '09123456890',
+                'number' => '09512370553',
             ],
         ];
 
@@ -126,7 +126,7 @@ class AppointmentSeeder extends Seeder
             ],
 
 
-          
+
         ];
 
 

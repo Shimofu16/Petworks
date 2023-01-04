@@ -1,4 +1,4 @@
-<div class="row my-3">
+{{-- <div class="row my-3">
     <div class="col-md-6">
         <h3 class="text-blue ">@yield('title')</h3>
     </div>
@@ -12,4 +12,4 @@
             </ol>
         </nav>
     </div>
-</div>
+</div> --}}

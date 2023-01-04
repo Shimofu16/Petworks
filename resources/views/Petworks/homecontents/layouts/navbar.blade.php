@@ -1,4 +1,4 @@
-<header id="header" class="header fixed-top">
+<header id="header" class="header fixed-top {{  (Request::routeIs('home.index')) ? '' : 'active' ; }}">
 
     <div class="container">
 
@@ -9,7 +9,7 @@
             {{-- <a href="{{ asset('images/petworks.png') }}" class="logo mr-auto">  Petworks</a> --}}
 
             <nav class="nav">
-                <a href="#home">Home</a>
+                <a href="{{ route('home.index') }}">Home</a>
                 <a href="#about">About</a>
                 <a href="{{ route('appointment.index') }} ">Appointment</a>
 

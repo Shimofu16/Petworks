@@ -23,20 +23,7 @@
                             @include('Petworks.admin.inventory.product.modal._add')
                         </div>
 
-
-
-                    </div>
-
-
-
-
-                </div>
-
-
-
-                <div class="card-body px-0 pt-0 pb-2">
-                    <div class="table-responsive p-0">
-                        <div class="row mx-3">
+                        <div class="row ">
                             <div class="d-flex justify-content-end mt-2">
                                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
                                     data-bs-toggle="dropdown" aria-expanded="false">
@@ -49,6 +36,18 @@
                                 </ul>
                             </div>
                         </div>
+                    </div>
+
+
+
+
+                </div>
+
+
+
+                <div class="card-body px-0 pt-0 pb-2">
+                    <div class="table-responsive p-0">
+
                         <table class="table align-items-center mb-0">
                             <thead {{-- class="table-warning text-black" --}}>
                                 <tr>

@@ -7,19 +7,21 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Petworks</title>
     @yield('page-level-css')
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('fontawesome-free-6.1.1-web/css/all.min.css') }}">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/fontawesome-free-6.1.1-web/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.1/css/bootstrap.min.css">
-    <link rel="icon" href="{{ asset('images/petworks.png') }}">
- 
+    <link rel="icon" href="/images/petworks.png">
+
 
 
 
 <body>
     @include('Petworks.homecontents.layouts.navbar')
     @yield('contents')
+@if (Request::routeIs('home.index'))
 
-    <script src="{{ asset('js/script.js') }}"></script>
+<script src="/js/script.js"></script>
+@endif
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
     @yield('page-level-js')

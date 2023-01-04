@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Album;
 use App\Models\Gallery;
+use App\Models\Photos;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -65,7 +66,7 @@ class GalleryController extends Controller
             return redirect()->back();
         }
     }
-    public function showHome( $id)
+    public function showHome($id)
     {
         $gallery = Album::find($id);
         return view('Petworks.homecontents.home.show', compact('gallery'));
@@ -100,23 +101,23 @@ class GalleryController extends Controller
      * @param  \App\Models\Gallery  $gallery
      * @return \Illuminate\Http\Response
      */
-    public function destroy( $id)
+    public function destroy($id)
+
     {
         try {
-            $gallery = Album::findOrFail($id);
-            if (Storage::exists($gallery->path)) {
+            $album = Album::findOrFail($id);
+            if (Storage::exists($album->path)) {
                 // Check if directory is empty.
-                Storage::deleteDirectory($gallery->base_path);
+                Storage::deleteDirectory($album->base_path);
             }
-            $title = $gallery->title;
-            $gallery->photos->delete();
-            $gallery->delete();
+            $title = $album->title;
+            $photos = Photos::with('album')->where('album_id','=',$album->id)->delete();
+            $album->delete();
             toast()->success('SYSTEM MESSAGE', $title . ' Deleted Successfully.')->autoClose(5000)->animation('animate__fadeInRight', 'animate__fadeOutDown')->timerProgressBar();
             return redirect()->back();
         } catch (\Throwable $th) {
             alert()->info('SYSTEM MESSAGE', $th->getMessage())->autoClose(9000)->animation('animate__zoomIn', 'animate__zoomOutDown')->timerProgressBar();
             return redirect()->back();
         }
-
     }
 }

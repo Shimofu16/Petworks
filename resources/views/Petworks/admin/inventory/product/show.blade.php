@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-12">
             <div class="card mb-4">
-                
+
                 <div class="card-header d-flex justify-content-between align-items-center mb-3 pb-0">
 
                     <div class="col">
@@ -15,7 +15,7 @@
                     <div class="col">
                         {{-- back to products index   --}}
                         <div class="d-flex justify-content-end">
-                            <a class="btn btn-primary mb-0" type="button" href="{{ route('admin.product.index') }}">
+                            <a class="btn btn-secondary mb-0" type="button" href="{{ route('admin.product.index') }}">
                                 <span class="d-flex align-items-center"><i class="fas fa-arrow-circle-left"></i>&#160; Back
                                     to Products</span>
                             </a>

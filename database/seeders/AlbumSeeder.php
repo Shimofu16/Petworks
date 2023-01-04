@@ -16,10 +16,22 @@ class AlbumSeeder extends Seeder
     {
         $data = [
             [
-                /* 'title' => 'BCA Camping',
-                'photo' => 'BCA Camping',
-                'path' => 'uploads/gallery/albums/bca-camping/bca-camping.jpg',
-                'date' => now(), */
+               'title' => 'Petworks Clients',
+                'base_path' => 'uploads/gallery/petworks-client',
+                'path' => 'uploads/gallery/petworks-client/petworks-client-.jpg',
+                'date' => now(),
+            ],
+            [
+               'title' => 'Petworks Puppies',
+                'base_path' => 'uploads/gallery/petworks-puppies',
+                'path' => 'uploads/gallery/petworks-puppies/petworks-puppies-.jpg',
+                'date' => now(),
+            ],
+            [
+               'title' => 'Petworks Dogs',
+                'base_path' => 'uploads/gallery/petworks-dogs',
+                'path' => 'uploads/gallery/petworks-dogs/petworks-dogs-.jpg',
+                'date' => now(),
             ]
         ];
         foreach ($data as  $value) {

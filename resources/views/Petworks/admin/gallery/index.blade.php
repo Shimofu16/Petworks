@@ -21,7 +21,7 @@
                         </button>
                         @include('Petworks.admin.gallery.modal._add')
                     </div>
-                    
+
                 </div>
 
 
@@ -35,7 +35,7 @@
                                     </th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Date
                                     </th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Photos
+                                    <th class="text-uppercase  text-center text-secondary text-xxs font-weight-bolder opacity-7">Photos
                                     </th>
                                     <th class="text-uppercase text-center text-secondary text-xxs font-weight-bolder opacity-7"
                                         {{-- class="text-center" --}}>Action</th>
@@ -103,18 +103,18 @@
 
                                         <td>
                                             <div class="d-flex justify-content-center px-2 py-1">
-                                                <button class="btn btn-link text-primary px-3 mb-0" href="#" type="button" data-toggle="modal"
-                                                    data-target="#edit{{ $gallery->id }}">
+                                               {{--  <button class="btn btn-link text-primary px-3 mb-0" href="#" type="button" data-bs-toggle="modal"
+                                                data-bs-target="#edit{{ $gallery->id }}">
                                                     <i class="fa fa-edit text-primary me-2" aria-hidden="true"></i>
                                                     Edit
-                                                </button>
-                                                <button class="btn btn-link text-danger px-3 mb-0" href="#" type="button" data-toggle="modal"
-                                                    data-target="#delete{{ $gallery->id }}">
+                                                </button> --}}
+                                                <button class="btn btn-link text-danger px-3 mb-0" href="#" type="button" data-bs-toggle="modal"
+                                                data-bs-target="#delete{{ $gallery->id }}">
                                                     <i class="fa fa-trash text-danger me-2" aria-hidden="true"></i>
                                                     Delete
                                                 </button>
                                                 @include('Petworks.admin.gallery.modal._delete')
-                                                @include('Petworks.admin.gallery.modal._edit')
+{{--                                                 @include('Petworks.admin.gallery.modal._edit') --}}
                                             </div>
                                         </td>
                                     </tr>

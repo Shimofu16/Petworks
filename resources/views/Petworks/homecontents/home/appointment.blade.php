@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Appointment Form</title>
-    <link rel="icon" href="{{ asset('images/petworks.png') }}">
-    <link rel="stylesheet" href="{{ asset('css/system.css') }}">
+    <link rel="icon" href="/images/petworks.png">
+    <link rel="stylesheet"href="/css/system.css">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">

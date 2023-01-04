@@ -129,22 +129,10 @@ class ConfirmController extends Controller
     {
     }
 
-    public function reply(Request $request, $id)
+    public function download( $id)
     {
-        /* try {
-            $details = [
-                'message' => $request->input('message'),
-            ];
-            $appointment = Appointment::where('id', '=', $id)->firstOrFail();
-            $appointment->pending = 1;
-            $appointment->update();
-            Mail::to($appointment->owner->email)->send(new MailPending($details));
-            toast()->success('Success', 'Your message has been sent')->autoClose(3000)->animation('animate__fadeInRight', 'animate__fadeOutRight')->width('400px');
-            return redirect()->route('admin.appointment.index');
-            return back();
-        } catch (\Throwable $th) {
-            toast()->warning('Warning', $th->getMessage())->autoClose(3000)->animation('animate__fadeInRight', 'animate__fadeOutRight')->width('400px');
-            return back();
-        } */
+        $service=Appointment::find($id)->service;
+        $sold_products=SoldProduct::where('appointment_id','=',$id)->get();
+        return view('Petworks.admin.appointment.Confrm.modal._pdf',compact('sold_products','service'));
     }
 }

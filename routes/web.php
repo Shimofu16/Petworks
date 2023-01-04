@@ -66,6 +66,8 @@ Route::prefix('admin')->name('admin.')->group(function () {
             Route::get('/show/{id}',  'show')->name('show');
             Route::post('/update/{id}', 'update')->name('update');
             Route::post('/pending/{id}',  'reply')->name('reply');
+            Route::get('/pdf/{id}',  'download')->name('download');
+
         });
         /* CANCEL*/
         Route::prefix('cancel')->name('cancel.')->controller(CancelController::class)->group(function () {
@@ -144,7 +146,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::name('gallery.')->prefix('gallery')->controller(GalleryController::class)->group(function () {
             Route::get('/', 'indexAdmin')->name('index');
             Route::get('/{id}', 'showAdmin')->name('show');
-            Route::get('/delete/{id}', 'destroy')->name('destroy');
+            Route::delete('/delete/{id}', 'destroy')->name('destroy');
         });
     });
 });

@@ -141,8 +141,8 @@
                     </li>
                 @endif
 
-                @if (Auth::guard('admin')->user()->roles == 'Admin' || Auth::guard('admin')->user()->roles == 'Owner')
-                    {{-- Doctor records Single --}}
+           {{--      @if (Auth::guard('admin')->user()->roles == 'Admin' || Auth::guard('admin')->user()->roles == 'Owner')
+
                     <li class="nav-item">
                         <a class="nav-link {{ Request::routeIs('admin.doctor.index') ? 'active' : '' }}"
                             href="{{ route('admin.doctor.index') }}">
@@ -154,7 +154,7 @@
                             <span class="nav-link-text ms-1">Doctors Records</span>
                         </a>
                     </li>
-                @endif
+                @endif --}}
 
 
                 @if (Auth::guard('admin')->user()->roles == 'Owner')

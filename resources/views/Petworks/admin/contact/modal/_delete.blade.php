@@ -2,9 +2,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header bg-danger">
-
-                <h5 class="modal-title text-light font-weight-bold">WARNING!</h5>
-
+                <h5 class="modal-title text-light font-weight-bold">Delete</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
 
@@ -16,12 +14,8 @@
                     @method('delete')
                     <input type="hidden" name="id" value="{{ $contact->id }}">
 
-
-
-
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-success">YES</button>
-
                     </div>
                 </form>
 
