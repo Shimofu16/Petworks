@@ -70,6 +70,8 @@
                         </a>
                     </li>
                 @endif
+
+                
                 @if (Auth::guard('admin')->user()->roles == 'Admin' || Auth::guard('admin')->user()->roles == 'Owner')
                     {{-- Appointment --}}
                     <li class="nav-item">
