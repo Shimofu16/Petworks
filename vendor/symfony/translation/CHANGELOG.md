@@ -1,6 +1,7 @@
 CHANGELOG
 =========
 
+<<<<<<< HEAD
 6.2
 ---
 
@@ -14,6 +15,8 @@ CHANGELOG
  * Parameters implementing `TranslatableInterface` are processed
  * Add the file extension to the `XliffFileDumper` constructor
 
+=======
+>>>>>>> 09f7352615a49bcbd90ba54bdbb06a7258875f45
 5.4
 ---
 
