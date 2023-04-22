@@ -20,7 +20,13 @@ class AppointmentController extends Controller
     public function index()
     {
 
-        $appointments = Appointment::where('status', '=', 'request')->orderBy('created_at','ASC')->get();
+        $appointments = Appointment::with('owner')
+            ->where('status', '=', 'request')
+            ->whereHas('owner', function ($query) {
+                $query->where('hasVerifiedEmail', '=', 1);
+            })
+            ->orderBy('id', 'DESC')
+            ->get();
         return view('Petworks.admin.appointment.request.index', compact('appointments'));
     }
 
@@ -127,7 +133,7 @@ class AppointmentController extends Controller
         try {
             $appointment = Appointment::where('id', '=', $id)->firstOrFail();
             $appointment->update([
-                'status'=>"pending"
+                'status' => "pending"
             ]);
             /*
                 TODO: ayusin mo ito

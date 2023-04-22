@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Appointment;
+use App\Models\Contact;
 use App\Models\Owner;
 use Illuminate\Http\Request;
 
@@ -15,27 +16,43 @@ class AdminController extends Controller
      */
     public function index()
     {
-/*         $pendingCount = Appointment::where('pending', '=', 1)->count(); */
-        $pendingCount = Appointment::where('status', '=', 'pending')->count(); 
-        $confirmCount = Appointment::where('status', '=', 'confirmed')->count();
-        $requestCount = Appointment::where('status', '=', 'request')->count();
-        $cancelledCount = Appointment::where('status', '=', 'cancelled')->count();
+        /*         $pendingCount = Appointment::where('pending', '=', 1)->count(); */
+        $pendingCount = $this->getAppointmentCount('pending');
+        $confirmCount = $this->getAppointmentCount('confirmed');
+        $requestCount = $this->getAppointmentCount('request');
+        $cancelledCount = $this->getAppointmentCount('cancelled');
+        $contactCount = Contact::count();
         //$recordCount = Appointment::count();
-        $recordCount = Owner::whereHas('appointments',
-        function ($query) {
-            $query->where('type', '=', 'old client');
+        $recordCount = Owner::whereHas(
+            'appointments',
+            function ($query) {
+                $query->where('type', '=', 'old client');
             }
         )->count();
 
-        $owners = Owner::whereHas('appointments',
+        $owners = Owner::whereHas(
+            'appointments',
             function ($query) {
                 $query->where('type', '=', 'old client');
             }
         )->orderBy('name', 'ASC')->take(5)->get();
+        // Get the start and end dates of the current week
+        $startDate = date('Y-m-d', strtotime('monday this week'));
+        $endDate = date('Y-m-d', strtotime('sunday this week'));
 
-        return view('Petworks.admin.dashboard.index', compact('recordCount', 'confirmCount', 'pendingCount', 'cancelledCount', 'requestCount', 'owners'));
+        // Retrieve all appointments that occur within the current week
+        $appointments = Appointment::whereBetween('next_visit', [$startDate, $endDate])->get();
+
+        return view('Petworks.admin.dashboard.index', compact('recordCount', 'confirmCount', 'pendingCount', 'cancelledCount', 'requestCount', 'owners', 'contactCount', 'appointments'));
     }
-
+    private function getAppointmentCount($status)
+    {
+        return Appointment::with('owner')->where('status', '=', $status)
+            ->whereHas('owner', function ($query) {
+                $query->where('hasVerifiedEmail', '=', 1);
+            })
+            ->count();
+    }
     /**
      * Show the form for creating a new resource.
      *

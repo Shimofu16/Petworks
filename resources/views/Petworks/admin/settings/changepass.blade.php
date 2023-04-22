@@ -62,16 +62,7 @@ password.onchange = validatePassword;
 confirm_password.onkeyup = validatePassword;
 </script>
 
-<script>
-function myFunction() {
-  var x = document.getElementById("password");
-  if (x.type === "password") {
-    x.type = "text";
-  } else {
-    x.type = "password";
-  }
-}
-</script>
+
 
 <script>
 $(".alert").delay(4000).fadeOut(200, function() {

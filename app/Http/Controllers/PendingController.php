@@ -21,7 +21,13 @@ class PendingController extends Controller
      */
     public function index()
     {
-        $pendings = Appointment::where('status', '=', 'pending')->orderBy('created_at','ASC')->get();
+        $pendings = Appointment::with('owner')
+            ->where('status', '=', 'pending')
+            ->whereHas('owner', function ($query) {
+                $query->where('hasVerifiedEmail', '=', 1);
+            })
+            ->orderBy('id', 'DESC')
+            ->get();
         return view('Petworks.admin.appointment.pending.index', compact('pendings'));
     }
 
@@ -108,7 +114,7 @@ class PendingController extends Controller
 
         try {
             $appointment = Appointment::where('id', '=', $id)->firstOrFail();
-            $appointment->update(['status'=>'cancelled','cancelled_by'=>'admin']);
+            $appointment->update(['status' => 'cancelled', 'cancelled_by' => 'admin']);
             $data = [
                 'message' => 'Sorry, but the appointment that you booked has been canceled for the reason that the clinic gave you excess time for waiting time and you agreed to the terms and conditions.'
             ];

@@ -29,7 +29,13 @@ class ConfirmController extends Controller
      */
     public function index()
     {
-        $appointments = Appointment::where('status', '=', 'confirmed')->orderBy('created_at','ASC')->get();
+        $appointments = Appointment::with('owner')
+            ->where('status', '=', 'confirmed')
+            ->whereHas('owner', function ($query) {
+                $query->where('hasVerifiedEmail', '=', 1);
+            })
+            ->orderBy('id', 'DESC')
+            ->get();
         $doctors = Doctor::all();
         $products = product::all();
         return view('Petworks.admin.appointment.Confrm.index', compact('appointments', 'doctors', 'products'));
@@ -129,10 +135,10 @@ class ConfirmController extends Controller
     {
     }
 
-    public function download( $id)
+    public function download($id)
     {
-        $service=Appointment::find($id)->service;
-        $sold_products=SoldProduct::where('appointment_id','=',$id)->get();
-        return view('Petworks.admin.appointment.Confrm.modal._pdf',compact('sold_products','service'));
+        $service = Appointment::find($id)->service;
+        $sold_products = SoldProduct::where('appointment_id', '=', $id)->get();
+        return view('Petworks.admin.appointment.Confrm.modal._pdf', compact('sold_products', 'service'));
     }
 }

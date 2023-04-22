@@ -7,20 +7,15 @@
                 <img id= "logo" src="{{asset('images/petworks.png')}}" alt=""> <h2 class="mr-1 logo">   Veterinary Clinic</h2>
             </a>
             {{-- <a href="{{ asset('images/petworks.png') }}" class="logo mr-auto">  Petworks</a> --}}
-
-            <nav class="nav">
-                <a href="{{ route('home.index') }}">Home</a>
-                <a href="#about">About</a>
-                <a href="{{ route('appointment.index') }} ">Appointment</a>
-
-                <a href="#menu">Service</a>
-                <a href="#gallery">Gallery</a>
-                <a href="#contact">Contact</a>
-             {{--    <a href="#blogs">blogs</a> --}}
-            </nav>
             <div class="icons">
                 <div id="menu-btn" class="fas fa-bars"></div>
             </div>
+            <nav class="nav">
+                <a href="{{ route('home.index') }}">Home</a>
+                <a href="{{ route('appointment.index') }} ">Appointment</a>
+                 <a href="{{ route('calendar.index') }}">Calendar</a>
+            </nav>
+
 
 
         </div>

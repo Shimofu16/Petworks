@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Appointment;
 use App\Models\Calendar;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,14 @@ class CalendarController extends Controller
      */
     public function index()
     {
-        //
+        // Get the start and end dates of the current week
+        $startDate = date('Y-m-d', strtotime('monday this week'));
+        $endDate = date('Y-m-d', strtotime('sunday this week'));
+
+        // Retrieve all appointments that occur within the current week
+        $appointments = Appointment::whereBetween('date', [$startDate, $endDate])->where('status', '=', 'pending')->get();
+        dd($appointments);
+        return view('Petworks.homecontents.home.calendar', compact('appointments'));
     }
 
     /**
