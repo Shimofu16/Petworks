@@ -74,7 +74,23 @@
                     </li>
                 @endif
 
-              
+                @if (Auth::guard('admin')->user()->roles == 'Secretary' || Auth::guard('admin')->user()->roles == 'Owner')
+                    {{-- COntact us --}}
+                    <li class="nav-item">
+                        <a class="nav-link {{ Request::routeIs('admin.doctor.index') ? 'active' : '' }}"
+                            href="{{ route('admin.doctor.index') }}">
+                            <div
+                                class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+
+                                <i
+                                    class="fa-solid fa-user-doctor text-sm opacity-10 {{ Request::routeIs('admin.doctor.index') ? '' : 'text-primary' }}"></i>
+                            </div>
+                            <span class="nav-link-text ms-1">Doctor</span>
+                        </a>
+                    </li>
+                @endif
+
+
 
 
                 @if (Auth::guard('admin')->user()->roles == 'Secretary' || Auth::guard('admin')->user()->roles == 'Owner')
